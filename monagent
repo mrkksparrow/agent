@@ -1,0 +1,301 @@
+#!/bin/bash
+PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
+SCRIPT_NAME=$(basename $0)
+PRODUCT_NAME='Site24x7'
+PRODUCT_NAME_UPPERCASE='SITE24X7'
+PRODUCT_NAME_LOWERCASE='site24x7'
+MON_AGENT_NAME='monagent'
+MON_AGENT_GROUP=$PRODUCT_NAME_LOWERCASE'-group'
+MON_AGENT_USER=$PRODUCT_NAME_LOWERCASE'-agent'
+PROXY_DETAILS=$2
+MON_AGENT_HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+#MON_AGENT_HOME=$( cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P )
+MON_AGENT_HOME=$(echo "${MON_AGENT_HOME%/*}")
+MON_AGENT_LOG_DIR=$MON_AGENT_HOME/logs
+MON_AGENT_UPTIME_FILE=$MON_AGENT_HOME/temp/uptime.txt
+MON_AGENT_DETAILS_LOG_DIR=$MON_AGENT_LOG_DIR/details
+export SHELL=/bin/bash
+export TERM=xterm
+MON_AGENT_SCRIPT_PID_FILE_NAME='monagentscript_pid'
+MON_AGENT_SCRIPT_PID_FILE=$MON_AGENT_LOG_DIR/$MON_AGENT_SCRIPT_PID_FILE_NAME
+SCRIPT_ALREADY_RUNNING_MESSAGE='Script is already running. Please try after few seconds.'
+SUCCESS=0
+FAILURE=1
+NOHUP_COMMAND=""
+export COLUMNS=500
+
+isRootUser() {
+	if [ "$(id -u)" != "0" ]; then
+		cat <<ERROR_MESSAGE
+
+WARNING:
+	Only root and users with sudo permission are allowed to execute this script 
+	Command : sudo "$SCRIPT_NAME {start|stop|status|restart}"
+ERROR_MESSAGE
+		exit 1
+	fi
+}
+
+logEnv() {
+	ENV_LOG_FILE=$MON_AGENT_LOG_DIR/agentenv.txt
+	if [ ! -d $MON_AGENT_LOG_DIR ]; then
+		mkdir -p $MON_AGENT_LOG_DIR
+		RET_VAL=$?
+		if [ $RET_VAL = $FAILURE ]; then
+			echo "	Error while creating log directory. Hence quiting."
+			exit $FAILURE
+		fi
+		if [ "$(id -u)" == "0" ]; then
+			chown -R $MON_AGENT_USER:$MON_AGENT_GROUP $MON_AGENT_LOG_DIR >> $ENV_LOG_FILE 2>/dev/null
+			chmod -R 755 $MON_AGENT_LOG_DIR >> $ENV_LOG_FILE 2>&1>/dev/null
+		fi
+	fi
+	env | grep -v "SUDO_COMMAND" > $ENV_LOG_FILE 2>&1
+}
+
+createNecessaryDirs() {
+	if [ ! -d $MON_AGENT_LOG_DIR ]; then
+        mkdir -p $MON_AGENT_LOG_DIR
+        if [ "$(id -u)" == "0" ]; then
+        	chown -R $MON_AGENT_USER:$MON_AGENT_GROUP $MON_AGENT_LOG_DIR 2>/dev/null
+			chmod -R 755 $MON_AGENT_LOG_DIR	 2>&1>/dev/null
+		fi
+    fi
+    if [ ! -d $MON_AGENT_DETAILS_LOG_DIR ]; then
+        mkdir -p $MON_AGENT_DETAILS_LOG_DIR
+        if [ "$(id -u)" == "0" ]; then
+        		chown -R $MON_AGENT_USER:$MON_AGENT_GROUP $MON_AGENT_DETAILS_LOG_DIR 2>/dev/null
+			chmod -R 755 $MON_AGENT_DETAILS_LOG_DIR	 2>/dev/null
+		fi
+    fi
+    if [ ! -d $MON_AGENT_TEMP_DIR ]; then
+        mkdir -p $MON_AGENT_TEMP_DIR 2>&1>/dev/null
+        if [ "$(id -u)" == "0" ]; then
+       		chown -R $MON_AGENT_USER:$MON_AGENT_GROUP $MON_AGENT_TEMP_DIR 2>/dev/null
+			chmod -R 755 $MON_AGENT_TEMP_DIR 2>/dev/null
+		fi
+    fi	
+}
+
+isScriptRunning() {
+	if [ -f $MON_AGENT_SCRIPT_PID_FILE ]; then
+		ps -p `cat $MON_AGENT_SCRIPT_PID_FILE` &>/dev/null
+		RET_VAL=$?
+		#echo "$RET_VAL    $SUCCESS"
+		if [ "$RET_VAL" = "$SUCCESS" ]; then
+			echo "	$SCRIPT_ALREADY_RUNNING_MESSAGE"
+			exit $FAILURE
+		else
+			echo $$ > $MON_AGENT_SCRIPT_PID_FILE
+		fi
+	else
+		echo $$ > $MON_AGENT_SCRIPT_PID_FILE
+	fi
+}
+
+#isRootUser
+#isScriptRunning
+logEnv
+
+MON_AGENT_PROFILE_ENV=$MON_AGENT_HOME/.profile.env
+if [ ! -f $MON_AGENT_PROFILE_ENV ]; then	
+	echo "$MON_AGENT_PROFILE_ENV does not exist. Hence Quiting."
+	exit 1
+fi
+
+. $MON_AGENT_PROFILE_ENV
+
+variableUpdate 2>/dev/null
+
+createNecessaryDirs 2>&1>/dev/null
+
+MON_AGENT_EXEC_COMMAND="$MON_AGENT_LIB_DIR/$MON_AGENT_PROG_NAME $PROXY_DETAILS "
+
+isAgentRunning() {
+        PID=""
+        PID_FROM_COMMAND=$(ps -eo pid,comm,args | grep $MON_AGENT_PROG_NAME | grep -v grep | grep -v $MON_AGENT_WATCHDOG_PROG_NAME | awk -F ' ' '{print $1}')
+        PID_FROM_PIDFILE=`cat $MON_AGENT_PID_FILE 2>/dev/null`
+        log $MON_AGENT_OUT_FILE "PID FROM COMMAND :: $PID_FROM_COMMAND"
+        log $MON_AGENT_OUT_FILE "PID FROM PID FILE :: $PID_FROM_PIDFILE"
+        if [ "$PID_FROM_COMMAND" == "" ] && [ "$PID_FROM_PIDFILE" == "" ]; then
+             log $MON_AGENT_OUT_FILE "$PRODUCT_NAME monitoring agent process not found"
+             return $FAILURE
+        fi
+        if [ "$PID_FROM_COMMAND" != "" ]; then
+            if [ "$PID_FROM_PIDFILE" == "" ]; then
+                      log $MON_AGENT_OUT_FILE "$PRODUCT_NAME monitoring agent pid file not created, dummy process running, killing the process"
+                      kill -9 $PID_FROM_COMMAND
+                      return $FAILURE
+            fi
+            if [ "$PID_FROM_PIDFILE" != "$PID_FROM_COMMAND" ]; then
+                      log $MON_AGENT_OUT_FILE "$PRODUCT_NAME monitoring agent pid from file does not match with process running, killing the process and deleting pidfile"
+                      kill -9 $PID_FROM_COMMAND
+                      rm -f $MON_AGENT_PID_FILE
+                      return $FAILURE
+            else
+                     log $MON_AGENT_OUT_FILE "$PRODUCT_NAME monitoring agent pid from file does matches with process running."
+                     return $SUCCESS
+            fi
+        elif [ "$PID_FROM_PIDFILE" != "" ]; then
+        	log $MON_AGENT_OUT_FILE "$PRODUCT_NAME monitoring agent pid file exists, process not running, deleting the file"
+        	rm -f $MON_AGENT_PID_FILE
+        	return $FAILURE
+        fi
+}
+
+start() {
+	log $MON_AGENT_OUT_FILE "------------------------- STARTING $PRODUCT_NAME_UPPERCASE MONITORING AGENT ----------------------------"    
+    $MON_AGENT_WATCHDOG_BIN_BOOT_FILE $MON_AGENT_START
+    isAgentRunning
+    RETVAL=$?	
+	if [ $RETVAL -ne $SUCCESS ]; then
+		log $MON_AGENT_OUT_FILE "$PRODUCT_NAME monitoring agent is not running."
+	else		
+		PID=`cat $MON_AGENT_PID_FILE 2>/dev/null`
+		RETVAL=$?
+		if [ $RETVAL -ne $SUCCESS ]; then
+			PID=`cat $MON_AGENT_PID_FILE 2>/dev/null`
+		fi
+		log $MON_AGENT_OUT_FILE "$PRODUCT_NAME monitoring agent is already running (process id : $PID)" "$PRINT"
+	    return $SUCCESS
+	fi	
+	
+	MON_AGENT_SWITCH=0
+	if [ "$MON_AGENT_SWITCH" == "1" ]; then
+		if [ "$(id -u)" != "0" ]; then
+				if [ $(command -v nohup) ]; then
+    					NOHUP_COMMAND="nohup"
+				fi
+				$NOHUP_COMMAND $MON_AGENT_EXEC_COMMAND  >> $MON_AGENT_ERR_FILE 2>&1 & 
+			else
+				chown -R $MON_AGENT_USER:$MON_AGENT_GROUP $MON_AGENT_LOG_DIR 2>/dev/null
+				su - $MON_AGENT_USER -c "$MON_AGENT_EXEC_COMMAND  >> $MON_AGENT_ERR_FILE 2>&1 &"
+		fi
+	else
+		if [ "$(id -u)" != "0" ]; then
+				if [ $(command -v nohup) ]; then
+    					NOHUP_COMMAND="nohup"
+				fi
+		else
+				chown -R $MON_AGENT_USER:$MON_AGENT_GROUP $MON_AGENT_LOG_DIR 2>/dev/null		
+		fi
+		$NOHUP_COMMAND $MON_AGENT_EXEC_COMMAND  >> $MON_AGENT_ERR_FILE 2>&1 &
+	fi		
+	sleep 3
+	PID=`cat $MON_AGENT_PID_FILE 2>/dev/null`
+	RETVAL=$?
+	log $MON_AGENT_OUT_FILE "$PRODUCT_NAME pid file after starting agent :: ($PID)"
+	if [ $RETVAL -ne $SUCCESS ]; then
+		PID=`cat $MON_AGENT_PID_FILE 2>/dev/null`
+	fi
+	sleep 2
+	isAgentRunning
+    RETVAL=$?
+    if [ $RETVAL -eq $SUCCESS ]; then
+		running_pid=`cat $MON_AGENT_PID_FILE 2>/dev/null`
+		PID=$(ps auxww | grep "$running_pid" | grep $MON_AGENT_PROG_NAME | grep -v grep | grep -v $MON_AGENT_WATCHDOG_PROG_NAME | awk -F ' ' '{print $2}' 2>/dev/null)	
+		RETVAL=$?
+		if [ $RETVAL -ne $SUCCESS ]; then
+			PID=$(ps auxww | grep "$running_pid" | grep $MON_AGENT_PROG_NAME | grep -v grep | grep -v $MON_AGENT_WATCHDOG_PROG_NAME | awk '/ / {print $2}' 2>/dev/null)
+		fi
+		if [ "$PID" == "$running_pid" ]; then
+		    log $MON_AGENT_OUT_FILE "$MON_AGENT_SERVICE_STARTED_MESSAGE (process id : $running_pid)" "$PRINT"  
+		        return $SUCCESS    
+		else
+			log $MON_AGENT_OUT_FILE "Failed to start $PRODUCT_NAME monitoring agent." "$PRINT"		    
+		    return $FAILURE;
+		fi
+	else
+		log $MON_AGENT_OUT_FILE "******************** Problem while starting $PRODUCT_NAME monitoring agent *********************" "$PRINT"
+		log $MON_AGENT_OUT_FILE "Please email $MON_AGENT_LOG_DIR and $MON_AGENT_DETAILS_LOG_DIR to support" "$PRINT"
+		return $FAILURE;
+    fi
+}
+
+stop() {    
+	log $MON_AGENT_OUT_FILE "------------------------- STOPPING MONITORING AGENT ----------------------------"
+    isAgentRunning
+    RETVAL=$?
+	if [ $RETVAL -eq $SUCCESS ]; then
+		PID=$(ps -eo pid,comm,args | grep $MON_AGENT_PROG_NAME | grep -v grep | grep -v $MON_AGENT_WATCHDOG_PROG_NAME | awk -F ' ' '{print $1}')
+	    if [ "$PID" != "" ]; then
+	    	kill -9 $PID
+		    sleep 3
+			isAgentRunning
+		    RETVAL=$?
+	    	if [ $RETVAL -ne $SUCCESS ]; then
+	    		log $MON_AGENT_OUT_FILE "$MON_AGENT_SERVICE_STOPPED_MESSAGE" "$PRINT"    	    
+		    	return $SUCCESS;
+		    else
+		    	kill -9 $PID
+				RETVAL=$?
+				if [ $RETVAL -eq $SUCCESS ]; then
+		    		log $MON_AGENT_OUT_FILE "$MON_AGENT_SERVICE_STOPPED_MESSAGE" "$PRINT"    	    
+			    	return $SUCCESS;
+			    else		    	
+			    	log $MON_AGENT_OUT_FILE "$MON_AGENT_SERVICE_STOP_FAILED_MESSAGE" "$PRINT"
+				fi	    	
+			fi
+	    else    		
+	    	log $MON_AGENT_OUT_FILE "$MON_AGENT_SERVICE_DOWN_MESSAGE" "$PRINT"
+			return $SUCCESS;
+		fi
+    else    		
+    	log $MON_AGENT_OUT_FILE "$MON_AGENT_SERVICE_DOWN_MESSAGE" "$PRINT"
+		return $SUCCESS;
+    fi
+}
+
+
+restart() {
+	stop
+	start
+}
+
+
+status() {
+	log $MON_AGENT_OUT_FILE "$PRODUCT_NAME monitoring agent status : "
+	PID=`cat $MON_AGENT_PID_FILE 2>/dev/null`
+	RETVAL=$?
+	if [ $RETVAL -ne $SUCCESS ]; then
+		PID=`cat $MON_AGENT_PID_FILE 2>/dev/null`
+	fi
+	if [ "$PID" == "" ]; then
+		log $MON_AGENT_OUT_FILE "$MON_AGENT_SERVICE_DOWN_MESSAGE" "$PRINT"	    
+	    return $FAILURE;
+	else
+		log $MON_AGENT_OUT_FILE "$MON_AGENT_SERVICE_UP_MESSAGE" "$PRINT"
+		log $MON_AGENT_OUT_FILE "Process status : " "$PRINT"
+		ps auxwww | grep -w $PID | grep -v grep
+    	return $SUCCESS
+	fi
+}
+
+checkUninstall() {
+	if [ -f $MON_AGENT_UNINSTALL_FLAG_FILE ]; then
+		$MON_AGENT_WATCHDOG_BIN_BOOT_FILE $MON_AGENT_STOP
+		stop
+		log $MON_AGENT_OUT_FILE "$MON_AGENT_UNINSTALL_MESSAGE" "$PRINT"
+		exit $FAILURE
+	fi
+}
+
+checkUninstall
+
+case "$1" in
+$MON_AGENT_START)
+	start
+	;;
+$MON_AGENT_STOP)
+	stop
+	;;
+$MON_AGENT_RESTART)
+	restart
+	;;
+$MON_AGENT_STATUS)
+    status
+	;;
+*)
+	echo "Usage: $SCRIPT_NAME {$MON_AGENT_START|$MON_AGENT_STOP|$MON_AGENT_RESTART|$MON_AGENT_STATUS}"
+	exit $FAILURE
+esac
