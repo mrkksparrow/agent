@@ -1,8 +1,10 @@
 import os
 import psutil
 import traceback
+import requests
 
 PSUTIL_OBJECT = psutil
+REQUEST_MODULE = requests
 
 def check_if_process_running_mounted_path(mountPath,filter_list):
     try:
@@ -27,9 +29,28 @@ def check_if_process_running_mounted_path(mountPath,filter_list):
     	print("exception")
     return None
     
+def curl_api_with_token(url):
+        try:            
+            bearerToken = get_bearer_token()
+            headers = {'Authorization' : 'Bearer ' + bearerToken}
+            proxies = {"http": None,"https": None}
+            r = REQUEST_MODULE.get(url,headers=headers,proxies=proxies,verify=False,timeout=500)
+            print('curlapiWithToken -> url - ' + url)
+            print('curlapiWithToken -> statusCode - ' + str(r.status_code))
+            data = r.content
+            if isinstance(data, bytes):
+                data = data.decode()
+            if "/metrics/cadvisor" in url or '/healthz' in url or '/livez' in url:
+                return r.status_code,data
+            return r.status_code,json.loads(data)
+        except Exception as e:
+            print('curlapiWithToken -> Exception -> {0}'.format(e))
+        return -1,{}
+
 
 def get_bearer_token():
     file_obj = None
+    bearerToken = None
     try:
         tokenFile = "/var/run/secrets/kubernetes.io/serviceaccount/token"
         if os.path.isfile(tokenFile):
@@ -38,14 +59,28 @@ def get_bearer_token():
             kubeToken=kubeToken.rstrip()
             if kubeToken:
                 print('setting bearerToken')
-                KubeGlobal.bearerToken = kubeToken
+                bearerToken = kubeToken
     except Exception as e:
         print('Exception -> GetbearerToken -> {0}'.format(e))
     finally:
         if file_obj:
             file_obj.close()
+        return bearerToken
 
-
+def isApiServerPingable():
+    is_api_server_pingable = 0
+    try:
+       kube_cluster = 'api.aws-cls-os.itja.p1.openshiftapps.com'
+       url = "https://"+kube_cluster+"/livez"
+       status,valDict = curl_api_with_token(url)
+        print(status)
+        print(valDict)
+       if status == 200:
+           is_api_server_pingable = 1
+    except Exception as e:
+       traceback.print_exc()
+    return is_api_server_pingable
+isApiServerPingable()
 final= {}
 final = check_if_process_running_mounted_path("/host/proc", ["kubelet", "kube proxy"])
-print(final)
+#print(final)
