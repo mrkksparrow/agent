@@ -1,4 +1,4 @@
-import os
+import os, sys
 import psutil
 import traceback
 import requests
@@ -70,11 +70,11 @@ def get_bearer_token():
 def isApiServerPingable():
     is_api_server_pingable = 0
     try:
-       kube_cluster = 'api.aws-cls-os.itja.p1.openshiftapps.com'
+       kube_cluster = str(sys.argv[1])
        url = "https://"+kube_cluster+"/livez"
        status,valDict = curl_api_with_token(url)
-        print(status)
-        print(valDict)
+       print(status)
+       print(valDict)
        if status == 200:
            is_api_server_pingable = 1
     except Exception as e:
