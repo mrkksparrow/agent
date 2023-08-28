@@ -42,7 +42,7 @@ def curl_api_without_token(url):
         print(data)
         return r.status_code,data
     except Exception as e:
-        AgentLogger.log(AgentLogger.KUBERNETES,'curlapiWithoutToken -> Exception -> {0}'.format(e))
+        print('curlapiWithoutToken -> Exception -> {0}'.format(e))
     return -1,{}
 
 def curl_api_with_token(url):
