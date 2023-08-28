@@ -1,5 +1,6 @@
 import os
 import psutil
+import traceback
 
 PSUTIL_OBJECT = psutil
 
@@ -26,6 +27,24 @@ def check_if_process_running_mounted_path(mountPath,filter_list):
     	print("exception")
     return None
     
+
+def get_bearer_token():
+    file_obj = None
+    try:
+        tokenFile = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        if os.path.isfile(tokenFile):
+            file_obj=open(tokenFile,"r")
+            kubeToken=file_obj.read()
+            kubeToken=kubeToken.rstrip()
+            if kubeToken:
+                print('setting bearerToken')
+                KubeGlobal.bearerToken = kubeToken
+    except Exception as e:
+        print('Exception -> GetbearerToken -> {0}'.format(e))
+    finally:
+        if file_obj:
+            file_obj.close()
+
 
 final= {}
 final = check_if_process_running_mounted_path("/host/proc", ["kubelet", "kube proxy"])
