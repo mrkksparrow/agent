@@ -1,0 +1,460 @@
+<apis>
+	<api url="/api/v1/namespaces">
+		<itemsGroup Path="items" Name="Namespaces">
+			<Root Name="name" Path="metadata" />
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="finalizers" Path="spec"  shortName="Fi" ToString="True"/>
+			<item Name="phase" Path="status"  shortName="Ph"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+		</itemsGroup>
+	</api>
+	<api url="/api/v1/endpoints">
+		<itemsGroup Path="items" Name="Endpoints">
+			<Root Name="name" Path="metadata" />
+			<Root Name="namespace" Path="metadata" />
+			<item Name="name" Path="metadata"  shortName="Na"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="namespace" Path="metadata"  shortName="NS"/>
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="labels" Path="metadata" shortName="Lb" ToString="True"/>
+			<item Name="subsets" Path="subsets" shortName="SS" getAsList="True"/>
+		</itemsGroup>
+	</api>
+	<api url="/api/v1/componentstatuses">
+		<itemsGroup Path="items" Name="ComponentStatuses">
+			<Root Name="name" Path="metadata" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<itemsGroup Path="conditions" Name="Cnds">
+				<Root Name="type" Path=""/>
+				<item Name="status" Path="" shortName="St"/>
+				<item Name="message" Path="" shortName="Me"/>
+			</itemsGroup>
+		</itemsGroup>
+	</api>
+	<api url="/apis/autoscaling/v1/horizontalpodautoscalers">
+		<itemsGroup Path="items" Name="HorizontalPodAutoscalers">
+			<Root Name="name" Path="metadata" />
+			<Root Name="namespace" Path="metadata" />
+			<item Name="name" Path="metadata"  shortName="Na"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="namespace" Path="metadata"  shortName="NS"/>
+			<item Name="labels" Path="metadata" shortName="Lb" ToString="True"/>
+			<item Name="annotations" Path="metadata" shortName="An" ToString="True"/>
+			<item Name="lastScaleTime" Path="status" shortName="LST"/>
+			<item Name="currentReplicas" Path="status" shortName="CR"/>
+			<item Name="desiredReplicas" Path="status" shortName="DR"/>
+			<item Name="currentCPUUtilizationPercentage" Path="status" shortName="CCPUUP"/>
+			<item Name="minReplicas" Path="spec" shortName="MiR"/>
+			<item Name="maxReplicas" Path="spec" shortName="MaR"/>
+			<item Name="targetCPUUtilizationPercentage" Path="spec" shortName="TCPUUP"/>
+			<item Name="kind" Path="spec/scaleTargetRef" shortName="Ki"/>
+			<item Name="name" Path="spec/scaleTargetRef" shortName="SSCTNa"/>
+		</itemsGroup>
+	</api>		
+	<api url="/apis/apps/v1/daemonsets">
+		<itemsGroup Path="items" Name="DaemonSets">
+			<Root Name="name" Path="metadata" />
+			<Root Name="namespace" Path="metadata" />
+			<item Name="name" Path="metadata"  shortName="Na"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="namespace" Path="metadata"  shortName="NS"/>
+			<item Name="generation" Path="metadata"  shortName="Ge"/>
+			<item Name="labels" Path="metadata" shortName="Lb" ToString="True"/>
+			<item Name="annotations" Path="metadata" shortName="An" ToString="True"/>
+			<item Name="matchLabels" Path="spec/selector" shortName="MLb" ToString="True"/>
+			<item Name="name" Path="spec/template/metadata"  shortName="TN"/>
+			<item Name="creationTimestamp" Path="spec/template/metadata"  shortName="TCT"/>
+			<item Name="type" Path="spec/updateStrategy" shortName="Str"/>
+			<item Name="labels" Path="spec/template/metadata"  shortName="TLb" ToString="True"/>
+			<item Name="restartPolicy" Path="spec/template/spec" shortName="TRP"/>
+			<item Name="terminationGracePeriodSeconds" Path="spec/template/spec"  shortName="TTGPS"/>
+			<item Name="dnsPolicy" Path="spec/template/spec"  shortName="TDP"/>
+			<item Name="schedulerName" Path="spec/template/spec"  shortName="TSN"/>
+			<itemsGroup Path="spec/template/spec/volumes" Name="TVol" MapId="False">
+				<Root Name="name" Path=""/>
+				<item Name="path" Path="hostPath" shortName="Pa"/>
+				<item Name="type" Path="hostPath" shortName="Ty"/>
+			</itemsGroup>
+		</itemsGroup>
+	</api>
+	<api url="/apis/apps/v1/deployments">
+		<itemsGroup Path="items" Name="Deployments">
+			<Root Name="name" Path="metadata" />
+			<Root Name="namespace" Path="metadata" />
+			<item Name="name" Path="metadata"  shortName="Na"/>
+			<item Name="namespace" Path="metadata" shortName="NS"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="labels" Path="metadata" shortName="Lb" ToString="True"/>
+			<item Name="annotations" Path="metadata" shortName="An" ToString="True"/>
+			<item Name="observedGeneration" Path="status" shortName="OGV"/>
+			<item Name="replicas" Path="status" shortName="Rep" />
+			<item Name="updatedReplicas" Path="status"  shortName="URep"/>
+			<item Name="readyReplicas" Path="status" shortName="RRep"/>
+			<item Name="availableReplicas" Path="status" shortName="ARep"/>
+			<item Name="revisionHistoryLimit" Path="spec" shortName="RHL"/>
+			<item Name="replicas" Path="spec" shortName="SRep" />
+			<item Name="progressDeadlineSeconds" Path="spec"  shortName="PDLS"/>
+			<item Name="type" Path="spec/strategy" shortName="Str"/>
+			<item Name="matchLabels" Path="spec/selector" shortName="MLb" ToString="True"/>
+			<item Name="restartPolicy" Path="spec/template/spec" shortName="TSRP"/>
+			<item Name="terminationGracePeriodSeconds" Path="spec/template/spec" shortName="TTGPS"/>
+			<item Name="dnsPolicy" Path="spec/template/spec"  shortName="TDP"/>
+			<item Name="schedulerName" Path="spec/template/spec" shortName="TSN"/>
+		</itemsGroup>
+	</api>
+	<api url="/api/v1/services">
+		<itemsGroup Path="items" Name="Services">
+			<!-- status loadbalancer-->
+			<Root Name="name" Path="metadata" />
+			<Root Name="namespace" Path="metadata" />
+			<item Name="name" Path="metadata"  shortName="Na"/>
+			<item Name="namespace" Path="metadata" shortName="NS"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="labels" Path="metadata" shortName="Lb" ToString="True"/>
+			<item Name="annotations" Path="metadata" shortName="An" ToString="True"/>
+			<item Name="clusterIP" Path="spec" shortName="CIP" />
+			<item Name="type" Path="spec"  shortName="Ty"/>
+			<item Name="sessionAffinity" Path="spec" shortName="SA"/>
+			<item Name="loadBalancerIP" Path="spec" shortName="LIP"/>
+			<item Name="externalTrafficPolicy" Path="spec" shortName="ETP"/>
+			<item Name="selector" Path="spec/selector" shortName="Sel" getAsList="True"/>
+			<item Name="ingress" Path="status/loadBalancer" shortName="LIPs"/>
+			<itemsGroup Path="spec/ports" Name="Po" MapId="False">
+				<Root Name="port" Path=""/>
+				<item Name="protocol" Path="" shortName="Pr"/>
+				<item Name="targetPort" Path="" shortName="TPo"/>
+				<item Name="nodePort" Path="" shortName="NPo"/>
+			</itemsGroup>
+		</itemsGroup>
+	</api>
+	<api url="/apis/apps/v1/replicasets">
+		<itemsGroup Path="items" Name="ReplicaSets" IDPath="kube_keys/ReplicaSets" IDKey="ReplicaSetsID">
+			<Root Name="name" Path="metadata"/>
+			<Root Name="namespace" Path="metadata" />
+			<item Name="name" Path="metadata"  shortName="Na"/>
+			<item Name="namespace" Path="metadata" shortName="NS"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="labels" Path="metadata" shortName="Lb" ToString="True"/>
+			<item Name="annotations" Path="metadata" shortName="An" ToString="True"/>
+			<item Name="ownerReferences" Path="metadata" shortName="OwRe" ToString="True"/>
+			<item Name="matchLabels" Path="spec/selector" shortName="MLb" ToString="True"/>
+			<item Name="replicas" Path="spec" shortName="Rep"/>
+			<item Name="creationTimestamp" Path="spec/template/metadata" shortName="TCTS"/>
+			<item Name="labels" Path="spec/template/metadata" shortName="TLb" ToString="True"/>
+			<item Name="restartPolicy" Path="spec/template/spec" shortName="TRP"/>
+			<item Name="terminationGracePeriodSeconds" Path="spec/template/spec" shortName="TGPS"/>
+			<item Name="dnsPolicy" Path="spec/template/spec" shortName="TDP"/>
+			<item Name="schedulerName" Path="spec/template/spec" shortName="TSN"/>
+		</itemsGroup>
+	</api>
+	<api url="/api/v1/nodes">
+		<itemsGroup Path="items" Name="Nodes">
+			<Root Name="name" Path="metadata"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="labels" Path="metadata" shortName="Lb" ToString="True"/>
+			<item Name="annotations" Path="metadata" shortName="An" ToString="True"/>
+			<item Name="podCIDR" Path="spec" shortName="pCIDR"/>
+			<item Name="providerID" Path="spec" shortName="pID"/>
+			<item Name="attachable-volumes-azure-disk" Path="status/capacity" shortName="CAVAD"/>
+			<item Name="cpu" Path="status/capacity" shortName="CCPU" strip_unit="true"/>
+			<item Name="ephemeral-storage" Path="status/capacity" shortName="CESTO" strip_unit="true"/>
+			<item Name="hugepages-1Gi" Path="status/capacity" shortName="CHP1"/>
+			<item Name="hugepages-2Mi" Path="status/capacity" shortName="CHP2"/>
+			<item Name="memory" Path="status/capacity" shortName="CMem" strip_unit="true"/>
+			<item Name="pods" Path="status/capacity" shortName="CPC"/>
+			<item Name="attachable-volumes-azure-disk" Path="status/allocatable" shortName="AAVAD"/>
+			<item Name="cpu" Path="status/allocatable" shortName="ACPU" strip_unit="true" expr="cpu/1000"/>
+			<item Name="ephemeral-storage" Path="status/allocatable" shortName="AESTO"/>
+			<item Name="hugepages-1Gi" Path="status/allocatable" shortName="AHP1"/>
+			<item Name="hugepages-2Mi" Path="status/allocatable" shortName="AHP2"/>
+			<item Name="memory" Path="status/allocatable" shortName="AMem" strip_unit="true"/>
+			<item Name="pods" Path="status/allocatable" shortName="APC"/>
+			<item Name="kernelVersion" Path="status/nodeInfo" shortName="KV"/>
+			<item Name="kubeletVersion" Path="status/nodeInfo" shortName="KuV"/>
+			<item Name="containerRuntimeVersion" Path="status/nodeInfo" shortName="CRTV"/>
+			<item Name="machineID" Path="status/nodeInfo" shortName="MaId"/>
+			<item Name="kubeProxyVersion" Path="status/nodeInfo" shortName="KPV"/>
+			<item Name="bootID" Path="status/nodeInfo" shortName="BId"/>
+			<item Name="osImage" Path="status/nodeInfo" shortName="OSI"/>
+			<item Name="architecture" Path="status/nodeInfo" shortName="Ar"/>
+			<item Name="systemUUID" Path="status/nodeInfo" shortName="SUUID"/>
+			<item Name="operatingSystem" Path="status/nodeInfo" shortName="OS"/>
+			<item Name="taints" Path="spec/taints" shortName="taints" getAsList="True"/>
+			<itemsGroup Path="status/addresses" Name="Addr" MapId="False" isKeyValuepair="True" isHidden="True">
+					<Key Name="type" Path="">
+				<Value Name="address" Path=""/>
+					</Key>
+			</itemsGroup>
+			<itemsGroup Path="status/conditions" Name="Cnds" MapId="False">
+				<Root Name="type" Path=""/>
+				<item Name="status" Path="" shortName="St"/>
+				<item Name="lastHeartbeatTime" Path="" shortName="LHBT"/>
+				<item Name="lastTransitionTime" Path="" shortName="LTT"/>
+				<item Name="reason" Path="" shortName="Re"/>
+				<item Name="message" Path="" shortName="Me"/>
+			</itemsGroup>
+			
+		</itemsGroup>
+	</api>
+	<api url="/api/v1/pods">
+		<itemsGroup Path="items" Name="Pods">
+			<Root Name="name" Path="metadata" />
+			<Root Name="namespace" Path="metadata" />
+			<item Name="name" Path="metadata"  shortName="Na"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="generateName" Path="metadata" shortName="GN" />
+			<item Name="namespace" Path="metadata"  shortName="NS"/>
+			<item Name="labels" Path="metadata" shortName="MLb" ToString="True"/>
+			<itemsGroup Path="metadata/ownerReferences" Name="OwRe" MapId="False">
+				<Root Name="name" Path=""/>
+				<item Name="kind" Path="" shortName="Ki"/>
+				<item Name="uid" Path="" shortName="UID"/>
+				<item Name="controller" Path="" shortName="Ct"/>
+				<item Name="blockOwnerDeletion" Path="" shortName="BOD"/>
+			</itemsGroup>
+			<item Name="restartPolicy" Path="spec" shortName="RP" />
+			<!-- to be discussed - security context,volumes -->
+			<item Name="terminationGracePeriodSeconds" Path="spec"  shortName="TGS"/>
+			<item Name="dnsPolicy" Path="spec" shortName="DNSP" />
+			<item Name="serviceAccountName" Path="spec"  shortName="SAN"/>
+			<item Name="serviceAccount" Path="spec" shortName="SA"/>
+			<item Name="nodeName" Path="spec"  shortName="NN"/>
+			<item Name="schedulerName" Path="spec" shortName="SN"/>
+			<item Name="priority" Path="spec" shortName="Pr"/>
+			<item Name="tolerations" Path="spec/tolerations" shortName="tolerations" getAsList="True"/>
+			<itemsGroup Path="spec/containers" Name="Cont">
+				<!-- volumeMounts-->
+				<Root Name="name" Path=""/>
+				<item Name="name" Path=""  shortName="Na"/>
+				<item Name="image" Path="" shortName="Im"/>
+				<item Name="terminationMessagePath" Path="" shortName="TMP"/>
+				<item Name="terminationMessagePolicy" Path="" shortName="TMPo"/>
+				<item Name="imagePullPolicy" Path="" shortName="IPPo"/>
+				<item Name="cpu" Path="resources/limits" shortName="RLCPU" strip_unit="true"/>
+				<item Name="memory" Path="resources/limits" shortName="RLMe" strip_unit="true"/>
+				<item Name="cpu" Path="resources/requests" shortName="RRCPU" strip_unit="true"/>
+				<item Name="memory" Path="resources/requests" shortName="RRMe" strip_unit="true"/>
+				<itemsGroup Path="ports" Name="ContPo" MapId="False">
+					<Root Name="containerPort" Path=""/>
+					<item Name="protocol" Path="" shortName="Pro"/>
+					<item Name="name" Path="" shortName="Na"/>
+				</itemsGroup>
+				<itemsGroup Path="env" Name="env" isKeyValuepair="True" MapId="False">
+					<Key Name="name" Path="">
+						<Value Name="value" Path=""/>
+					</Key>
+				</itemsGroup>
+			</itemsGroup>
+			<item Name="phase" Path="status" shortName="Ph"/>
+			<item Name="hostIP" Path="status" shortName="HIP"/>
+			<item Name="podIP" Path="status" shortName="PIP"/>
+			<item Name="startTime" Path="status" shortName="SaT"/>
+			<item Name="qosClass" Path="status" shortName="QosC"/>
+			<itemsGroup Path="status/conditions" Name="Cnds" MapId="False">
+				<Root Name="type" Path=""/>
+				<item Name="status" Path="" shortName="St"/>
+				<item Name="lastProbeTime" Path="" shortName="LPT"/>
+				<item Name="lastTransitionTime" Path="" shortName="LTT"/>
+			</itemsGroup>
+			<itemsGroup Path="status/containerStatuses" Name="ContSt" MapId="False">
+				<!-- pending - state and last state -->
+				<Root Name="name" Path=""/>
+				<item Name="ready" Path="" shortName="Rd"/>
+				<item Name="restartCount" Path="" shortName="RC"/>
+				<item Name="image" Path="" shortName="IM"/>
+				<item Name="imageID" Path="" shortName="IMId"/>
+				<item Name="containerID" Path="" shortName="CId"/>
+			</itemsGroup>
+			<itemsGroup Path="status/containerStatuses" Name="PodSt" MapId="False">
+				<Root Name="name" Path=""/>
+				<item Name="state" Path="" shortName="PCR"/>
+			</itemsGroup>
+			<Merge key="Cont" itemsGroup1="Cont" itemsGroup2="ContSt"/>
+		</itemsGroup>
+	</api>
+	<api url="/apis/apps/v1/statefulsets">
+		<itemsGroup Path="items" Name="StatefulSets">
+			<Root Name="name" Path="metadata" />
+			<Root Name="namespace" Path="metadata" />
+			<item Name="name" Path="metadata"  shortName="Na"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="generation" Path="metadata" shortName="Ge" />
+			<item Name="namespace" Path="metadata"  shortName="NS"/>
+			<item Name="annotations" Path="metadata" shortName="An" ToString="True"/>
+			<item Name="replicas" Path="spec" shortName="SpRe"/>
+			<item Name="serviceName" Path="spec" shortName="SN" />
+			<item Name="podManagementPolicy" Path="spec"  shortName="PMP"/>
+			<item Name="revisionHistoryLimit" Path="spec" shortName="RHL"/>
+			<item Name="type" Path="spec/updateStrategy" shortName="US" />
+			<item Name="matchLabels" Path="spec/selector" shortName="MLb" ToString="True"/>
+			<!-- <item Name="matchLabels" Path="spec/selector" shortName="ML" ToString="True"/> -->
+			<item Name="labels" Path="spec/template/metadata" shortName="TLb" ToString="True"/>
+			<itemsGroup Path="spec/volumeClaimTemplates" Name="VCT" MapId="False">
+				<Root Name="name" Path="metadata" />
+				<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+				<item Name="phase" Path="status" shortName="Ph" />
+			</itemsGroup>
+			<item Name="observedGeneration" Path="status" shortName="OG" />
+			<item Name="replicas" Path="status"  shortName="Re"/>
+			<item Name="readyReplicas" Path="status" shortName="RR" />
+			<item Name="currentReplicas" Path="status"  shortName="CR"/>
+			<item Name="updatedReplicas" Path="status" shortName="UR"/>
+			<item Name="collisionCount" Path="status"  shortName="CC"/>
+		</itemsGroup>
+	</api>
+	<api url="/api/v1/persistentvolumes">
+		<itemsGroup Path="items" Name="PV">
+			<Root Name="name" Path="metadata" />
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="annotations" Path="metadata" shortName="An" ToString="True"/>
+			<item Name="finalizers" Path="metadata" shortName="Fn" ToString="True"/>
+			<item Name="persistentVolumeReclaimPolicy" Path="spec" shortName="PVRP" />
+			<item Name="storageClassName" Path="spec"  shortName="SC"/>
+			<item Name="volumeMode" Path="spec" shortName="VM"/>
+			<item Name="storage" Path="spec/capacity" shortName="SCa"/>
+			<item Name="accessModes" Path="spec" shortName="AM" ToString="True"/>
+			<item Name="kind" Path="spec/claimRef" shortName="CRKi"/>
+			<item Name="namespace" Path="spec/claimRef" shortName="CRNa" />
+			<item Name="name" Path="spec/claimRef"  shortName="CRN"/>
+			<item Name="uid" Path="spec/claimRef" shortName="CRUID"/>
+			<item Name="storage" Path="spec/claimRef" shortName="SCa"/>
+			<item Name="accessModes" Path="spec/claimRef" shortName="CRAM" ToString="True"/>
+			<item Name="phase" Path="status" shortName="Ph"/>
+		</itemsGroup>
+	</api>
+	<api url="/api/v1/persistentvolumeclaims">
+		<itemsGroup Path="items" Name="PersistentVolumeClaim">
+			<Root Name="name" Path="metadata" />
+			<Root Name="namespace" Path="metadata" />
+			<item Name="name" Path="metadata"  shortName="Na"/>
+			<item Name="namespace" Path="metadata"  shortName="NS"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="annotations" Path="metadata" shortName="An" ToString="True"/>
+			<item Name="finalizers" Path="metadata" shortName="Fn" ToString="True"/>
+			<item Name="accessModes" Path="spec" shortName="AM" ToString="True"/>
+			<item Name="storage" Path="spec/resources/requests" shortName="SR"/>
+			<item Name="volumeName" Path="spec" shortName="VN"/>
+			<item Name="storageClassName" Path="spec"  shortName="SC"/>
+			<item Name="volumeMode" Path="spec" shortName="VM"/>
+			<item Name="phase" Path="status" shortName="Ph"/>
+		</itemsGroup>
+	</api>
+	<api url="/apis/batch/v1/jobs">
+		<itemsGroup Path="items" Name="Jobs">
+			<Root Name="name" Path="metadata" />
+			<Root Name="namespace" Path="metadata" />
+			<item Name="name" Path="metadata"  shortName="Na"/>
+			<item Name="namespace" Path="metadata"  shortName="NS"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="annotations" Path="metadata" shortName="An" ToString="True"/>
+			<item Name="labels" Path="metadata" shortName="Lb" ToString="True"/>
+			<item Name="parallelism" Path="spec"  shortName="Pa"/>
+			<item Name="completions" Path="spec" shortName="Co"/>
+			<item Name="matchLabels" Path="spec/selector" shortName="ML" ToString="True"/>
+			<item Name="startTime" Path="status" shortName="STM"/>
+			<item Name="completionTime" Path="status" shortName="CMPT"/>
+			<item Name="succeeded" Path="status" shortName="Su"/>
+			<item Name="backoffLimit" Path="spec" shortName="Bol"/>
+		</itemsGroup>
+	</api>
+	<api url="/apis/networking.k8s.io/v1/ingresses">
+		<itemsGroup Path="items" Name="Ingresses">
+			<Root Name="name" Path="metadata" />
+			<Root Name="namespace" Path="metadata" />
+			<item Name="name" Path="metadata"  shortName="Na"/>
+			<item Name="namespace" Path="metadata"  shortName="NS"/>
+			<item Name="uid" Path="metadata" shortName="UID" />
+			<item Name="creationTimestamp" Path="metadata"  shortName="CT"/>
+			<item Name="age" args="CT" shortName="age" module="com.manageengine.monagent.util.AgentUtil" method="getAge"/>
+			<item Name="annotations" Path="metadata" shortName="An" ToString="True"/>
+			<item Name="rules" Path="spec" shortName="Ru" ToString="True"/>
+			<item Name="status" Path="" shortName="St" ToString="True"/>
+		</itemsGroup>
+	</api>
+	
+	<api url="https://$NODE_IP$:$KUBELET_STATS_PORT$/stats/summary" useToken="True" perf="True">
+        <Group Name="Nodes">
+        	<item Name="nodeName" Path="node" shortName="NN"/>
+			<item Name="time" Path="node/cpu" shortName="CPUT"/>
+			<item Name="usageNanoCores" Path="node/cpu" shortName="UNC" expr="usageNanoCores/1000000"/>
+			<item Name="usageCoreNanoSeconds" Path="node/cpu" shortName="UNS"/>
+			<item Name="time" Path="node/memory" shortName="MT"/>
+			<item Name="availableBytes" Path="node/memory" shortName="MAB"/>
+			<item Name="usageBytes" Path="node/memory" shortName="MUB" expr="usageBytes/1048576"/>
+			<item Name="workingSetBytes" Path="node/memory" shortName="WSB"/>
+			<item Name="rssBytes" Path="node/memory" shortName="RSSB" expr="rssBytes/1048576"/>
+			<item Name="pageFaults" Path="node/memory" shortName="PF"/>
+			<item Name="name" Path="node/network" shortName="NeN"/>
+			<item Name="rxBytes" Path="node/network" shortName="RB" rate="true" expr="rxBytes/1024"/>
+			<item Name="rxErrors" Path="node/network" shortName="RE" rate="true"/>
+			<item Name="txErrors" Path="node/network" shortName="TE" rate="true"/>
+			<item Name="txBytes" Path="node/network" shortName="TB" rate="true" expr="txBytes/1024"/>
+			<item Name="availableBytes" Path="node/fs" shortName="FSAB" expr="availableBytes/1073741824"/>
+			<item Name="capacityBytes" Path="node/fs" shortName="FSCB" expr="capacityBytes/1073741824"/>
+			<item Name="usedBytes" Path="node/fs" shortName="FSUB" expr="usedBytes/1073741824"/>
+			<item Name="inodesFree" Path="node/fs" shortName="FSINF"/>
+			<item Name="inodes" Path="node/fs" shortName="FSIN"/>
+			<item Name="inodesUsed" Path="node/fs" shortName="FSINU"/>
+		</Group>
+		<itemsGroup Path="node/systemContainers" Name="nsc">
+        		<Root Name="name" Path=""/>
+        		<item Name="usageNanoCores" Path="cpu" shortName="UNC" expr="usageNanoCores/1000000"/>
+        		<item Name="usageBytes" Path="memory" shortName="MUB" expr="usageBytes/1000000"/>
+        </itemsGroup>
+        <itemsGroup Path="pods" Name="Pods" IDGroupName="Pods" ns_unique="true">
+                <Root Name="name" Path="podRef"/>
+                <Root Name="namespace" Path="podRef" />
+                <item Name="namespace" Path="podRef" shortName="NS"/>
+                <item Name="uid" Path="podRef" shortName="UID"/>
+                <item Name="time" Path="cpu" shortName="CT"/>
+                <item Name="usageNanoCores" Path="cpu" shortName="UNC" expr="usageNanoCores/1000000"/>
+                <item Name="usageCoreNanoSeconds" Path="cpu" shortName="UNCS"/>
+                <item Name="availableBytes" Path="memory" shortName="AB"/>
+                <item Name="ephermalusageBytes" Path="ephemeral-storage" shortName="EUB"/>
+                <item Name="workingSetBytes" Path="memory" shortName="UB" expr="workingSetBytes/1048576"/>
+                <item Name="rssBytes" Path="memory" shortName="RSSB" expr="rssBytes/1048576"/>
+                <item Name="pageFaults" Path="memory" shortName="PF"/>
+                <item Name="time" Path="network" shortName="NT"/>
+                <item Name="name" Path="network" shortName="NeN"/>
+                <item Name="rxBytes" Path="network" shortName="RB" rate="true" expr="rxBytes/1024"/>
+                <item Name="rxErrors" Path="network" shortName="RE" rate="true"/>
+                <item Name="txErrors" Path="network" shortName="TE" rate="true"/>
+                <item Name="txBytes" Path="network" shortName="TB" rate="true" expr="txBytes/1024"/>
+                <itemsGroup Path="volume" Name="Vol" MapId="False">
+                        <Root Name="name" Path=""/>
+                        <item Name="time" Path="" shortName="Ti"/>
+                        <item Name="availableBytes" Path="" shortName="VAB" expr="availableBytes/1073741824"/>
+                        <item Name="capacityBytes" Path="" shortName="VCB" expr="capacityBytes/1073741824"/>
+                        <item Name="usedBytes" Path="" shortName="VUB" expr="usedBytes/1073741824"/>
+                        <item Name="inodesFree" Path="" shortName="INF"/>
+                        <item Name="inodes" Path="" shortName="IN"/>
+                        <item Name="inodesUsed" Path="" shortName="INU"/>
+                </itemsGroup>
+        </itemsGroup>
+	</api>
+</apis>
