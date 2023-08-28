@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, json
 import psutil
 import traceback
 import requests
@@ -28,7 +28,23 @@ def check_if_process_running_mounted_path(mountPath,filter_list):
     except Exception as e:
     	print("exception")
     return None
-    
+
+def curl_api_without_token(url):
+    try:
+        proxies = {"http": None,"https": None}        
+        r = REQUEST_MODULE.get(url,proxies=proxies,verify=False,timeout=60)
+        print('curlapiWithoutToken -> url - ' + url)
+        print('curlapiWithoutToken -> statusCode - ' + str(r.status_code))
+        data = r.content
+        if isinstance(data, bytes):
+            data = data.decode()
+        print(r.status_code)
+        print(data)
+        return r.status_code,data
+    except Exception as e:
+        AgentLogger.log(AgentLogger.KUBERNETES,'curlapiWithoutToken -> Exception -> {0}'.format(e))
+    return -1,{}
+
 def curl_api_with_token(url):
         try:            
             bearerToken = get_bearer_token()
@@ -42,6 +58,8 @@ def curl_api_with_token(url):
                 data = data.decode()
             if "/metrics/cadvisor" in url or '/healthz' in url or '/livez' in url:
                 return r.status_code,data
+            print(r.status_code)
+            print(data)
             return r.status_code,json.loads(data)
         except Exception as e:
             print('curlapiWithToken -> Exception -> {0}'.format(e))
@@ -80,7 +98,11 @@ def isApiServerPingable():
     except Exception as e:
        traceback.print_exc()
     return is_api_server_pingable
-isApiServerPingable()
+
+url = sys.argv[1]
+curl_api_with_token(url)
+curl_api_without_token(url)
+#isApiServerPingable()
 final= {}
 final = check_if_process_running_mounted_path("/host/proc", ["kubelet", "kube proxy"])
 #print(final)
