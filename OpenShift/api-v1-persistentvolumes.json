@@ -1,0 +1,581 @@
+{
+  "kind": "PersistentVolumeList",
+  "apiVersion": "v1",
+  "metadata": {
+    "resourceVersion": "3118429"
+  },
+  "items": [
+    {
+      "metadata": {
+        "name": "pvc-1c67920e-e80b-4ac9-960c-46bae0c30484",
+        "uid": "22bf4b69-cb8c-4bc4-bcfa-5edf22ddc561",
+        "resourceVersion": "43632",
+        "creationTimestamp": "2023-08-25T08:10:28Z",
+        "annotations": {
+          "pv.kubernetes.io/provisioned-by": "ebs.csi.aws.com",
+          "volume.kubernetes.io/provisioner-deletion-secret-name": "",
+          "volume.kubernetes.io/provisioner-deletion-secret-namespace": ""
+        },
+        "finalizers": [
+          "kubernetes.io/pv-protection",
+          "external-attacher/ebs-csi-aws-com"
+        ],
+        "managedFields": [
+          {
+            "manager": "csi-provisioner",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:28Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:pv.kubernetes.io/provisioned-by": {},
+                  "f:volume.kubernetes.io/provisioner-deletion-secret-name": {},
+                  "f:volume.kubernetes.io/provisioner-deletion-secret-namespace": {}
+                }
+              },
+              "f:spec": {
+                "f:accessModes": {},
+                "f:capacity": {
+                  ".": {},
+                  "f:storage": {}
+                },
+                "f:claimRef": {
+                  ".": {},
+                  "f:apiVersion": {},
+                  "f:kind": {},
+                  "f:name": {},
+                  "f:namespace": {},
+                  "f:resourceVersion": {},
+                  "f:uid": {}
+                },
+                "f:csi": {
+                  ".": {},
+                  "f:driver": {},
+                  "f:fsType": {},
+                  "f:volumeAttributes": {
+                    ".": {},
+                    "f:storage.kubernetes.io/csiProvisionerIdentity": {}
+                  },
+                  "f:volumeHandle": {}
+                },
+                "f:nodeAffinity": {
+                  ".": {},
+                  "f:required": {}
+                },
+                "f:persistentVolumeReclaimPolicy": {},
+                "f:storageClassName": {},
+                "f:volumeMode": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:28Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:phase": {}
+              }
+            },
+            "subresource": "status"
+          },
+          {
+            "manager": "csi-attacher",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:29Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:finalizers": {
+                  "v:\"external-attacher/ebs-csi-aws-com\"": {}
+                }
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "capacity": {
+          "storage": "100Gi"
+        },
+        "csi": {
+          "driver": "ebs.csi.aws.com",
+          "volumeHandle": "vol-081b69bf35dbb43c6",
+          "fsType": "ext4",
+          "volumeAttributes": {
+            "storage.kubernetes.io/csiProvisionerIdentity": "1692950734986-8081-ebs.csi.aws.com"
+          }
+        },
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "claimRef": {
+          "kind": "PersistentVolumeClaim",
+          "namespace": "openshift-monitoring",
+          "name": "prometheus-data-prometheus-k8s-1",
+          "uid": "1c67920e-e80b-4ac9-960c-46bae0c30484",
+          "apiVersion": "v1",
+          "resourceVersion": "43360"
+        },
+        "persistentVolumeReclaimPolicy": "Delete",
+        "storageClassName": "gp3",
+        "volumeMode": "Filesystem,
+        "nodeAffinity": {
+          "required": {
+            "nodeSelectorTerms": [
+              {
+                "matchExpressions": [
+                  {
+                    "key": "topology.ebs.csi.aws.com/zone",
+                    "operator": "In",
+                    "values": [
+                      "us-east-1a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "phase": "Bound"
+      }
+    },
+    {
+      "metadata": {
+        "name": "pvc-3ef91c99-f5ca-4bf8-8182-b2a1d22351c4",
+        "uid": "6bc5232e-cec8-4353-84e7-0b2c1cd7a1f4",
+        "resourceVersion": "42966",
+        "creationTimestamp": "2023-08-25T08:10:19Z",
+        "annotations": {
+          "pv.kubernetes.io/provisioned-by": "ebs.csi.aws.com",
+          "volume.kubernetes.io/provisioner-deletion-secret-name": "",
+          "volume.kubernetes.io/provisioner-deletion-secret-namespace": ""
+        },
+        "finalizers": [
+          "kubernetes.io/pv-protection",
+          "external-attacher/ebs-csi-aws-com"
+        ],
+        "managedFields": [
+          {
+            "manager": "csi-provisioner",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:19Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:pv.kubernetes.io/provisioned-by": {},
+                  "f:volume.kubernetes.io/provisioner-deletion-secret-name": {},
+                  "f:volume.kubernetes.io/provisioner-deletion-secret-namespace": {}
+                }
+              },
+              "f:spec": {
+                "f:accessModes": {},
+                "f:capacity": {
+                  ".": {},
+                  "f:storage": {}
+                },
+                "f:claimRef": {
+                  ".": {},
+                  "f:apiVersion": {},
+                  "f:kind": {},
+                  "f:name": {},
+                  "f:namespace": {},
+                  "f:resourceVersion": {},
+                  "f:uid": {}
+                },
+                "f:csi": {
+                  ".": {},
+                  "f:driver": {},
+                  "f:fsType": {},
+                  "f:volumeAttributes": {
+                    ".": {},
+                    "f:storage.kubernetes.io/csiProvisionerIdentity": {}
+                  },
+                  "f:volumeHandle": {}
+                },
+                "f:nodeAffinity": {
+                  ".": {},
+                  "f:required": {}
+                },
+                "f:persistentVolumeReclaimPolicy": {},
+                "f:storageClassName": {},
+                "f:volumeMode": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:19Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:phase": {}
+              }
+            },
+            "subresource": "status"
+          },
+          {
+            "manager": "csi-attacher",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:20Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:finalizers": {
+                  "v:\"external-attacher/ebs-csi-aws-com\"": {}
+                }
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "capacity": {
+          "storage": "10Gi"
+        },
+        "csi": {
+          "driver": "ebs.csi.aws.com",
+          "volumeHandle": "vol-017baf9b928f043ef",
+          "fsType": "ext4",
+          "volumeAttributes": {
+            "storage.kubernetes.io/csiProvisionerIdentity": "1692950734986-8081-ebs.csi.aws.com"
+          }
+        },
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "claimRef": {
+          "kind": "PersistentVolumeClaim",
+          "namespace": "openshift-monitoring",
+          "name": "alertmanager-data-alertmanager-main-0",
+          "uid": "3ef91c99-f5ca-4bf8-8182-b2a1d22351c4",
+          "apiVersion": "v1",
+          "resourceVersion": "42517"
+        },
+        "persistentVolumeReclaimPolicy": "Delete",
+        "storageClassName": "gp3",
+        "volumeMode": "Filesystem",
+        "nodeAffinity": {
+          "required": {
+            "nodeSelectorTerms": [
+              {
+                "matchExpressions": [
+                  {
+                    "key": "topology.ebs.csi.aws.com/zone",
+                    "operator": "In",
+                    "values": [
+                      "us-east-1a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "phase": "Bound"
+      }
+    },
+    {
+      "metadata": {
+        "name": "pvc-47dc363b-774b-477a-8645-fc0835acb032",
+        "uid": "e2e0920b-62e5-4d36-ae8e-43d34c9ec62f",
+        "resourceVersion": "42963",
+        "creationTimestamp": "2023-08-25T08:10:19Z",
+        "annotations": {
+          "pv.kubernetes.io/provisioned-by": "ebs.csi.aws.com",
+          "volume.kubernetes.io/provisioner-deletion-secret-name": "",
+          "volume.kubernetes.io/provisioner-deletion-secret-namespace": ""
+        },
+        "finalizers": [
+          "kubernetes.io/pv-protection",
+          "external-attacher/ebs-csi-aws-com"
+        ],
+        "managedFields": [
+          {
+            "manager": "csi-provisioner",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:19Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:pv.kubernetes.io/provisioned-by": {},
+                  "f:volume.kubernetes.io/provisioner-deletion-secret-name": {},
+                  "f:volume.kubernetes.io/provisioner-deletion-secret-namespace": {}
+                }
+              },
+              "f:spec": {
+                "f:accessModes": {},
+                "f:capacity": {
+                  ".": {},
+                  "f:storage": {}
+                },
+                "f:claimRef": {
+                  ".": {},
+                  "f:apiVersion": {},
+                  "f:kind": {},
+                  "f:name": {},
+                  "f:namespace": {},
+                  "f:resourceVersion": {},
+                  "f:uid": {}
+                },
+                "f:csi": {
+                  ".": {},
+                  "f:driver": {},
+                  "f:fsType": {},
+                  "f:volumeAttributes": {
+                    ".": {},
+                    "f:storage.kubernetes.io/csiProvisionerIdentity": {}
+                  },
+                  "f:volumeHandle": {}
+                },
+                "f:nodeAffinity": {
+                  ".": {},
+                  "f:required": {}
+                },
+                "f:persistentVolumeReclaimPolicy": {},
+                "f:storageClassName": {},
+                "f:volumeMode": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:19Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:phase": {}
+              }
+            },
+            "subresource": "status"
+          },
+          {
+            "manager": "csi-attacher",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:20Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:finalizers": {
+                  "v:\"external-attacher/ebs-csi-aws-com\"": {}
+                }
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "capacity": {
+          "storage": "10Gi"
+        },
+        "csi": {
+          "driver": "ebs.csi.aws.com",
+          "volumeHandle": "vol-08407e3a4ffe6d69c",
+          "fsType": "ext4",
+          "volumeAttributes": {
+            "storage.kubernetes.io/csiProvisionerIdentity": "1692950734986-8081-ebs.csi.aws.com"
+          }
+        },
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "claimRef": {
+          "kind": "PersistentVolumeClaim",
+          "namespace": "openshift-monitoring",
+          "name": "alertmanager-data-alertmanager-main-1",
+          "uid": "47dc363b-774b-477a-8645-fc0835acb032",
+          "apiVersion": "v1",
+          "resourceVersion": "42525"
+        },
+        "persistentVolumeReclaimPolicy": "Delete",
+        "storageClassName": "gp3",
+        "volumeMode": "Filesystem",
+        "nodeAffinity": {
+          "required": {
+            "nodeSelectorTerms": [
+              {
+                "matchExpressions": [
+                  {
+                    "key": "topology.ebs.csi.aws.com/zone",
+                    "operator": "In",
+                    "values": [
+                      "us-east-1a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "phase": "Bound"
+      }
+    },
+    {
+      "metadata": {
+        "name": "pvc-51918436-f4d0-4c63-8e22-d5237a046a04",
+        "uid": "b26979a0-968f-4493-83b8-a30241bf5874",
+        "resourceVersion": "43633",
+        "creationTimestamp": "2023-08-25T08:10:28Z",
+        "annotations": {
+          "pv.kubernetes.io/provisioned-by": "ebs.csi.aws.com",
+          "volume.kubernetes.io/provisioner-deletion-secret-name": "",
+          "volume.kubernetes.io/provisioner-deletion-secret-namespace": ""
+        },
+        "finalizers": [
+          "kubernetes.io/pv-protection",
+          "external-attacher/ebs-csi-aws-com"
+        ],
+        "managedFields": [
+          {
+            "manager": "csi-provisioner",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:28Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:pv.kubernetes.io/provisioned-by": {},
+                  "f:volume.kubernetes.io/provisioner-deletion-secret-name": {},
+                  "f:volume.kubernetes.io/provisioner-deletion-secret-namespace": {}
+                }
+              },
+              "f:spec": {
+                "f:accessModes": {},
+                "f:capacity": {
+                  ".": {},
+                  "f:storage": {}
+                },
+                "f:claimRef": {
+                  ".": {},
+                  "f:apiVersion": {},
+                  "f:kind": {},
+                  "f:name": {},
+                  "f:namespace": {},
+                  "f:resourceVersion": {},
+                  "f:uid": {}
+                },
+                "f:csi": {
+                  ".": {},
+                  "f:driver": {},
+                  "f:fsType": {},
+                  "f:volumeAttributes": {
+                    ".": {},
+                    "f:storage.kubernetes.io/csiProvisionerIdentity": {}
+                  },
+                  "f:volumeHandle": {}
+                },
+                "f:nodeAffinity": {
+                  ".": {},
+                  "f:required": {}
+                },
+                "f:persistentVolumeReclaimPolicy": {},
+                "f:storageClassName": {},
+                "f:volumeMode": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:28Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:phase": {}
+              }
+            },
+            "subresource": "status"
+          },
+          {
+            "manager": "csi-attacher",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2023-08-25T08:10:29Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:finalizers": {
+                  "v:\"external-attacher/ebs-csi-aws-com\"": {}
+                }
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "capacity": {
+          "storage": "100Gi"
+        },
+        "csi": {
+          "driver": "ebs.csi.aws.com",
+          "volumeHandle": "vol-034f6ef3ab131c609",
+          "fsType": "ext4",
+          "volumeAttributes": {
+            "storage.kubernetes.io/csiProvisionerIdentity": "1692950734986-8081-ebs.csi.aws.com"
+          }
+        },
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "claimRef": {
+          "kind": "PersistentVolumeClaim",
+          "namespace": "openshift-monitoring",
+          "name": "prometheus-data-prometheus-k8s-0",
+          "uid": "51918436-f4d0-4c63-8e22-d5237a046a04",
+          "apiVersion": "v1",
+          "resourceVersion": "43349"
+        },
+        "persistentVolumeReclaimPolicy": "Delete",
+        "storageClassName": "gp3",
+        "volumeMode": "Filesystem",
+        "nodeAffinity": {
+          "required": {
+            "nodeSelectorTerms": [
+              {
+                "matchExpressions": [
+                  {
+                    "key": "topology.ebs.csi.aws.com/zone",
+                    "operator": "In",
+                    "values": [
+                      "us-east-1a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "phase": "Bound"
+      }
+    }
+  ]
+}

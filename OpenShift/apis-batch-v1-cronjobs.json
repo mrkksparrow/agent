@@ -1,0 +1,2085 @@
+{
+  "kind": "CronJobList",
+  "apiVersion": "batch/v1",
+  "metadata": {
+    "resourceVersion": "3218977"
+  },
+  "items": [
+    {
+      "metadata": {
+        "name": "osd-delete-backplane-script-resources",
+        "namespace": "openshift-backplane-managed-scripts",
+        "uid": "c7d59449-0aa5-4c97-a5a8-cada2ec00568",
+        "resourceVersion": "2795176",
+        "generation": 1,
+        "creationTimestamp": "2023-08-25T08:00:43Z",
+        "labels": {
+          "hive.openshift.io/managed": "true"
+        },
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"CronJob\",\"metadata\":{\"annotations\":{},\"labels\":{\"hive.openshift.io/managed\":\"true\"},\"name\":\"osd-delete-backplane-script-resources\",\"namespace\":\"openshift-backplane-managed-scripts\"},\"spec\":{\"concurrencyPolicy\":\"Replace\",\"failedJobsHistoryLimit\":5,\"jobTemplate\":{\"spec\":{\"template\":{\"spec\":{\"affinity\":{\"nodeAffinity\":{\"preferredDuringSchedulingIgnoredDuringExecution\":[{\"preference\":{\"matchExpressions\":[{\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]},\"weight\":1}]}},\"containers\":[{\"args\":[\"/bin/bash\",\"-c\",\"set -euxo pipefail\\n\\n# Namespace which pods run in\\nNS=\\\"openshift-backplane-managed-scripts\\\"\\n# Label which all backplane script resources should have\\nLABEL=\\\"managed.openshift.io/backplane-job-uuid\\\"\\n# Only delete resources created before this time, in unix epoch seconds.\\nDEL_ONLY_BEFORE=$(($(date +%s) - 3600*24))\\n\\n### Gather data\\n# Format: pod_name pod_status creation_timestamp\\nPODS=$(oc get pod -n $NS --selector $LABEL -o custom-columns=NAME:.metadata.name,PHASE:.status.phase,CT:.metadata.creationTimestamp --no-headers)\\n\\n# Format: sa_name\\nSAS=$(oc get serviceaccount -n $NS --selector $LABEL -o custom-columns=NAME:.metadata.name --no-headers)\\n\\n# Format: role_name role_ns\\nROLES=$(oc get role -A --selector $LABEL -o custom-columns=NAME:.metadata.name,NS:.metadata.namespace --no-headers)\\n\\n# Format: rolebinding_name rolebinding_ns\\nROLEBINDINGS=$(oc get rolebinding -A --selector $LABEL -o custom-columns=NAME:.metadata.name,NS:.metadata.namespace --no-headers)\\n\\n# Format: clusterrole_name\\nCROLES=$(oc get clusterrole --selector $LABEL -o custom-columns=NAME:.metadata.name --no-headers)\\n\\n# Format: clusterrolebinding_name\\nCROLEBINDINGS=$(oc get clusterrolebinding --selector $LABEL -o custom-columns=NAME:.metadata.name --no-headers)\\n\\n# Pick up those resources we don't want to delete.\\n# - Current running pods and related resources.\\n# - pods created within THRESHOLD_PERIOD and related resouces.\\nPODS_TO_KEEP=$(awk -v before=$DEL_ONLY_BEFORE \\\\\\n  '{\\n  if($2 ~ /Running/){print $1}\\n  else{cmd = sprintf(\\\"date +\\\\\\\"%%s\\\\\\\" --date=%s\\\", $3); cmd|getline unix_sec; close(cmd); if(unix_sec+0 \\u003e before+0){print $1}}\\n  }' \\\\\\n  \\u003c\\u003c\\u003c \\\"$PODS\\\")\\n\\nPODS_TO_DEL=$(awk '{print $1}' \\u003c\\u003c\\u003c \\\"$PODS\\\")\\n\\nfor pod in $PODS_TO_KEEP\\ndo\\n  PODS_TO_DEL=$({ grep -v \\\"$pod\\\" || test $? = 1; } \\u003c\\u003c\\u003c \\\"$PODS_TO_DEL\\\")\\n  SAS=$({ grep -v \\\"$pod\\\" || test $? = 1; } \\u003c\\u003c\\u003c \\\"$SAS\\\")\\n  ROLES=$({ grep -v \\\"$pod\\\" || test $? = 1; } \\u003c\\u003c\\u003c \\\"$ROLES\\\")\\n  ROLEBINDINGS=$({ grep -v \\\"$pod\\\" || test $? = 1; } \\u003c\\u003c\\u003c \\\"$ROLEBINDINGS\\\")\\n  CROLES=$({ grep -v \\\"$pod\\\" || test $? = 1; } \\u003c\\u003c\\u003c \\\"$CROLES\\\")\\n  CROLEBINDINGS=$({ grep -v \\\"$pod\\\" || test $? = 1; } \\u003c\\u003c\\u003c \\\"$CROLEBINDINGS\\\")\\ndone\\n\\n## Delete non-running pods\\nfor pod in $PODS_TO_DEL\\ndo\\n  oc delete pod -n $NS $pod\\ndone\\n\\n## Delete Rolebindings\\n[[ -z \\\"$ROLEBINDINGS\\\" ]] || while read line\\ndo\\n  rb_name=$(echo $line | awk '{print $1}')\\n  rb_namespace=$(echo $line | awk '{print $2}')\\n  oc delete rolebindings -n $rb_namespace $rb_name\\ndone \\u003c\\u003c\\u003c \\\"$ROLEBINDINGS\\\"\\n\\n# Delete ClusterRolebindings\\nfor clb in $CROLEBINDINGS\\ndo\\n  oc delete clusterrolebinding $clb\\ndone\\n\\n## Delete Roles\\n[[ -z \\\"$ROLES\\\" ]] || while read line\\ndo\\n  role_name=$(echo $line | awk '{print $1}')\\n  role_namespace=$(echo $line | awk '{print $2}')\\n  oc delete role -n $role_namespace $role_name\\ndone \\u003c\\u003c\\u003c \\\"$ROLES\\\"\\n\\n## Delete Clusterroles\\nfor crole in $CROLES\\ndo\\n  oc delete clusterrole $crole\\ndone\\n\\n## Delete SAs\\nfor sa in $SAS\\ndo\\n  oc delete serviceaccount -n $NS $sa\\ndone\\n\"],\"image\":\"image-registry.openshift-image-registry.svc:5000/openshift/cli:latest\",\"imagePullPolicy\":\"Always\",\"name\":\"osd-delete-backplane-script-resources\"}],\"restartPolicy\":\"Never\",\"serviceAccountName\":\"osd-backplane\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]}},\"ttlSecondsAfterFinished\":86400}},\"schedule\":\"42 0 * * *\",\"successfulJobsHistoryLimit\":3}}\n"
+        },
+        "managedFields": [
+          {
+            "manager": "manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-25T08:00:43Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:hive.openshift.io/managed": {}
+                }
+              },
+              "f:spec": {
+                "f:concurrencyPolicy": {},
+                "f:failedJobsHistoryLimit": {},
+                "f:jobTemplate": {
+                  "f:spec": {
+                    "f:template": {
+                      "f:spec": {
+                        "f:affinity": {
+                          ".": {},
+                          "f:nodeAffinity": {
+                            ".": {},
+                            "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                          }
+                        },
+                        "f:containers": {
+                          "k:{\"name\":\"osd-delete-backplane-script-resources\"}": {
+                            ".": {},
+                            "f:args": {},
+                            "f:image": {},
+                            "f:imagePullPolicy": {},
+                            "f:name": {},
+                            "f:resources": {},
+                            "f:terminationMessagePath": {},
+                            "f:terminationMessagePolicy": {}
+                          }
+                        },
+                        "f:dnsPolicy": {},
+                        "f:restartPolicy": {},
+                        "f:schedulerName": {},
+                        "f:securityContext": {},
+                        "f:serviceAccount": {},
+                        "f:serviceAccountName": {},
+                        "f:terminationGracePeriodSeconds": {},
+                        "f:tolerations": {}
+                      }
+                    },
+                    "f:ttlSecondsAfterFinished": {}
+                  }
+                },
+                "f:schedule": {},
+                "f:successfulJobsHistoryLimit": {},
+                "f:suspend": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-29T00:42:06Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:lastScheduleTime": {},
+                "f:lastSuccessfulTime": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "schedule": "42 0 * * *",
+        "concurrencyPolicy": "Replace",
+        "suspend": false,
+        "jobTemplate": {
+          "metadata": {
+            "creationTimestamp": null
+          },
+          "spec": {
+            "template": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "containers": [
+                  {
+                    "name": "osd-delete-backplane-script-resources",
+                    "image": "image-registry.openshift-image-registry.svc:5000/openshift/cli:latest",
+                    "args": [
+                      "/bin/bash",
+                      "-c",
+                      "set -euxo pipefail\n\n# Namespace which pods run in\nNS=\"openshift-backplane-managed-scripts\"\n# Label which all backplane script resources should have\nLABEL=\"managed.openshift.io/backplane-job-uuid\"\n# Only delete resources created before this time, in unix epoch seconds.\nDEL_ONLY_BEFORE=$(($(date +%s) - 3600*24))\n\n### Gather data\n# Format: pod_name pod_status creation_timestamp\nPODS=$(oc get pod -n $NS --selector $LABEL -o custom-columns=NAME:.metadata.name,PHASE:.status.phase,CT:.metadata.creationTimestamp --no-headers)\n\n# Format: sa_name\nSAS=$(oc get serviceaccount -n $NS --selector $LABEL -o custom-columns=NAME:.metadata.name --no-headers)\n\n# Format: role_name role_ns\nROLES=$(oc get role -A --selector $LABEL -o custom-columns=NAME:.metadata.name,NS:.metadata.namespace --no-headers)\n\n# Format: rolebinding_name rolebinding_ns\nROLEBINDINGS=$(oc get rolebinding -A --selector $LABEL -o custom-columns=NAME:.metadata.name,NS:.metadata.namespace --no-headers)\n\n# Format: clusterrole_name\nCROLES=$(oc get clusterrole --selector $LABEL -o custom-columns=NAME:.metadata.name --no-headers)\n\n# Format: clusterrolebinding_name\nCROLEBINDINGS=$(oc get clusterrolebinding --selector $LABEL -o custom-columns=NAME:.metadata.name --no-headers)\n\n# Pick up those resources we don't want to delete.\n# - Current running pods and related resources.\n# - pods created within THRESHOLD_PERIOD and related resouces.\nPODS_TO_KEEP=$(awk -v before=$DEL_ONLY_BEFORE \\\n  '{\n  if($2 ~ /Running/){print $1}\n  else{cmd = sprintf(\"date +\\\"%%s\\\" --date=%s\", $3); cmd|getline unix_sec; close(cmd); if(unix_sec+0 > before+0){print $1}}\n  }' \\\n  <<< \"$PODS\")\n\nPODS_TO_DEL=$(awk '{print $1}' <<< \"$PODS\")\n\nfor pod in $PODS_TO_KEEP\ndo\n  PODS_TO_DEL=$({ grep -v \"$pod\" || test $? = 1; } <<< \"$PODS_TO_DEL\")\n  SAS=$({ grep -v \"$pod\" || test $? = 1; } <<< \"$SAS\")\n  ROLES=$({ grep -v \"$pod\" || test $? = 1; } <<< \"$ROLES\")\n  ROLEBINDINGS=$({ grep -v \"$pod\" || test $? = 1; } <<< \"$ROLEBINDINGS\")\n  CROLES=$({ grep -v \"$pod\" || test $? = 1; } <<< \"$CROLES\")\n  CROLEBINDINGS=$({ grep -v \"$pod\" || test $? = 1; } <<< \"$CROLEBINDINGS\")\ndone\n\n## Delete non-running pods\nfor pod in $PODS_TO_DEL\ndo\n  oc delete pod -n $NS $pod\ndone\n\n## Delete Rolebindings\n[[ -z \"$ROLEBINDINGS\" ]] || while read line\ndo\n  rb_name=$(echo $line | awk '{print $1}')\n  rb_namespace=$(echo $line | awk '{print $2}')\n  oc delete rolebindings -n $rb_namespace $rb_name\ndone <<< \"$ROLEBINDINGS\"\n\n## Delete ClusterRolebindings\nfor clb in $CROLEBINDINGS\ndo\n  oc delete clusterrolebinding $clb\ndone\n\n## Delete Roles\n[[ -z \"$ROLES\" ]] || while read line\ndo\n  role_name=$(echo $line | awk '{print $1}')\n  role_namespace=$(echo $line | awk '{print $2}')\n  oc delete role -n $role_namespace $role_name\ndone <<< \"$ROLES\"\n\n## Delete Clusterroles\nfor crole in $CROLES\ndo\n  oc delete clusterrole $crole\ndone\n\n## Delete SAs\nfor sa in $SAS\ndo\n  oc delete serviceaccount -n $NS $sa\ndone\n"
+                    ],
+                    "resources": {},
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "File",
+                    "imagePullPolicy": "Always"
+                  }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "osd-backplane",
+                "serviceAccount": "osd-backplane",
+                "securityContext": {},
+                "affinity": {
+                  "nodeAffinity": {
+                    "preferredDuringSchedulingIgnoredDuringExecution": [
+                      {
+                        "weight": 1,
+                        "preference": {
+                          "matchExpressions": [
+                            {
+                              "key": "node-role.kubernetes.io/infra",
+                              "operator": "Exists"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "schedulerName": "default-scheduler",
+                "tolerations": [
+                  {
+                    "key": "node-role.kubernetes.io/infra",
+                    "operator": "Exists",
+                    "effect": "NoSchedule"
+                  }
+                ]
+              }
+            },
+            "ttlSecondsAfterFinished": 86400
+          }
+        },
+        "successfulJobsHistoryLimit": 3,
+        "failedJobsHistoryLimit": 5
+      },
+      "status": {
+        "lastScheduleTime": "2023-08-29T00:42:00Z",
+        "lastSuccessfulTime": "2023-08-29T00:42:06Z"
+      }
+    },
+    {
+      "metadata": {
+        "name": "osd-delete-ownerrefs-serviceaccounts",
+        "namespace": "openshift-backplane-srep",
+        "uid": "fe0e6e35-9e60-4870-b317-d95dc180b979",
+        "resourceVersion": "3209249",
+        "generation": 1,
+        "creationTimestamp": "2023-08-25T08:00:47Z",
+        "labels": {
+          "hive.openshift.io/managed": "true"
+        },
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"CronJob\",\"metadata\":{\"annotations\":{},\"labels\":{\"hive.openshift.io/managed\":\"true\"},\"name\":\"osd-delete-ownerrefs-serviceaccounts\",\"namespace\":\"openshift-backplane-srep\"},\"spec\":{\"concurrencyPolicy\":\"Replace\",\"failedJobsHistoryLimit\":3,\"jobTemplate\":{\"spec\":{\"template\":{\"spec\":{\"affinity\":{\"nodeAffinity\":{\"preferredDuringSchedulingIgnoredDuringExecution\":[{\"preference\":{\"matchExpressions\":[{\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]},\"weight\":1}]}},\"containers\":[{\"args\":[\"/bin/bash\",\"-c\",\"for NS in openshift-cloud-ingress-operator openshift-custom-domains-operator openshift-managed-upgrade-operator openshift-monitoring openshift-rbac-permissions openshift-splunk-forwarder-operator openshift-velero openshift-ocm-agent-operator;\\ndo\\n  for SA in $(oc -n $NS get serviceaccount --ignore-not-found -o jsonpath='{.items[?(@.metadata.ownerReferences[0].kind==\\\"ClusterServiceVersion\\\")].metadata.name}');\\n  do\\n    echo \\\"Removing owner ref from SA '$SA' in NS '$NS'\\\"\\n    oc -n $NS patch serviceaccount $SA --type=json -p '[{\\\"op\\\":\\\"remove\\\",\\\"path\\\":\\\"/metadata/ownerReferences\\\"}]'\\n  done\\ndone\\n\"],\"image\":\"image-registry.openshift-image-registry.svc:5000/openshift/cli:latest\",\"imagePullPolicy\":\"Always\",\"name\":\"osd-delete-ownerrefs-serviceaccounts\"}],\"restartPolicy\":\"Never\",\"serviceAccountName\":\"osd-delete-ownerrefs-serviceaccounts\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]}}}},\"schedule\":\"7,37 * * * *\",\"successfulJobsHistoryLimit\":3}}\n"
+        },
+        "managedFields": [
+          {
+            "manager": "manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-25T08:00:47Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:hive.openshift.io/managed": {}
+                }
+              },
+              "f:spec": {
+                "f:concurrencyPolicy": {},
+                "f:failedJobsHistoryLimit": {},
+                "f:jobTemplate": {
+                  "f:spec": {
+                    "f:template": {
+                      "f:spec": {
+                        "f:affinity": {
+                          ".": {},
+                          "f:nodeAffinity": {
+                            ".": {},
+                            "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                          }
+                        },
+                        "f:containers": {
+                          "k:{\"name\":\"osd-delete-ownerrefs-serviceaccounts\"}": {
+                            ".": {},
+                            "f:args": {},
+                            "f:image": {},
+                            "f:imagePullPolicy": {},
+                            "f:name": {},
+                            "f:resources": {},
+                            "f:terminationMessagePath": {},
+                            "f:terminationMessagePolicy": {}
+                          }
+                        },
+                        "f:dnsPolicy": {},
+                        "f:restartPolicy": {},
+                        "f:schedulerName": {},
+                        "f:securityContext": {},
+                        "f:serviceAccount": {},
+                        "f:serviceAccountName": {},
+                        "f:terminationGracePeriodSeconds": {},
+                        "f:tolerations": {}
+                      }
+                    }
+                  }
+                },
+                "f:schedule": {},
+                "f:successfulJobsHistoryLimit": {},
+                "f:suspend": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-29T11:37:05Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:lastScheduleTime": {},
+                "f:lastSuccessfulTime": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "schedule": "7,37 * * * *",
+        "concurrencyPolicy": "Replace",
+        "suspend": false,
+        "jobTemplate": {
+          "metadata": {
+            "creationTimestamp": null
+          },
+          "spec": {
+            "template": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "containers": [
+                  {
+                    "name": "osd-delete-ownerrefs-serviceaccounts",
+                    "image": "image-registry.openshift-image-registry.svc:5000/openshift/cli:latest",
+                    "args": [
+                      "/bin/bash",
+                      "-c",
+                      "for NS in openshift-cloud-ingress-operator openshift-custom-domains-operator openshift-managed-upgrade-operator openshift-monitoring openshift-rbac-permissions openshift-splunk-forwarder-operator openshift-velero openshift-ocm-agent-operator;\ndo\n  for SA in $(oc -n $NS get serviceaccount --ignore-not-found -o jsonpath='{.items[?(@.metadata.ownerReferences[0].kind==\"ClusterServiceVersion\")].metadata.name}');\n  do\n    echo \"Removing owner ref from SA '$SA' in NS '$NS'\"\n    oc -n $NS patch serviceaccount $SA --type=json -p '[{\"op\":\"remove\",\"path\":\"/metadata/ownerReferences\"}]'\n  done\ndone\n"
+                    ],
+                    "resources": {},
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "File",
+                    "imagePullPolicy": "Always"
+                  }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "osd-delete-ownerrefs-serviceaccounts",
+                "serviceAccount": "osd-delete-ownerrefs-serviceaccounts",
+                "securityContext": {},
+                "affinity": {
+                  "nodeAffinity": {
+                    "preferredDuringSchedulingIgnoredDuringExecution": [
+                      {
+                        "weight": 1,
+                        "preference": {
+                          "matchExpressions": [
+                            {
+                              "key": "node-role.kubernetes.io/infra",
+                              "operator": "Exists"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "schedulerName": "default-scheduler",
+                "tolerations": [
+                  {
+                    "key": "node-role.kubernetes.io/infra",
+                    "operator": "Exists",
+                    "effect": "NoSchedule"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "successfulJobsHistoryLimit": 3,
+        "failedJobsHistoryLimit": 3
+      },
+      "status": {
+        "lastScheduleTime": "2023-08-29T11:37:00Z",
+        "lastSuccessfulTime": "2023-08-29T11:37:05Z"
+      }
+    },
+    {
+      "metadata": {
+        "name": "osd-delete-backplane-serviceaccounts",
+        "namespace": "openshift-backplane",
+        "uid": "2ecb7622-3028-4970-a7d1-24fd7d6ddbd0",
+        "resourceVersion": "3217266",
+        "generation": 1,
+        "creationTimestamp": "2023-08-25T08:10:45Z",
+        "labels": {
+          "hive.openshift.io/managed": "true"
+        },
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"CronJob\",\"metadata\":{\"annotations\":{},\"labels\":{\"hive.openshift.io/managed\":\"true\"},\"name\":\"osd-delete-backplane-serviceaccounts\",\"namespace\":\"openshift-backplane\"},\"spec\":{\"concurrencyPolicy\":\"Replace\",\"failedJobsHistoryLimit\":5,\"jobTemplate\":{\"spec\":{\"template\":{\"spec\":{\"affinity\":{\"nodeAffinity\":{\"preferredDuringSchedulingIgnoredDuringExecution\":[{\"preference\":{\"matchExpressions\":[{\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]},\"weight\":1}]}},\"containers\":[{\"args\":[\"/bin/bash\",\"-c\",\"for ns in $(oc get ns --no-headers | grep -e ^openshift-backplane-.* | awk '{print $1}');do\\n    for sa in $(oc get sa -n $ns -l managed.openshift.io/backplane=true --no-headers | awk '{print $1}');do\\n      creation=$(date -d $(oc get sa $sa -n $ns -o jsonpath='{.metadata.creationTimestamp}') '+%s');\\n      now=$(date +%s);\\n      expiryMins=$(oc get sa $sa -n $ns -o jsonpath='{.metadata.annotations.managed\\\\.openshift\\\\.io/backplane-expiry-duration}');\\n      if [[ $(expr $((now-creation)) \\\\\\u003e ${expiryMins:=720} \\\\* 60) == 1 ]]; then\\n        oc delete sa $sa -n $ns\\n      fi\\n    done;\\ndone;\\n\"],\"image\":\"image-registry.openshift-image-registry.svc:5000/openshift/cli:latest\",\"imagePullPolicy\":\"Always\",\"name\":\"osd-delete-backplane-serviceaccounts\"}],\"restartPolicy\":\"Never\",\"serviceAccountName\":\"osd-delete-backplane-serviceaccounts\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]}},\"ttlSecondsAfterFinished\":86400}},\"schedule\":\"*/10 * * * *\",\"successfulJobsHistoryLimit\":3}}\n"
+        },
+        "managedFields": [
+          {
+            "manager": "Go-http-client",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-25T08:10:45Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:hive.openshift.io/managed": {}
+                }
+              },
+              "f:spec": {
+                "f:concurrencyPolicy": {},
+                "f:failedJobsHistoryLimit": {},
+                "f:jobTemplate": {
+                  "f:spec": {
+                    "f:template": {
+                      "f:spec": {
+                        "f:affinity": {
+                          ".": {},
+                          "f:nodeAffinity": {
+                            ".": {},
+                            "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                          }
+                        },
+                        "f:containers": {
+                          "k:{\"name\":\"osd-delete-backplane-serviceaccounts\"}": {
+                            ".": {},
+                            "f:args": {},
+                            "f:image": {},
+                            "f:imagePullPolicy": {},
+                            "f:name": {},
+                            "f:resources": {},
+                            "f:terminationMessagePath": {},
+                            "f:terminationMessagePolicy": {}
+                          }
+                        },
+                        "f:dnsPolicy": {},
+                        "f:restartPolicy": {},
+                        "f:schedulerName": {},
+                        "f:securityContext": {},
+                        "f:serviceAccount": {},
+                        "f:serviceAccountName": {},
+                        "f:terminationGracePeriodSeconds": {},
+                        "f:tolerations": {}
+                      }
+                    },
+                    "f:ttlSecondsAfterFinished": {}
+                  }
+                },
+                "f:schedule": {},
+                "f:successfulJobsHistoryLimit": {},
+                "f:suspend": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-29T11:50:07Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:lastScheduleTime": {},
+                "f:lastSuccessfulTime": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "schedule": "*/10 * * * *",
+        "concurrencyPolicy": "Replace",
+        "suspend": false,
+        "jobTemplate": {
+          "metadata": {
+            "creationTimestamp": null
+          },
+          "spec": {
+            "template": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "containers": [
+                  {
+                    "name": "osd-delete-backplane-serviceaccounts",
+                    "image": "image-registry.openshift-image-registry.svc:5000/openshift/cli:latest",
+                    "args": [
+                      "/bin/bash",
+                      "-c",
+                      "for ns in $(oc get ns --no-headers | grep -e ^openshift-backplane-.* | awk '{print $1}');do\n    for sa in $(oc get sa -n $ns -l managed.openshift.io/backplane=true --no-headers | awk '{print $1}');do\n      creation=$(date -d $(oc get sa $sa -n $ns -o jsonpath='{.metadata.creationTimestamp}') '+%s');\n      now=$(date +%s);\n      expiryMins=$(oc get sa $sa -n $ns -o jsonpath='{.metadata.annotations.managed\\.openshift\\.io/backplane-expiry-duration}');\n      if [[ $(expr $((now-creation)) \\> ${expiryMins:=720} \\* 60) == 1 ]]; then\n        oc delete sa $sa -n $ns\n      fi\n    done;\ndone;\n"
+                    ],
+                    "resources": {},
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "File",
+                    "imagePullPolicy": "Always"
+                  }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "osd-delete-backplane-serviceaccounts",
+                "serviceAccount": "osd-delete-backplane-serviceaccounts",
+                "securityContext": {},
+                "affinity": {
+                  "nodeAffinity": {
+                    "preferredDuringSchedulingIgnoredDuringExecution": [
+                      {
+                        "weight": 1,
+                        "preference": {
+                          "matchExpressions": [
+                            {
+                              "key": "node-role.kubernetes.io/infra",
+                              "operator": "Exists"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "schedulerName": "default-scheduler",
+                "tolerations": [
+                  {
+                    "key": "node-role.kubernetes.io/infra",
+                    "operator": "Exists",
+                    "effect": "NoSchedule"
+                  }
+                ]
+              }
+            },
+            "ttlSecondsAfterFinished": 86400
+          }
+        },
+        "successfulJobsHistoryLimit": 3,
+        "failedJobsHistoryLimit": 5
+      },
+      "status": {
+        "lastScheduleTime": "2023-08-29T11:50:00Z",
+        "lastSuccessfulTime": "2023-08-29T11:50:07Z"
+      }
+    },
+    {
+      "metadata": {
+        "name": "sre-build-test",
+        "namespace": "openshift-build-test",
+        "uid": "e4111cfe-c37d-4401-a92c-71ccd12cb007",
+        "resourceVersion": "3193679",
+        "generation": 1,
+        "creationTimestamp": "2023-08-25T08:10:46Z",
+        "labels": {
+          "hive.openshift.io/managed": "true"
+        },
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"CronJob\",\"metadata\":{\"annotations\":{},\"labels\":{\"hive.openshift.io/managed\":\"true\"},\"name\":\"sre-build-test\",\"namespace\":\"openshift-build-test\"},\"spec\":{\"concurrencyPolicy\":\"Forbid\",\"failedJobsHistoryLimit\":5,\"jobTemplate\":{\"spec\":{\"activeDeadlineSeconds\":900,\"template\":{\"spec\":{\"affinity\":{\"nodeAffinity\":{\"requiredDuringSchedulingIgnoredDuringExecution\":{\"nodeSelectorTerms\":[{\"matchExpressions\":[{\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]}]}}},\"containers\":[{\"command\":[\"/bin/bash\",\"-c\",\"# ensure we fail if something exits non-zero\\nset -o errexit\\nset -o nounset\\n\\n# set NS to include job name, to ease linking namespace to a specific job\\nJOB_PREFIX=sre-build-test\\nNS=\\\"${POD_NS}-${POD_NAME##${JOB_PREFIX}-}\\\"\\nJOB_NAME=$(echo \\\"${POD_NAME}\\\" | rev | cut -d- -f2- | rev)\\n\\n# cleanup traps on exiting, so these always run\\ncleanup () {\\n  echo \\\"$(date): Done, deleting build NS=$NS\\\"\\n  oc delete ns \\\"${NS}\\\" --wait=false\\n}\\ntrap \\\"cleanup\\\" EXIT SIGINT\\n\\n# create ns\\noc create -f - \\u003c\\u003cEOF\\napiVersion: v1\\nkind: Namespace\\nmetadata:\\n  name: \\\"${NS}\\\"\\n  managed.openshift.io/sre-build-test: \\\"${JOB_NAME}\\\"\\nEOF\\n\\n# wait for serviceaccount to be created\\nuntil oc -n \\\"${NS}\\\" get serviceaccounts default \\u003e/dev/null; do\\n  echo \\\"$(date): Waiting for service account to be created\\\"\\n  sleep 5\\ndone\\n\\n# wait for rolebindings needed for build to be created\\n until (oc -n \\\"${NS}\\\" get rolebindings system:deployers \\u003e/dev/null) \\u0026\\u0026 (oc -n \\\"${NS}\\\" get rolebindings system:image-builders \\u003e/dev/null) \\u0026\\u0026 (oc -n \\\"${NS}\\\" get rolebindings system:image-pullers \\u003e/dev/null); do\\n   echo \\\"$(date): Waiting for rolebindings to be created\\\"\\n   sleep 5\\n done\\n\\n# run build\\noc -n \\\"${NS}\\\" new-build --name=\\\"${JOB_PREFIX}\\\" --binary --strategy source --docker-image registry.redhat.io/ubi8/go-toolset:1.17.7-13\\nmkdir -p /tmp/build\\ncat \\u003c\\u003cEOF \\u003e /tmp/build/go.mod\\nmodule openshift/managed-cluster-config/sre-build-test\\n\\ngo 1.17\\nEOF\\ncat \\u003c\\u003cEOF \\u003e /tmp/build/main.go\\npackage main\\nimport (\\n       \\\"fmt\\\"\\n)\\n\\nfunc main() {\\n        fmt.Println(\\\"Hello Openshift SRE :)\\\")\\n}\\nEOF\\n\\nwhile ! oc -n \\\"${NS}\\\" start-build \\\"${JOB_PREFIX}\\\" --from-dir=/tmp/build\\ndo\\n  echo \\\"Failed to start build, retrying in 15 seconds.\\\"\\n  sleep 15s\\ndone\\n\\necho \\\"$(date): Waiting for build to complete.\\\"\\nwhile :\\ndo\\n  ST=$(oc -n \\\"${NS}\\\" get build -o custom-columns=STATUS:.status.phase --sort-by=.status.startTimestamp --no-headers | tail -1)\\n  case ${ST} in\\n    \\\"\\\")\\n      # if build status is blank, assume we are still starting the build\\n      ST=\\\"Starting\\\"\\n      ;;\\n    Failed)\\n      echo \\\"$(date): Build Failed\\\" \\u003e\\u00262\\n      oc logs -n \\\"${NS}\\\" -c build \\\"${JOB_PREFIX}\\\"\\n      exit 1\\n      ;;\\n    Cancelled)\\n      echo \\\"$(date): Build was Cancelled\\\" \\u003e\\u00262\\n      oc logs -n \\\"${NS}\\\" -c build \\\"${JOB_PREFIX}\\\"\\n      exit 1\\n      ;;\\n    Complete)\\n      echo \\\"$(date): Build Complete\\\"\\n      JOBS_TO_DELETE=$(oc get jobs -n \\\"${POD_NS}\\\" --sort-by=.status.startTime -o custom-columns=\\\":metadata.name\\\" --no-headers|head -n -1)\\n      if [[ -n \\\"${JOBS_TO_DELETE}\\\" ]] ; then\\n        echo \\\"$(date): Selected jobs for deletion: ${JOBS_TO_DELETE}\\\"\\n        echo \\\"${JOBS_TO_DELETE}\\\" | xargs oc -n \\\"${POD_NS}\\\" delete job --ignore-not-found --wait=false\\n      fi\\n\\n      # clean up any old namespaces, other than the current one\\n      echo \\\"$(date): Cleaning up old namespaces\\\"\\n      oc delete ns -l \\\"managed.openshift.io/sre-build-test,kubernetes.io/metadata.name!=${NS}\\\" --ignore-not-found --wait=false\\n      break\\n      ;;\\n  esac\\n  echo \\\"$(date): Build is ${ST}; checking build again in 15 seconds, NS=${NS}\\\"\\n  sleep 15\\ndone\\nexit 0\\n\"],\"env\":[{\"name\":\"POD_NAME\",\"valueFrom\":{\"fieldRef\":{\"fieldPath\":\"metadata.name\"}}},{\"name\":\"POD_NS\",\"valueFrom\":{\"fieldRef\":{\"fieldPath\":\"metadata.namespace\"}}}],\"image\":\"image-registry.openshift-image-registry.svc:5000/openshift/cli:latest\",\"imagePullPolicy\":\"Always\",\"name\":\"sre-build-test\"}],\"restartPolicy\":\"Never\",\"serviceAccountName\":\"sre-build-test\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]}},\"ttlSecondsAfterFinished\":86400}},\"schedule\":\"11 * * * *\",\"successfulJobsHistoryLimit\":3}}\n"
+        },
+        "managedFields": [
+          {
+            "manager": "Go-http-client",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-25T08:10:46Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:hive.openshift.io/managed": {}
+                }
+              },
+              "f:spec": {
+                "f:concurrencyPolicy": {},
+                "f:failedJobsHistoryLimit": {},
+                "f:jobTemplate": {
+                  "f:spec": {
+                    "f:activeDeadlineSeconds": {},
+                    "f:template": {
+                      "f:spec": {
+                        "f:affinity": {
+                          ".": {},
+                          "f:nodeAffinity": {
+                            ".": {},
+                            "f:requiredDuringSchedulingIgnoredDuringExecution": {}
+                          }
+                        },
+                        "f:containers": {
+                          "k:{\"name\":\"sre-build-test\"}": {
+                            ".": {},
+                            "f:command": {},
+                            "f:env": {
+                              ".": {},
+                              "k:{\"name\":\"POD_NAME\"}": {
+                                ".": {},
+                                "f:name": {},
+                                "f:valueFrom": {
+                                  ".": {},
+                                  "f:fieldRef": {}
+                                }
+                              },
+                              "k:{\"name\":\"POD_NS\"}": {
+                                ".": {},
+                                "f:name": {},
+                                "f:valueFrom": {
+                                  ".": {},
+                                  "f:fieldRef": {}
+                                }
+                              }
+                            },
+                            "f:image": {},
+                            "f:imagePullPolicy": {},
+                            "f:name": {},
+                            "f:resources": {},
+                            "f:terminationMessagePath": {},
+                            "f:terminationMessagePolicy": {}
+                          }
+                        },
+                        "f:dnsPolicy": {},
+                        "f:restartPolicy": {},
+                        "f:schedulerName": {},
+                        "f:securityContext": {},
+                        "f:serviceAccount": {},
+                        "f:serviceAccountName": {},
+                        "f:terminationGracePeriodSeconds": {},
+                        "f:tolerations": {}
+                      }
+                    },
+                    "f:ttlSecondsAfterFinished": {}
+                  }
+                },
+                "f:schedule": {},
+                "f:successfulJobsHistoryLimit": {},
+                "f:suspend": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-29T11:12:16Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:lastScheduleTime": {},
+                "f:lastSuccessfulTime": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "schedule": "11 * * * *",
+        "concurrencyPolicy": "Forbid",
+        "suspend": false,
+        "jobTemplate": {
+          "metadata": {
+            "creationTimestamp": null
+          },
+          "spec": {
+            "activeDeadlineSeconds": 900,
+            "template": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "containers": [
+                  {
+                    "name": "sre-build-test",
+                    "image": "image-registry.openshift-image-registry.svc:5000/openshift/cli:latest",
+                    "command": [
+                      "/bin/bash",
+                      "-c",
+                      "# ensure we fail if something exits non-zero\nset -o errexit\nset -o nounset\n\n# set NS to include job name, to ease linking namespace to a specific job\nJOB_PREFIX=sre-build-test\nNS=\"${POD_NS}-${POD_NAME##${JOB_PREFIX}-}\"\nJOB_NAME=$(echo \"${POD_NAME}\" | rev | cut -d- -f2- | rev)\n\n# cleanup traps on exiting, so these always run\ncleanup () {\n  echo \"$(date): Done, deleting build NS=$NS\"\n  oc delete ns \"${NS}\" --wait=false\n}\ntrap \"cleanup\" EXIT SIGINT\n\n# create ns\noc create -f - <<EOF\napiVersion: v1\nkind: Namespace\nmetadata:\n  name: \"${NS}\"\n  managed.openshift.io/sre-build-test: \"${JOB_NAME}\"\nEOF\n\n# wait for serviceaccount to be created\nuntil oc -n \"${NS}\" get serviceaccounts default >/dev/null; do\n  echo \"$(date): Waiting for service account to be created\"\n  sleep 5\ndone\n\n# wait for rolebindings needed for build to be created\n until (oc -n \"${NS}\" get rolebindings system:deployers >/dev/null) && (oc -n \"${NS}\" get rolebindings system:image-builders >/dev/null) && (oc -n \"${NS}\" get rolebindings system:image-pullers >/dev/null); do\n   echo \"$(date): Waiting for rolebindings to be created\"\n   sleep 5\n done\n\n# run build\noc -n \"${NS}\" new-build --name=\"${JOB_PREFIX}\" --binary --strategy source --docker-image registry.redhat.io/ubi8/go-toolset:1.17.7-13\nmkdir -p /tmp/build\ncat <<EOF > /tmp/build/go.mod\nmodule openshift/managed-cluster-config/sre-build-test\n\ngo 1.17\nEOF\ncat <<EOF > /tmp/build/main.go\npackage main\nimport (\n       \"fmt\"\n)\n\nfunc main() {\n        fmt.Println(\"Hello Openshift SRE :)\")\n}\nEOF\n\nwhile ! oc -n \"${NS}\" start-build \"${JOB_PREFIX}\" --from-dir=/tmp/build\ndo\n  echo \"Failed to start build, retrying in 15 seconds.\"\n  sleep 15s\ndone\n\necho \"$(date): Waiting for build to complete.\"\nwhile :\ndo\n  ST=$(oc -n \"${NS}\" get build -o custom-columns=STATUS:.status.phase --sort-by=.status.startTimestamp --no-headers | tail -1)\n  case ${ST} in\n    \"\")\n      # if build status is blank, assume we are still starting the build\n      ST=\"Starting\"\n      ;;\n    Failed)\n      echo \"$(date): Build Failed\" >&2\n      oc logs -n \"${NS}\" -c build \"${JOB_PREFIX}\"\n      exit 1\n      ;;\n    Cancelled)\n      echo \"$(date): Build was Cancelled\" >&2\n      oc logs -n \"${NS}\" -c build \"${JOB_PREFIX}\"\n      exit 1\n      ;;\n    Complete)\n      echo \"$(date): Build Complete\"\n      JOBS_TO_DELETE=$(oc get jobs -n \"${POD_NS}\" --sort-by=.status.startTime -o custom-columns=\":metadata.name\" --no-headers|head -n -1)\n      if [[ -n \"${JOBS_TO_DELETE}\" ]] ; then\n        echo \"$(date): Selected jobs for deletion: ${JOBS_TO_DELETE}\"\n        echo \"${JOBS_TO_DELETE}\" | xargs oc -n \"${POD_NS}\" delete job --ignore-not-found --wait=false\n      fi\n\n      # clean up any old namespaces, other than the current one\n      echo \"$(date): Cleaning up old namespaces\"\n      oc delete ns -l \"managed.openshift.io/sre-build-test,kubernetes.io/metadata.name!=${NS}\" --ignore-not-found --wait=false\n      break\n      ;;\n  esac\n  echo \"$(date): Build is ${ST}; checking build again in 15 seconds, NS=${NS}\"\n  sleep 15\ndone\nexit 0\n"
+                    ],
+                    "env": [
+                      {
+                        "name": "POD_NAME",
+                        "valueFrom": {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.name"
+                          }
+                        }
+                      },
+                      {
+                        "name": "POD_NS",
+                        "valueFrom": {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          }
+                        }
+                      }
+                    ],
+                    "resources": {},
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "File",
+                    "imagePullPolicy": "Always"
+                  }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "sre-build-test",
+                "serviceAccount": "sre-build-test",
+                "securityContext": {},
+                "affinity": {
+                  "nodeAffinity": {
+                    "requiredDuringSchedulingIgnoredDuringExecution": {
+                      "nodeSelectorTerms": [
+                        {
+                          "matchExpressions": [
+                            {
+                              "key": "node-role.kubernetes.io/infra",
+                              "operator": "Exists"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schedulerName": "default-scheduler",
+                "tolerations": [
+                  {
+                    "key": "node-role.kubernetes.io/infra",
+                    "operator": "Exists",
+                    "effect": "NoSchedule"
+                  }
+                ]
+              }
+            },
+            "ttlSecondsAfterFinished": 86400
+          }
+        },
+        "successfulJobsHistoryLimit": 3,
+        "failedJobsHistoryLimit": 5
+      },
+      "status": {
+        "lastScheduleTime": "2023-08-29T11:11:00Z",
+        "lastSuccessfulTime": "2023-08-29T11:12:16Z"
+      }
+    },
+    {
+      "metadata": {
+        "name": "image-pruner",
+        "namespace": "openshift-image-registry",
+        "uid": "06db0933-76ad-49eb-ab54-d130ab4963b3",
+        "resourceVersion": "3185665",
+        "generation": 3,
+        "creationTimestamp": "2023-08-25T07:45:56Z",
+        "annotations": {
+          "imageregistry.operator.openshift.io/checksum": "sha256:69349362b8837a919a6b4e390b1e8af4cba3af3fbfbbe2cfc5cda798e02879ba"
+        },
+        "managedFields": [
+          {
+            "manager": "cluster-image-registry-operator",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-25T08:00:54Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:imageregistry.operator.openshift.io/checksum": {}
+                }
+              },
+              "f:spec": {
+                "f:concurrencyPolicy": {},
+                "f:failedJobsHistoryLimit": {},
+                "f:jobTemplate": {
+                  "f:metadata": {
+                    "f:labels": {
+                      ".": {},
+                      "f:created-by": {}
+                    }
+                  },
+                  "f:spec": {
+                    "f:backoffLimit": {},
+                    "f:template": {
+                      "f:spec": {
+                        "f:affinity": {
+                          ".": {},
+                          "f:nodeAffinity": {
+                            ".": {},
+                            "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                          }
+                        },
+                        "f:containers": {
+                          "k:{\"name\":\"image-pruner\"}": {
+                            ".": {},
+                            "f:args": {},
+                            "f:command": {},
+                            "f:image": {},
+                            "f:imagePullPolicy": {},
+                            "f:name": {},
+                            "f:resources": {
+                              ".": {},
+                              "f:requests": {
+                                ".": {},
+                                "f:cpu": {},
+                                "f:memory": {}
+                              }
+                            },
+                            "f:terminationMessagePath": {},
+                            "f:terminationMessagePolicy": {},
+                            "f:volumeMounts": {
+                              ".": {},
+                              "k:{\"mountPath\":\"/var/run/configmaps/serviceca\"}": {
+                                ".": {},
+                                "f:mountPath": {},
+                                "f:name": {},
+                                "f:readOnly": {}
+                              }
+                            }
+                          }
+                        },
+                        "f:dnsPolicy": {},
+                        "f:priorityClassName": {},
+                        "f:restartPolicy": {},
+                        "f:schedulerName": {},
+                        "f:securityContext": {},
+                        "f:serviceAccount": {},
+                        "f:serviceAccountName": {},
+                        "f:terminationGracePeriodSeconds": {},
+                        "f:tolerations": {},
+                        "f:volumes": {
+                          ".": {},
+                          "k:{\"name\":\"serviceca\"}": {
+                            ".": {},
+                            "f:configMap": {
+                              ".": {},
+                              "f:defaultMode": {},
+                              "f:name": {}
+                            },
+                            "f:name": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "f:schedule": {},
+                "f:startingDeadlineSeconds": {},
+                "f:successfulJobsHistoryLimit": {},
+                "f:suspend": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-29T11:00:09Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:lastScheduleTime": {},
+                "f:lastSuccessfulTime": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "schedule": "0 */1 * * *",
+        "startingDeadlineSeconds": 3600,
+        "concurrencyPolicy": "Forbid",
+        "suspend": false,
+        "jobTemplate": {
+          "metadata": {
+            "creationTimestamp": null,
+            "labels": {
+              "created-by": "image-pruner"
+            }
+          },
+          "spec": {
+            "backoffLimit": 0,
+            "template": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "volumes": [
+                  {
+                    "name": "serviceca",
+                    "configMap": {
+                      "name": "serviceca",
+                      "defaultMode": 420
+                    }
+                  }
+                ],
+                "containers": [
+                  {
+                    "name": "image-pruner",
+                    "image": "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:878b31040c88f3eb56ca2bd2d77fa29128dad732850dd3fe779037ec9643bf02",
+                    "command": [
+                      "/bin/sh"
+                    ],
+                    "args": [
+                      "-c",
+                      "set -eu\n\"$@\" && exit\nfor i in 1 2 3 4 5; do\n  echo \"attempt #$i has failed (exit code $?), going to make another attempt...\" >&2\n  sleep $(($i * 30))\n  \"$@\" && break  # this is the last command of the script, so its last failure will be exit code of the script\ndone\n",
+                      "arg0",
+                      "oc",
+                      "adm",
+                      "prune",
+                      "images",
+                      "--confirm=true",
+                      "--certificate-authority=/var/run/configmaps/serviceca/service-ca.crt",
+                      "--keep-tag-revisions=3",
+                      "--keep-younger-than=24h0m0s",
+                      "--ignore-invalid-refs=true",
+                      "--loglevel=1",
+                      "--prune-registry=true",
+                      "--registry-url=https://image-registry.openshift-image-registry.svc:5000"
+                    ],
+                    "resources": {
+                      "requests": {
+                        "cpu": "100m",
+                        "memory": "256Mi"
+                      }
+                    },
+                    "volumeMounts": [
+                      {
+                        "name": "serviceca",
+                        "readOnly": true,
+                        "mountPath": "/var/run/configmaps/serviceca"
+                      }
+                    ],
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "FallbackToLogsOnError",
+                    "imagePullPolicy": "IfNotPresent"
+                  }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "pruner",
+                "serviceAccount": "pruner",
+                "securityContext": {},
+                "affinity": {
+                  "nodeAffinity": {
+                    "preferredDuringSchedulingIgnoredDuringExecution": [
+                      {
+                        "weight": 1,
+                        "preference": {
+                          "matchExpressions": [
+                            {
+                              "key": "node-role.kubernetes.io/infra",
+                              "operator": "Exists"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "schedulerName": "default-scheduler",
+                "tolerations": [
+                  {
+                    "key": "node-role.kubernetes.io/infra",
+                    "operator": "Exists",
+                    "effect": "NoSchedule"
+                  }
+                ],
+                "priorityClassName": "system-cluster-critical"
+              }
+            }
+          }
+        },
+        "successfulJobsHistoryLimit": 3,
+        "failedJobsHistoryLimit": 3
+      },
+      "status": {
+        "lastScheduleTime": "2023-08-29T11:00:00Z",
+        "lastSuccessfulTime": "2023-08-29T11:00:09Z"
+      }
+    },
+    {
+      "metadata": {
+        "name": "osd-disable-cpms",
+        "namespace": "openshift-machine-api",
+        "uid": "f1f82619-c226-4eb2-984b-e46e6c8c28e3",
+        "resourceVersion": "3214154",
+        "generation": 1,
+        "creationTimestamp": "2023-08-25T08:00:41Z",
+        "labels": {
+          "hive.openshift.io/managed": "true"
+        },
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"CronJob\",\"metadata\":{\"annotations\":{},\"labels\":{\"hive.openshift.io/managed\":\"true\"},\"name\":\"osd-disable-cpms\",\"namespace\":\"openshift-machine-api\"},\"spec\":{\"concurrencyPolicy\":\"Replace\",\"failedJobsHistoryLimit\":3,\"jobTemplate\":{\"spec\":{\"template\":{\"spec\":{\"affinity\":{\"nodeAffinity\":{\"preferredDuringSchedulingIgnoredDuringExecution\":[{\"preference\":{\"matchExpressions\":[{\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]},\"weight\":1}]}},\"containers\":[{\"args\":[\"/bin/bash\",\"-c\",\"# the appropriate way to disable CPMS is to delete the CPMS CR.\\noc delete controlplanemachineset.machine.openshift.io/cluster -n openshift-machine-api --ignore-not-found\\n\"],\"image\":\"image-registry.openshift-image-registry.svc:5000/openshift/cli:latest\",\"imagePullPolicy\":\"Always\",\"name\":\"osd-disable-cpms\"}],\"restartPolicy\":\"Never\",\"serviceAccountName\":\"osd-disable-cpms\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]}},\"ttlSecondsAfterFinished\":180}},\"schedule\":\"*/15 * * * *\",\"successfulJobsHistoryLimit\":1}}\n"
+        },
+        "managedFields": [
+          {
+            "manager": "manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-25T08:00:41Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:hive.openshift.io/managed": {}
+                }
+              },
+              "f:spec": {
+                "f:concurrencyPolicy": {},
+                "f:failedJobsHistoryLimit": {},
+                "f:jobTemplate": {
+                  "f:spec": {
+                    "f:template": {
+                      "f:spec": {
+                        "f:affinity": {
+                          ".": {},
+                          "f:nodeAffinity": {
+                            ".": {},
+                            "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                          }
+                        },
+                        "f:containers": {
+                          "k:{\"name\":\"osd-disable-cpms\"}": {
+                            ".": {},
+                            "f:args": {},
+                            "f:image": {},
+                            "f:imagePullPolicy": {},
+                            "f:name": {},
+                            "f:resources": {},
+                            "f:terminationMessagePath": {},
+                            "f:terminationMessagePolicy": {}
+                          }
+                        },
+                        "f:dnsPolicy": {},
+                        "f:restartPolicy": {},
+                        "f:schedulerName": {},
+                        "f:securityContext": {},
+                        "f:serviceAccount": {},
+                        "f:serviceAccountName": {},
+                        "f:terminationGracePeriodSeconds": {},
+                        "f:tolerations": {}
+                      }
+                    },
+                    "f:ttlSecondsAfterFinished": {}
+                  }
+                },
+                "f:schedule": {},
+                "f:successfulJobsHistoryLimit": {},
+                "f:suspend": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-29T11:45:05Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:lastScheduleTime": {},
+                "f:lastSuccessfulTime": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "schedule": "*/15 * * * *",
+        "concurrencyPolicy": "Replace",
+        "suspend": false,
+        "jobTemplate": {
+          "metadata": {
+            "creationTimestamp": null
+          },
+          "spec": {
+            "template": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "containers": [
+                  {
+                    "name": "osd-disable-cpms",
+                    "image": "image-registry.openshift-image-registry.svc:5000/openshift/cli:latest",
+                    "args": [
+                      "/bin/bash",
+                      "-c",
+                      "# the appropriate way to disable CPMS is to delete the CPMS CR.\noc delete controlplanemachineset.machine.openshift.io/cluster -n openshift-machine-api --ignore-not-found\n"
+                    ],
+                    "resources": {},
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "File",
+                    "imagePullPolicy": "Always"
+                  }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "osd-disable-cpms",
+                "serviceAccount": "osd-disable-cpms",
+                "securityContext": {},
+                "affinity": {
+                  "nodeAffinity": {
+                    "preferredDuringSchedulingIgnoredDuringExecution": [
+                      {
+                        "weight": 1,
+                        "preference": {
+                          "matchExpressions": [
+                            {
+                              "key": "node-role.kubernetes.io/infra",
+                              "operator": "Exists"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "schedulerName": "default-scheduler",
+                "tolerations": [
+                  {
+                    "key": "node-role.kubernetes.io/infra",
+                    "operator": "Exists",
+                    "effect": "NoSchedule"
+                  }
+                ]
+              }
+            },
+            "ttlSecondsAfterFinished": 180
+          }
+        },
+        "successfulJobsHistoryLimit": 1,
+        "failedJobsHistoryLimit": 3
+      },
+      "status": {
+        "lastScheduleTime": "2023-08-29T11:45:00Z",
+        "lastSuccessfulTime": "2023-08-29T11:45:05Z"
+      }
+    },
+    {
+      "metadata": {
+        "name": "osd-patch-subscription-source",
+        "namespace": "openshift-marketplace",
+        "uid": "d91718d6-7d13-4710-bba9-edb564723fc9",
+        "resourceVersion": "3185664",
+        "generation": 1,
+        "creationTimestamp": "2023-08-25T08:00:43Z",
+        "labels": {
+          "hive.openshift.io/managed": "true"
+        },
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"CronJob\",\"metadata\":{\"annotations\":{},\"labels\":{\"hive.openshift.io/managed\":\"true\"},\"name\":\"osd-patch-subscription-source\",\"namespace\":\"openshift-marketplace\"},\"spec\":{\"concurrencyPolicy\":\"Replace\",\"failedJobsHistoryLimit\":5,\"jobTemplate\":{\"spec\":{\"template\":{\"spec\":{\"affinity\":{\"nodeAffinity\":{\"preferredDuringSchedulingIgnoredDuringExecution\":[{\"preference\":{\"matchExpressions\":[{\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]},\"weight\":1}]}},\"containers\":[{\"args\":[\"/bin/bash\",\"-c\",\"# Script run as an idempotent cronjob to fix existing subscriptions when disabling OSD operator curation.\\n\\n# for each type of source (redhat, certified, communit)\\n# AND for each namespace having a subscription with a curated community source\\n# AND for each subscription having a curated source\\n# patch the source\\n# NOTE there are loops for each source to keep the jsonpath simple and the logic easy to read\\n\\necho START\\nfor NS in $(oc get subscription -A -o jsonpath='{.items[?(@.spec.source==\\\"osd-curated-redhat-operators\\\")].metadata.namespace}');\\ndo\\n  for SUB in $(oc -n $NS get subscription -o jsonpath='{.items[?(@.spec.source==\\\"osd-curated-redhat-operators\\\")].metadata.name}');\\n  do\\n    echo \\\"Patching subscription '$SUB' in namespace '$NS'\\\"\\n    oc -n $NS patch subscription $SUB --patch '{\\\"spec\\\":{\\\"source\\\":\\\"redhat-operators\\\"}}' --type merge\\n  done\\ndone\\n\\nfor NS in $(oc get subscription -A -o jsonpath='{.items[?(@.spec.source==\\\"osd-curated-certified-operators\\\")].metadata.namespace}');\\ndo\\n  for SUB in $(oc -n $NS get subscription -o jsonpath='{.items[?(@.spec.source==\\\"osd-curated-certified-operators\\\")].metadata.name}');\\n  do\\n    echo \\\"Patching subscription '$SUB' in namespace '$NS'\\\"\\n    oc -n $NS patch subscription $SUB --patch '{\\\"spec\\\":{\\\"source\\\":\\\"certified-operators\\\"}}' --type merge\\n  done\\ndone\\n\\nfor NS in $(oc get subscription -A -o jsonpath='{.items[?(@.spec.source==\\\"osd-curated-community-operators\\\")].metadata.namespace}');\\ndo\\n  for SUB in $(oc -n $NS get subscription -o jsonpath='{.items[?(@.spec.source==\\\"osd-curated-community-operators\\\")].metadata.name}');\\n  do\\n    echo \\\"Patching subscription '$SUB' in namespace '$NS'\\\"\\n    oc -n $NS patch subscription $SUB --patch '{\\\"spec\\\":{\\\"source\\\":\\\"community-operators\\\"}}' --type merge\\n  done\\ndone\\necho FINISH\\n\"],\"image\":\"image-registry.openshift-image-registry.svc:5000/openshift/cli:latest\",\"imagePullPolicy\":\"Always\",\"name\":\"osd-patch-subscription-source\"}],\"restartPolicy\":\"Never\",\"serviceAccountName\":\"osd-patch-subscription-source\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]}},\"ttlSecondsAfterFinished\":86400}},\"schedule\":\"0 */1 * * *\",\"successfulJobsHistoryLimit\":3}}\n"
+        },
+        "managedFields": [
+          {
+            "manager": "manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-25T08:00:43Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:hive.openshift.io/managed": {}
+                }
+              },
+              "f:spec": {
+                "f:concurrencyPolicy": {},
+                "f:failedJobsHistoryLimit": {},
+                "f:jobTemplate": {
+                  "f:spec": {
+                    "f:template": {
+                      "f:spec": {
+                        "f:affinity": {
+                          ".": {},
+                          "f:nodeAffinity": {
+                            ".": {},
+                            "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                          }
+                        },
+                        "f:containers": {
+                          "k:{\"name\":\"osd-patch-subscription-source\"}": {
+                            ".": {},
+                            "f:args": {},
+                            "f:image": {},
+                            "f:imagePullPolicy": {},
+                            "f:name": {},
+                            "f:resources": {},
+                            "f:terminationMessagePath": {},
+                            "f:terminationMessagePolicy": {}
+                          }
+                        },
+                        "f:dnsPolicy": {},
+                        "f:restartPolicy": {},
+                        "f:schedulerName": {},
+                        "f:securityContext": {},
+                        "f:serviceAccount": {},
+                        "f:serviceAccountName": {},
+                        "f:terminationGracePeriodSeconds": {},
+                        "f:tolerations": {}
+                      }
+                    },
+                    "f:ttlSecondsAfterFinished": {}
+                  }
+                },
+                "f:schedule": {},
+                "f:successfulJobsHistoryLimit": {},
+                "f:suspend": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-29T11:00:09Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:lastScheduleTime": {},
+                "f:lastSuccessfulTime": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "schedule": "0 */1 * * *",
+        "concurrencyPolicy": "Replace",
+        "suspend": false,
+        "jobTemplate": {
+          "metadata": {
+            "creationTimestamp": null
+          },
+          "spec": {
+            "template": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "containers": [
+                  {
+                    "name": "osd-patch-subscription-source",
+                    "image": "image-registry.openshift-image-registry.svc:5000/openshift/cli:latest",
+                    "args": [
+                      "/bin/bash",
+                      "-c",
+                      "# Script run as an idempotent cronjob to fix existing subscriptions when disabling OSD operator curation.\n\n# for each type of source (redhat, certified, communit)\n# AND for each namespace having a subscription with a curated community source\n# AND for each subscription having a curated source\n# patch the source\n# NOTE there are loops for each source to keep the jsonpath simple and the logic easy to read\n\necho START\nfor NS in $(oc get subscription -A -o jsonpath='{.items[?(@.spec.source==\"osd-curated-redhat-operators\")].metadata.namespace}');\ndo\n  for SUB in $(oc -n $NS get subscription -o jsonpath='{.items[?(@.spec.source==\"osd-curated-redhat-operators\")].metadata.name}');\n  do\n    echo \"Patching subscription '$SUB' in namespace '$NS'\"\n    oc -n $NS patch subscription $SUB --patch '{\"spec\":{\"source\":\"redhat-operators\"}}' --type merge\n  done\ndone\n\nfor NS in $(oc get subscription -A -o jsonpath='{.items[?(@.spec.source==\"osd-curated-certified-operators\")].metadata.namespace}');\ndo\n  for SUB in $(oc -n $NS get subscription -o jsonpath='{.items[?(@.spec.source==\"osd-curated-certified-operators\")].metadata.name}');\n  do\n    echo \"Patching subscription '$SUB' in namespace '$NS'\"\n    oc -n $NS patch subscription $SUB --patch '{\"spec\":{\"source\":\"certified-operators\"}}' --type merge\n  done\ndone\n\nfor NS in $(oc get subscription -A -o jsonpath='{.items[?(@.spec.source==\"osd-curated-community-operators\")].metadata.namespace}');\ndo\n  for SUB in $(oc -n $NS get subscription -o jsonpath='{.items[?(@.spec.source==\"osd-curated-community-operators\")].metadata.name}');\n  do\n    echo \"Patching subscription '$SUB' in namespace '$NS'\"\n    oc -n $NS patch subscription $SUB --patch '{\"spec\":{\"source\":\"community-operators\"}}' --type merge\n  done\ndone\necho FINISH\n"
+                    ],
+                    "resources": {},
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "File",
+                    "imagePullPolicy": "Always"
+                  }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "osd-patch-subscription-source",
+                "serviceAccount": "osd-patch-subscription-source",
+                "securityContext": {},
+                "affinity": {
+                  "nodeAffinity": {
+                    "preferredDuringSchedulingIgnoredDuringExecution": [
+                      {
+                        "weight": 1,
+                        "preference": {
+                          "matchExpressions": [
+                            {
+                              "key": "node-role.kubernetes.io/infra",
+                              "operator": "Exists"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "schedulerName": "default-scheduler",
+                "tolerations": [
+                  {
+                    "key": "node-role.kubernetes.io/infra",
+                    "operator": "Exists",
+                    "effect": "NoSchedule"
+                  }
+                ]
+              }
+            },
+            "ttlSecondsAfterFinished": 86400
+          }
+        },
+        "successfulJobsHistoryLimit": 3,
+        "failedJobsHistoryLimit": 5
+      },
+      "status": {
+        "lastScheduleTime": "2023-08-29T11:00:00Z",
+        "lastSuccessfulTime": "2023-08-29T11:00:09Z"
+      }
+    },
+    {
+      "metadata": {
+        "name": "osd-rebalance-infra-nodes",
+        "namespace": "openshift-monitoring",
+        "uid": "8c319458-630f-4940-ac4c-89ba3910aa74",
+        "resourceVersion": "3214239",
+        "generation": 1,
+        "creationTimestamp": "2023-08-25T08:00:59Z",
+        "labels": {
+          "hive.openshift.io/managed": "true"
+        },
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"CronJob\",\"metadata\":{\"annotations\":{},\"labels\":{\"hive.openshift.io/managed\":\"true\"},\"name\":\"osd-rebalance-infra-nodes\",\"namespace\":\"openshift-monitoring\"},\"spec\":{\"concurrencyPolicy\":\"Replace\",\"failedJobsHistoryLimit\":3,\"jobTemplate\":{\"spec\":{\"template\":{\"spec\":{\"affinity\":{\"nodeAffinity\":{\"preferredDuringSchedulingIgnoredDuringExecution\":[{\"preference\":{\"matchExpressions\":[{\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]},\"weight\":1}]}},\"containers\":[{\"command\":[\"/bin/sh\",\"-c\",\"/etc/config/entrypoint\"],\"image\":\"image-registry.openshift-image-registry.svc:5000/openshift/cli:latest\",\"name\":\"osd-rebalance-infra-nodes\",\"volumeMounts\":[{\"mountPath\":\"/etc/config\",\"name\":\"osd-rebalance-infra-nodes\",\"readOnly\":true}]}],\"restartPolicy\":\"Never\",\"serviceAccountName\":\"osd-rebalance-infra-nodes\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}],\"volumes\":[{\"configMap\":{\"defaultMode\":493,\"name\":\"osd-rebalance-infra-nodes\"},\"name\":\"osd-rebalance-infra-nodes\"}]}},\"ttlSecondsAfterFinished\":86400}},\"schedule\":\"*/15 * * * *\",\"successfulJobsHistoryLimit\":3}}\n"
+        },
+        "managedFields": [
+          {
+            "manager": "Go-http-client",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-25T08:00:59Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:hive.openshift.io/managed": {}
+                }
+              },
+              "f:spec": {
+                "f:concurrencyPolicy": {},
+                "f:failedJobsHistoryLimit": {},
+                "f:jobTemplate": {
+                  "f:spec": {
+                    "f:template": {
+                      "f:spec": {
+                        "f:affinity": {
+                          ".": {},
+                          "f:nodeAffinity": {
+                            ".": {},
+                            "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                          }
+                        },
+                        "f:containers": {
+                          "k:{\"name\":\"osd-rebalance-infra-nodes\"}": {
+                            ".": {},
+                            "f:command": {},
+                            "f:image": {},
+                            "f:imagePullPolicy": {},
+                            "f:name": {},
+                            "f:resources": {},
+                            "f:terminationMessagePath": {},
+                            "f:terminationMessagePolicy": {},
+                            "f:volumeMounts": {
+                              ".": {},
+                              "k:{\"mountPath\":\"/etc/config\"}": {
+                                ".": {},
+                                "f:mountPath": {},
+                                "f:name": {},
+                                "f:readOnly": {}
+                              }
+                            }
+                          }
+                        },
+                        "f:dnsPolicy": {},
+                        "f:restartPolicy": {},
+                        "f:schedulerName": {},
+                        "f:securityContext": {},
+                        "f:serviceAccount": {},
+                        "f:serviceAccountName": {},
+                        "f:terminationGracePeriodSeconds": {},
+                        "f:tolerations": {},
+                        "f:volumes": {
+                          ".": {},
+                          "k:{\"name\":\"osd-rebalance-infra-nodes\"}": {
+                            ".": {},
+                            "f:configMap": {
+                              ".": {},
+                              "f:defaultMode": {},
+                              "f:name": {}
+                            },
+                            "f:name": {}
+                          }
+                        }
+                      }
+                    },
+                    "f:ttlSecondsAfterFinished": {}
+                  }
+                },
+                "f:schedule": {},
+                "f:successfulJobsHistoryLimit": {},
+                "f:suspend": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-29T11:45:10Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:lastScheduleTime": {},
+                "f:lastSuccessfulTime": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "schedule": "*/15 * * * *",
+        "concurrencyPolicy": "Replace",
+        "suspend": false,
+        "jobTemplate": {
+          "metadata": {
+            "creationTimestamp": null
+          },
+          "spec": {
+            "template": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "volumes": [
+                  {
+                    "name": "osd-rebalance-infra-nodes",
+                    "configMap": {
+                      "name": "osd-rebalance-infra-nodes",
+                      "defaultMode": 493
+                    }
+                  }
+                ],
+                "containers": [
+                  {
+                    "name": "osd-rebalance-infra-nodes",
+                    "image": "image-registry.openshift-image-registry.svc:5000/openshift/cli:latest",
+                    "command": [
+                      "/bin/sh",
+                      "-c",
+                      "/etc/config/entrypoint"
+                    ],
+                    "resources": {},
+                    "volumeMounts": [
+                      {
+                        "name": "osd-rebalance-infra-nodes",
+                        "readOnly": true,
+                        "mountPath": "/etc/config"
+                      }
+                    ],
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "File",
+                    "imagePullPolicy": "Always"
+                  }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "osd-rebalance-infra-nodes",
+                "serviceAccount": "osd-rebalance-infra-nodes",
+                "securityContext": {},
+                "affinity": {
+                  "nodeAffinity": {
+                    "preferredDuringSchedulingIgnoredDuringExecution": [
+                      {
+                        "weight": 1,
+                        "preference": {
+                          "matchExpressions": [
+                            {
+                              "key": "node-role.kubernetes.io/infra",
+                              "operator": "Exists"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "schedulerName": "default-scheduler",
+                "tolerations": [
+                  {
+                    "key": "node-role.kubernetes.io/infra",
+                    "operator": "Exists",
+                    "effect": "NoSchedule"
+                  }
+                ]
+              }
+            },
+            "ttlSecondsAfterFinished": 86400
+          }
+        },
+        "successfulJobsHistoryLimit": 3,
+        "failedJobsHistoryLimit": 3
+      },
+      "status": {
+        "lastScheduleTime": "2023-08-29T11:45:00Z",
+        "lastSuccessfulTime": "2023-08-29T11:45:10Z"
+      }
+    },
+    {
+      "metadata": {
+        "name": "collect-profiles",
+        "namespace": "openshift-operator-lifecycle-manager",
+        "uid": "7ccf67bd-ea56-467f-b2b8-fb06639b8849",
+        "resourceVersion": "3214166",
+        "generation": 1,
+        "creationTimestamp": "2023-08-25T07:42:19Z",
+        "annotations": {
+          "include.release.openshift.io/ibm-cloud-managed": "true",
+          "include.release.openshift.io/self-managed-high-availability": "true"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "config.openshift.io/v1",
+            "kind": "ClusterVersion",
+            "name": "version",
+            "uid": "1cb8eab9-9be7-4224-a79e-10836669e87c",
+            "controller": true
+          }
+        ],
+        "managedFields": [
+          {
+            "manager": "cluster-version-operator",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-25T07:42:19Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:include.release.openshift.io/ibm-cloud-managed": {},
+                  "f:include.release.openshift.io/self-managed-high-availability": {}
+                },
+                "f:ownerReferences": {
+                  ".": {},
+                  "k:{\"uid\":\"1cb8eab9-9be7-4224-a79e-10836669e87c\"}": {}
+                }
+              },
+              "f:spec": {
+                "f:concurrencyPolicy": {},
+                "f:failedJobsHistoryLimit": {},
+                "f:jobTemplate": {
+                  "f:spec": {
+                    "f:template": {
+                      "f:metadata": {
+                        "f:annotations": {
+                          ".": {},
+                          "f:target.workload.openshift.io/management": {}
+                        }
+                      },
+                      "f:spec": {
+                        "f:containers": {
+                          "k:{\"name\":\"collect-profiles\"}": {
+                            ".": {},
+                            "f:args": {},
+                            "f:command": {},
+                            "f:image": {},
+                            "f:imagePullPolicy": {},
+                            "f:name": {},
+                            "f:resources": {
+                              ".": {},
+                              "f:requests": {
+                                ".": {},
+                                "f:cpu": {},
+                                "f:memory": {}
+                              }
+                            },
+                            "f:securityContext": {
+                              ".": {},
+                              "f:allowPrivilegeEscalation": {},
+                              "f:capabilities": {
+                                ".": {},
+                                "f:drop": {}
+                              }
+                            },
+                            "f:terminationMessagePath": {},
+                            "f:terminationMessagePolicy": {},
+                            "f:volumeMounts": {
+                              ".": {},
+                              "k:{\"mountPath\":\"/etc/config\"}": {
+                                ".": {},
+                                "f:mountPath": {},
+                                "f:name": {}
+                              },
+                              "k:{\"mountPath\":\"/var/run/secrets/serving-cert\"}": {
+                                ".": {},
+                                "f:mountPath": {},
+                                "f:name": {}
+                              }
+                            }
+                          }
+                        },
+                        "f:dnsPolicy": {},
+                        "f:priorityClassName": {},
+                        "f:restartPolicy": {},
+                        "f:schedulerName": {},
+                        "f:securityContext": {
+                          ".": {},
+                          "f:runAsNonRoot": {},
+                          "f:seccompProfile": {
+                            ".": {},
+                            "f:type": {}
+                          }
+                        },
+                        "f:serviceAccount": {},
+                        "f:serviceAccountName": {},
+                        "f:terminationGracePeriodSeconds": {},
+                        "f:volumes": {
+                          ".": {},
+                          "k:{\"name\":\"config-volume\"}": {
+                            ".": {},
+                            "f:configMap": {
+                              ".": {},
+                              "f:defaultMode": {},
+                              "f:name": {}
+                            },
+                            "f:name": {}
+                          },
+                          "k:{\"name\":\"secret-volume\"}": {
+                            ".": {},
+                            "f:name": {},
+                            "f:secret": {
+                              ".": {},
+                              "f:defaultMode": {},
+                              "f:secretName": {}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "f:schedule": {},
+                "f:successfulJobsHistoryLimit": {},
+                "f:suspend": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-29T11:45:05Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:lastScheduleTime": {},
+                "f:lastSuccessfulTime": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "schedule": "*/15 * * * *",
+        "concurrencyPolicy": "Replace",
+        "suspend": false,
+        "jobTemplate": {
+          "metadata": {
+            "creationTimestamp": null
+          },
+          "spec": {
+            "template": {
+              "metadata": {
+                "creationTimestamp": null,
+                "annotations": {
+                  "target.workload.openshift.io/management": "{\"effect\": \"PreferredDuringScheduling\"}"
+                }
+              },
+              "spec": {
+                "volumes": [
+                  {
+                    "name": "config-volume",
+                    "configMap": {
+                      "name": "collect-profiles-config",
+                      "defaultMode": 420
+                    }
+                  },
+                  {
+                    "name": "secret-volume",
+                    "secret": {
+                      "secretName": "pprof-cert",
+                      "defaultMode": 420
+                    }
+                  }
+                ],
+                "containers": [
+                  {
+                    "name": "collect-profiles",
+                    "image": "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:eb84d29da4fa0252877a2fb9375ef8195726a0c92223ab8330e9c0795e0294c5",
+                    "command": [
+                      "bin/collect-profiles"
+                    ],
+                    "args": [
+                      "-n",
+                      "openshift-operator-lifecycle-manager",
+                      "--config-mount-path",
+                      "/etc/config",
+                      "--cert-mount-path",
+                      "/var/run/secrets/serving-cert",
+                      "olm-operator-heap-:https://olm-operator-metrics:8443/debug/pprof/heap",
+                      "catalog-operator-heap-:https://catalog-operator-metrics:8443/debug/pprof/heap"
+                    ],
+                    "resources": {
+                      "requests": {
+                        "cpu": "10m",
+                        "memory": "80Mi"
+                      }
+                    },
+                    "volumeMounts": [
+                      {
+                        "name": "config-volume",
+                        "mountPath": "/etc/config"
+                      },
+                      {
+                        "name": "secret-volume",
+                        "mountPath": "/var/run/secrets/serving-cert"
+                      }
+                    ],
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "File",
+                    "imagePullPolicy": "IfNotPresent",
+                    "securityContext": {
+                      "capabilities": {
+                        "drop": [
+                          "ALL"
+                        ]
+                      },
+                      "allowPrivilegeEscalation": false
+                    }
+                  }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "collect-profiles",
+                "serviceAccount": "collect-profiles",
+                "securityContext": {
+                  "runAsNonRoot": true,
+                  "seccompProfile": {
+                    "type": "RuntimeDefault"
+                  }
+                },
+                "schedulerName": "default-scheduler",
+                "priorityClassName": "openshift-user-critical"
+              }
+            }
+          }
+        },
+        "successfulJobsHistoryLimit": 3,
+        "failedJobsHistoryLimit": 1
+      },
+      "status": {
+        "lastScheduleTime": "2023-08-29T11:45:00Z",
+        "lastSuccessfulTime": "2023-08-29T11:45:05Z"
+      }
+    },
+    {
+      "metadata": {
+        "name": "builds-pruner",
+        "namespace": "openshift-sre-pruning",
+        "uid": "63e2d896-75ea-44c7-8dfd-f005c240817d",
+        "resourceVersion": "3185632",
+        "generation": 1,
+        "creationTimestamp": "2023-08-25T08:00:54Z",
+        "labels": {
+          "hive.openshift.io/managed": "true"
+        },
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"CronJob\",\"metadata\":{\"annotations\":{},\"labels\":{\"hive.openshift.io/managed\":\"true\"},\"name\":\"builds-pruner\",\"namespace\":\"openshift-sre-pruning\"},\"spec\":{\"concurrencyPolicy\":\"Replace\",\"failedJobsHistoryLimit\":5,\"jobTemplate\":{\"spec\":{\"template\":{\"spec\":{\"affinity\":{\"nodeAffinity\":{\"preferredDuringSchedulingIgnoredDuringExecution\":[{\"preference\":{\"matchExpressions\":[{\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]},\"weight\":1}]}},\"containers\":[{\"command\":[\"oc\",\"adm\",\"prune\",\"builds\",\"--keep-younger-than=24h\",\"--keep-complete=1\",\"--keep-failed=1\",\"--confirm\"],\"image\":\"image-registry.openshift-image-registry.svc:5000/openshift/cli:latest\",\"imagePullPolicy\":\"Always\",\"name\":\"builds-pruner\"}],\"restartPolicy\":\"Never\",\"serviceAccountName\":\"sre-pruner-sa\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]}},\"ttlSecondsAfterFinished\":86400}},\"schedule\":\"0 */1 * * *\",\"successfulJobsHistoryLimit\":3}}\n"
+        },
+        "managedFields": [
+          {
+            "manager": "manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-25T08:00:54Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:hive.openshift.io/managed": {}
+                }
+              },
+              "f:spec": {
+                "f:concurrencyPolicy": {},
+                "f:failedJobsHistoryLimit": {},
+                "f:jobTemplate": {
+                  "f:spec": {
+                    "f:template": {
+                      "f:spec": {
+                        "f:affinity": {
+                          ".": {},
+                          "f:nodeAffinity": {
+                            ".": {},
+                            "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                          }
+                        },
+                        "f:containers": {
+                          "k:{\"name\":\"builds-pruner\"}": {
+                            ".": {},
+                            "f:command": {},
+                            "f:image": {},
+                            "f:imagePullPolicy": {},
+                            "f:name": {},
+                            "f:resources": {},
+                            "f:terminationMessagePath": {},
+                            "f:terminationMessagePolicy": {}
+                          }
+                        },
+                        "f:dnsPolicy": {},
+                        "f:restartPolicy": {},
+                        "f:schedulerName": {},
+                        "f:securityContext": {},
+                        "f:serviceAccount": {},
+                        "f:serviceAccountName": {},
+                        "f:terminationGracePeriodSeconds": {},
+                        "f:tolerations": {}
+                      }
+                    },
+                    "f:ttlSecondsAfterFinished": {}
+                  }
+                },
+                "f:schedule": {},
+                "f:successfulJobsHistoryLimit": {},
+                "f:suspend": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-29T11:00:08Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:lastScheduleTime": {},
+                "f:lastSuccessfulTime": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "schedule": "0 */1 * * *",
+        "concurrencyPolicy": "Replace",
+        "suspend": false,
+        "jobTemplate": {
+          "metadata": {
+            "creationTimestamp": null
+          },
+          "spec": {
+            "template": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "containers": [
+                  {
+                    "name": "builds-pruner",
+                    "image": "image-registry.openshift-image-registry.svc:5000/openshift/cli:latest",
+                    "command": [
+                      "oc",
+                      "adm",
+                      "prune",
+                      "builds",
+                      "--keep-younger-than=24h",
+                      "--keep-complete=1",
+                      "--keep-failed=1",
+                      "--confirm"
+                    ],
+                    "resources": {},
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "File",
+                    "imagePullPolicy": "Always"
+                  }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "sre-pruner-sa",
+                "serviceAccount": "sre-pruner-sa",
+                "securityContext": {},
+                "affinity": {
+                  "nodeAffinity": {
+                    "preferredDuringSchedulingIgnoredDuringExecution": [
+                      {
+                        "weight": 1,
+                        "preference": {
+                          "matchExpressions": [
+                            {
+                              "key": "node-role.kubernetes.io/infra",
+                              "operator": "Exists"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "schedulerName": "default-scheduler",
+                "tolerations": [
+                  {
+                    "key": "node-role.kubernetes.io/infra",
+                    "operator": "Exists",
+                    "effect": "NoSchedule"
+                  }
+                ]
+              }
+            },
+            "ttlSecondsAfterFinished": 86400
+          }
+        },
+        "successfulJobsHistoryLimit": 3,
+        "failedJobsHistoryLimit": 5
+      },
+      "status": {
+        "lastScheduleTime": "2023-08-29T11:00:00Z",
+        "lastSuccessfulTime": "2023-08-29T11:00:08Z"
+      }
+    },
+    {
+      "metadata": {
+        "name": "deployments-pruner",
+        "namespace": "openshift-sre-pruning",
+        "uid": "df5fbdc5-1445-4ff7-89d3-f3afc0257f84",
+        "resourceVersion": "3185643",
+        "generation": 1,
+        "creationTimestamp": "2023-08-25T08:00:54Z",
+        "labels": {
+          "hive.openshift.io/managed": "true"
+        },
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"CronJob\",\"metadata\":{\"annotations\":{},\"labels\":{\"hive.openshift.io/managed\":\"true\"},\"name\":\"deployments-pruner\",\"namespace\":\"openshift-sre-pruning\"},\"spec\":{\"concurrencyPolicy\":\"Replace\",\"failedJobsHistoryLimit\":5,\"jobTemplate\":{\"spec\":{\"template\":{\"spec\":{\"affinity\":{\"nodeAffinity\":{\"preferredDuringSchedulingIgnoredDuringExecution\":[{\"preference\":{\"matchExpressions\":[{\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]},\"weight\":1}]}},\"containers\":[{\"command\":[\"oc\",\"adm\",\"prune\",\"deployments\",\"--keep-complete=1\",\"--keep-younger-than=24h\",\"--keep-failed=1\",\"--confirm\"],\"image\":\"image-registry.openshift-image-registry.svc:5000/openshift/cli:latest\",\"imagePullPolicy\":\"Always\",\"name\":\"deployments-pruner\"}],\"restartPolicy\":\"Never\",\"serviceAccountName\":\"sre-pruner-sa\",\"tolerations\":[{\"effect\":\"NoSchedule\",\"key\":\"node-role.kubernetes.io/infra\",\"operator\":\"Exists\"}]}},\"ttlSecondsAfterFinished\":86400}},\"schedule\":\"0 */1 * * *\",\"successfulJobsHistoryLimit\":3}}\n"
+        },
+        "managedFields": [
+          {
+            "manager": "manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-25T08:00:54Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                },
+                "f:labels": {
+                  ".": {},
+                  "f:hive.openshift.io/managed": {}
+                }
+              },
+              "f:spec": {
+                "f:concurrencyPolicy": {},
+                "f:failedJobsHistoryLimit": {},
+                "f:jobTemplate": {
+                  "f:spec": {
+                    "f:template": {
+                      "f:spec": {
+                        "f:affinity": {
+                          ".": {},
+                          "f:nodeAffinity": {
+                            ".": {},
+                            "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                          }
+                        },
+                        "f:containers": {
+                          "k:{\"name\":\"deployments-pruner\"}": {
+                            ".": {},
+                            "f:command": {},
+                            "f:image": {},
+                            "f:imagePullPolicy": {},
+                            "f:name": {},
+                            "f:resources": {},
+                            "f:terminationMessagePath": {},
+                            "f:terminationMessagePolicy": {}
+                          }
+                        },
+                        "f:dnsPolicy": {},
+                        "f:restartPolicy": {},
+                        "f:schedulerName": {},
+                        "f:securityContext": {},
+                        "f:serviceAccount": {},
+                        "f:serviceAccountName": {},
+                        "f:terminationGracePeriodSeconds": {},
+                        "f:tolerations": {}
+                      }
+                    },
+                    "f:ttlSecondsAfterFinished": {}
+                  }
+                },
+                "f:schedule": {},
+                "f:successfulJobsHistoryLimit": {},
+                "f:suspend": {}
+              }
+            }
+          },
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "batch/v1",
+            "time": "2023-08-29T11:00:08Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:status": {
+                "f:lastScheduleTime": {},
+                "f:lastSuccessfulTime": {}
+              }
+            },
+            "subresource": "status"
+          }
+        ]
+      },
+      "spec": {
+        "schedule": "0 */1 * * *",
+        "concurrencyPolicy": "Replace",
+        "suspend": false,
+        "jobTemplate": {
+          "metadata": {
+            "creationTimestamp": null
+          },
+          "spec": {
+            "template": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "containers": [
+                  {
+                    "name": "deployments-pruner",
+                    "image": "image-registry.openshift-image-registry.svc:5000/openshift/cli:latest",
+                    "command": [
+                      "oc",
+                      "adm",
+                      "prune",
+                      "deployments",
+                      "--keep-complete=1",
+                      "--keep-younger-than=24h",
+                      "--keep-failed=1",
+                      "--confirm"
+                    ],
+                    "resources": {},
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "File",
+                    "imagePullPolicy": "Always"
+                  }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "sre-pruner-sa",
+                "serviceAccount": "sre-pruner-sa",
+                "securityContext": {},
+                "affinity": {
+                  "nodeAffinity": {
+                    "preferredDuringSchedulingIgnoredDuringExecution": [
+                      {
+                        "weight": 1,
+                        "preference": {
+                          "matchExpressions": [
+                            {
+                              "key": "node-role.kubernetes.io/infra",
+                              "operator": "Exists"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "schedulerName": "default-scheduler",
+                "tolerations": [
+                  {
+                    "key": "node-role.kubernetes.io/infra",
+                    "operator": "Exists",
+                    "effect": "NoSchedule"
+                  }
+                ]
+              }
+            },
+            "ttlSecondsAfterFinished": 86400
+          }
+        },
+        "successfulJobsHistoryLimit": 3,
+        "failedJobsHistoryLimit": 5
+      },
+      "status": {
+        "lastScheduleTime": "2023-08-29T11:00:00Z",
+        "lastSuccessfulTime": "2023-08-29T11:00:08Z"
+      }
+    }
+  ]
+}

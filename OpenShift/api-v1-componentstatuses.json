@@ -1,0 +1,97 @@
+{
+  "kind": "ComponentStatusList",
+  "apiVersion": "v1",
+  "metadata": {},
+  "items": [
+    {
+      "metadata": {
+        "name": "controller-manager",
+        "creationTimestamp": null
+      },
+      "conditions": [
+        {
+          "type": "Healthy",
+          "status": "True",
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "scheduler",
+        "creationTimestamp": null
+      },
+      "conditions": [
+        {
+          "type": "Healthy",
+          "status": "True",
+          "message": "ok"
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "etcd-2",
+        "creationTimestamp": null
+      },
+      "conditions": [
+        {
+          "type": "Healthy",
+          "status": "True",
+          "message": {
+            "health": "true",
+            "reason": ""
+          }
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "etcd-1",
+        "creationTimestamp": null
+      },
+      "conditions": [
+        {
+          "type": "Healthy",
+          "status": "True",
+          "message": {
+            "health": "true",
+            "reason": ""
+          }
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "etcd-0",
+        "creationTimestamp": null
+      },
+      "conditions": [
+        {
+          "type": "Healthy",
+          "status": "True",
+          "message": {
+            "health": "true",
+            "reason": ""
+          }
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "etcd-3",
+        "creationTimestamp": null
+      },
+      "conditions": [
+        {
+          "type": "Healthy",
+          "status": "True",
+          "message": {
+            "health": "true",
+            "reason": ""
+          }
+        }
+      ]
+    }
+  ]
+}
