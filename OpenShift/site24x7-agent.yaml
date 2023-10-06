@@ -114,6 +114,9 @@ spec:
       serviceAccountName: site24x7
       nodeSelector:
         kubernetes.io/os: linux 	
+      tolerations:
+      - operator: Exists
+        effect: NoSchedule
       containers:
       - image: site24x7/docker-agent:release1800
         imagePullPolicy: Always
