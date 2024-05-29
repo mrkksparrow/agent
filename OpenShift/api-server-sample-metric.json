@@ -1,0 +1,5953 @@
+{
+  "kubernetes": {
+    "10.0.146.84": {
+      "DCErrors": {},
+      "unavailable_apiservice": "['v1.', 'v1.admissionregistration.k8s.io', 'v1.apiextensions.k8s.io', 'v1.apiserver.openshift.io', 'v1.apps', 'v1.apps.openshift.io', 'v1.authentication.k8s.io', 'v1.authorization.k8s.io', 'v1.authorization.openshift.io', 'v1.autoscaling', 'v1.autoscaling.openshift.io', 'v1.batch', 'v1.build.openshift.io', 'v1.certificates.k8s.io', 'v1.cloud.network.openshift.io', 'v1.cloudcredential.openshift.io', 'v1.config.openshift.io', 'v1.console.openshift.io', 'v1.coordination.k8s.io', 'v1.discovery.k8s.io', 'v1.events.k8s.io', 'v1.image.openshift.io', 'v1.imageregistry.operator.openshift.io', 'v1.ingress.operator.openshift.io', 'v1.k8s.cni.cncf.io', 'v1.k8s.ovn.org', 'v1.machine.openshift.io', 'v1.machineconfiguration.openshift.io', 'v1.monitoring.coreos.com', 'v1.monitoring.rhobs', 'v1.network.operator.openshift.io', 'v1.networking.k8s.io', 'v1.node.k8s.io', 'v1.oauth.openshift.io', 'v1.operator.openshift.io', 'v1.operators.coreos.com', 'v1.packages.operators.coreos.com', 'v1.performance.openshift.io', 'v1.policy', 'v1.project.openshift.io', 'v1.quota.openshift.io', 'v1.rbac.authorization.k8s.io', 'v1.route.openshift.io', 'v1.samples.operator.openshift.io', 'v1.scheduling.k8s.io', 'v1.security.internal.openshift.io', 'v1.security.openshift.io', 'v1.snapshot.storage.k8s.io', 'v1.storage.k8s.io', 'v1.template.openshift.io', 'v1.tuned.openshift.io', 'v1.user.openshift.io', 'v1alpha1.addons.managed.openshift.io', 'v1alpha1.console.openshift.io', 'v1alpha1.controlplane.operator.openshift.io', 'v1alpha1.datadoghq.com', 'v1alpha1.managed.openshift.io', 'v1alpha1.metal3.io', 'v1alpha1.migration.k8s.io', 'v1alpha1.monitoring.coreos.com', 'v1alpha1.monitoring.openshift.io', 'v1alpha1.monitoring.rhobs', 'v1alpha1.ocmagent.managed.openshift.io', 'v1alpha1.operator.openshift.io', 'v1alpha1.operators.coreos.com', 'v1alpha1.package-operator.run', 'v1alpha1.performance.openshift.io', 'v1alpha1.splunkforwarder.managed.openshift.io', 'v1alpha1.upgrade.managed.openshift.io', 'v1alpha1.whereabouts.cni.cncf.io', 'v1alpha2.operators.coreos.com', 'v1alpha5.infrastructure.cluster.x-k8s.io', 'v1beta1.autoscaling.openshift.io', 'v1beta1.external.metrics.k8s.io', 'v1beta1.helm.openshift.io', 'v1beta1.infrastructure.cluster.x-k8s.io', 'v1beta1.machine.openshift.io', 'v1beta1.metrics.k8s.io', 'v1beta1.monitoring.coreos.com', 'v1beta1.storage.k8s.io', 'v1beta2.flowcontrol.apiserver.k8s.io', 'v1beta3.flowcontrol.apiserver.k8s.io', 'v2.autoscaling', 'v2.operators.coreos.com', 'v2.performance.openshift.io', 'v2alpha1.datadoghq.com']",
+      "WADS": 0,
+      "WADSS": 0,
+      "WADSC": 0,
+      "AAE": 0,
+      "ARR": 0,
+      "ACIR": 4,
+      "CIQR": 2,
+      "KAIS": 0,
+      "long_running_request": {
+        "configmaps_WATCH": {
+          "rs": "configmaps",
+          "vb": "WATCH",
+          "ALR": 582
+        },
+        "endpoints_WATCH": {
+          "rs": "endpoints",
+          "vb": "WATCH",
+          "ALR": 69
+        },
+        "events_WATCH": {
+          "rs": "events",
+          "vb": "WATCH",
+          "ALR": 5
+        },
+        "limitranges_WATCH": {
+          "rs": "limitranges",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "namespaces_WATCH": {
+          "rs": "namespaces",
+          "vb": "WATCH",
+          "ALR": 29
+        },
+        "nodes_WATCH": {
+          "rs": "nodes",
+          "vb": "WATCH",
+          "ALR": 40
+        },
+        "nodes_GET": {
+          "rs": "nodes",
+          "vb": "GET",
+          "ALR": 0
+        },
+        "persistentvolumeclaims_WATCH": {
+          "rs": "persistentvolumeclaims",
+          "vb": "WATCH",
+          "ALR": 6
+        },
+        "persistentvolumes_WATCH": {
+          "rs": "persistentvolumes",
+          "vb": "WATCH",
+          "ALR": 5
+        },
+        "pods_WATCH": {
+          "rs": "pods",
+          "vb": "WATCH",
+          "ALR": 88
+        },
+        "pods_GET": {
+          "rs": "pods",
+          "vb": "GET",
+          "ALR": 0
+        },
+        "pods_POST": {
+          "rs": "pods",
+          "vb": "POST",
+          "ALR": 0
+        },
+        "podtemplates_WATCH": {
+          "rs": "podtemplates",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "replicationcontrollers_WATCH": {
+          "rs": "replicationcontrollers",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "resourcequotas_WATCH": {
+          "rs": "resourcequotas",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "secrets_WATCH": {
+          "rs": "secrets",
+          "vb": "WATCH",
+          "ALR": 441
+        },
+        "serviceaccounts_WATCH": {
+          "rs": "serviceaccounts",
+          "vb": "WATCH",
+          "ALR": 15
+        },
+        "services_WATCH": {
+          "rs": "services",
+          "vb": "WATCH",
+          "ALR": 100
+        },
+        "addoninstances_WATCH": {
+          "rs": "addoninstances",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "addonoperators_WATCH": {
+          "rs": "addonoperators",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "addons_WATCH": {
+          "rs": "addons",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "mutatingwebhookconfigurations_WATCH": {
+          "rs": "mutatingwebhookconfigurations",
+          "vb": "WATCH",
+          "ALR": 7
+        },
+        "validatingwebhookconfigurations_WATCH": {
+          "rs": "validatingwebhookconfigurations",
+          "vb": "WATCH",
+          "ALR": 7
+        },
+        "customresourcedefinitions_WATCH": {
+          "rs": "customresourcedefinitions",
+          "vb": "WATCH",
+          "ALR": 10
+        },
+        "apiservices_WATCH": {
+          "rs": "apiservices",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "apirequestcounts_WATCH": {
+          "rs": "apirequestcounts",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "controllerrevisions_WATCH": {
+          "rs": "controllerrevisions",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "daemonsets_WATCH": {
+          "rs": "daemonsets",
+          "vb": "WATCH",
+          "ALR": 9
+        },
+        "deployments_WATCH": {
+          "rs": "deployments",
+          "vb": "WATCH",
+          "ALR": 22
+        },
+        "replicasets_WATCH": {
+          "rs": "replicasets",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "statefulsets_WATCH": {
+          "rs": "statefulsets",
+          "vb": "WATCH",
+          "ALR": 11
+        },
+        "rolebindingrestrictions_WATCH": {
+          "rs": "rolebindingrestrictions",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "horizontalpodautoscalers_WATCH": {
+          "rs": "horizontalpodautoscalers",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "clusterautoscalers_WATCH": {
+          "rs": "clusterautoscalers",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "machineautoscalers_WATCH": {
+          "rs": "machineautoscalers",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "cronjobs_WATCH": {
+          "rs": "cronjobs",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "jobs_WATCH": {
+          "rs": "jobs",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "certificatesigningrequests_WATCH": {
+          "rs": "certificatesigningrequests",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "cloudprivateipconfigs_WATCH": {
+          "rs": "cloudprivateipconfigs",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "credentialsrequests_WATCH": {
+          "rs": "credentialsrequests",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "apiservers_WATCH": {
+          "rs": "apiservers",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "authentications_WATCH": {
+          "rs": "authentications",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "builds_WATCH": {
+          "rs": "builds",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "clusteroperators_WATCH": {
+          "rs": "clusteroperators",
+          "vb": "WATCH",
+          "ALR": 16
+        },
+        "clusterversions_WATCH": {
+          "rs": "clusterversions",
+          "vb": "WATCH",
+          "ALR": 8
+        },
+        "consoles_WATCH": {
+          "rs": "consoles",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "dnses_WATCH": {
+          "rs": "dnses",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "featuregates_WATCH": {
+          "rs": "featuregates",
+          "vb": "WATCH",
+          "ALR": 8
+        },
+        "imagecontentpolicies_WATCH": {
+          "rs": "imagecontentpolicies",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "imagedigestmirrorsets_WATCH": {
+          "rs": "imagedigestmirrorsets",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "images_WATCH": {
+          "rs": "images",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "imagetagmirrorsets_WATCH": {
+          "rs": "imagetagmirrorsets",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "infrastructures_WATCH": {
+          "rs": "infrastructures",
+          "vb": "WATCH",
+          "ALR": 16
+        },
+        "ingresses_WATCH": {
+          "rs": "ingresses",
+          "vb": "WATCH",
+          "ALR": 7
+        },
+        "networks_WATCH": {
+          "rs": "networks",
+          "vb": "WATCH",
+          "ALR": 8
+        },
+        "oauths_WATCH": {
+          "rs": "oauths",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "operatorhubs_WATCH": {
+          "rs": "operatorhubs",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "projects_WATCH": {
+          "rs": "projects",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "proxies_WATCH": {
+          "rs": "proxies",
+          "vb": "WATCH",
+          "ALR": 11
+        },
+        "schedulers_WATCH": {
+          "rs": "schedulers",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "consoleclidownloads_WATCH": {
+          "rs": "consoleclidownloads",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "consoleexternalloglinks_WATCH": {
+          "rs": "consoleexternalloglinks",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "consolelinks_WATCH": {
+          "rs": "consolelinks",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "consolenotifications_WATCH": {
+          "rs": "consolenotifications",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "consoleplugins_WATCH": {
+          "rs": "consoleplugins",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "consolequickstarts_WATCH": {
+          "rs": "consolequickstarts",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "consoleyamlsamples_WATCH": {
+          "rs": "consoleyamlsamples",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "podnetworkconnectivitychecks_WATCH": {
+          "rs": "podnetworkconnectivitychecks",
+          "vb": "WATCH",
+          "ALR": 7
+        },
+        "leases_WATCH": {
+          "rs": "leases",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "datadogagents_WATCH": {
+          "rs": "datadogagents",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "datadogmetrics_WATCH": {
+          "rs": "datadogmetrics",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "datadogmonitors_WATCH": {
+          "rs": "datadogmonitors",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "endpointslices_WATCH": {
+          "rs": "endpointslices",
+          "vb": "WATCH",
+          "ALR": 8
+        },
+        "flowschemas_WATCH": {
+          "rs": "flowschemas",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "prioritylevelconfigurations_WATCH": {
+          "rs": "prioritylevelconfigurations",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "helmchartrepositories_WATCH": {
+          "rs": "helmchartrepositories",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "projecthelmchartrepositories_WATCH": {
+          "rs": "projecthelmchartrepositories",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "configs_WATCH": {
+          "rs": "configs",
+          "vb": "WATCH",
+          "ALR": 5
+        },
+        "imagepruners_WATCH": {
+          "rs": "imagepruners",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "metal3remediations_WATCH": {
+          "rs": "metal3remediations",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "metal3remediationtemplates_WATCH": {
+          "rs": "metal3remediationtemplates",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "dnsrecords_WATCH": {
+          "rs": "dnsrecords",
+          "vb": "WATCH",
+          "ALR": 7
+        },
+        "network-attachment-definitions_WATCH": {
+          "rs": "network-attachment-definitions",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "egressfirewalls_WATCH": {
+          "rs": "egressfirewalls",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "egressips_WATCH": {
+          "rs": "egressips",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "egressqoses_WATCH": {
+          "rs": "egressqoses",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "controlplanemachinesets_WATCH": {
+          "rs": "controlplanemachinesets",
+          "vb": "WATCH",
+          "ALR": 6
+        },
+        "machinehealthchecks_WATCH": {
+          "rs": "machinehealthchecks",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "machines_WATCH": {
+          "rs": "machines",
+          "vb": "WATCH",
+          "ALR": 13
+        },
+        "machinesets_WATCH": {
+          "rs": "machinesets",
+          "vb": "WATCH",
+          "ALR": 5
+        },
+        "containerruntimeconfigs_WATCH": {
+          "rs": "containerruntimeconfigs",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "controllerconfigs_WATCH": {
+          "rs": "controllerconfigs",
+          "vb": "WATCH",
+          "ALR": 7
+        },
+        "kubeletconfigs_WATCH": {
+          "rs": "kubeletconfigs",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "machineconfigpools_WATCH": {
+          "rs": "machineconfigpools",
+          "vb": "WATCH",
+          "ALR": 6
+        },
+        "machineconfigs_WATCH": {
+          "rs": "machineconfigs",
+          "vb": "WATCH",
+          "ALR": 9
+        },
+        "customdomains_WATCH": {
+          "rs": "customdomains",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "mustgathers_WATCH": {
+          "rs": "mustgathers",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "subjectpermissions_WATCH": {
+          "rs": "subjectpermissions",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "baremetalhosts_WATCH": {
+          "rs": "baremetalhosts",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "bmceventsubscriptions_WATCH": {
+          "rs": "bmceventsubscriptions",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "firmwareschemas_WATCH": {
+          "rs": "firmwareschemas",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "hardwaredata_WATCH": {
+          "rs": "hardwaredata",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "hostfirmwaresettings_WATCH": {
+          "rs": "hostfirmwaresettings",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "preprovisioningimages_WATCH": {
+          "rs": "preprovisioningimages",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "provisionings_WATCH": {
+          "rs": "provisionings",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "storagestates_WATCH": {
+          "rs": "storagestates",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "storageversionmigrations_WATCH": {
+          "rs": "storageversionmigrations",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "alertmanagerconfigs_WATCH": {
+          "rs": "alertmanagerconfigs",
+          "vb": "WATCH",
+          "ALR": 7
+        },
+        "alertmanagers_WATCH": {
+          "rs": "alertmanagers",
+          "vb": "WATCH",
+          "ALR": 7
+        },
+        "podmonitors_WATCH": {
+          "rs": "podmonitors",
+          "vb": "WATCH",
+          "ALR": 6
+        },
+        "probes_WATCH": {
+          "rs": "probes",
+          "vb": "WATCH",
+          "ALR": 6
+        },
+        "prometheuses_WATCH": {
+          "rs": "prometheuses",
+          "vb": "WATCH",
+          "ALR": 7
+        },
+        "prometheusrules_WATCH": {
+          "rs": "prometheusrules",
+          "vb": "WATCH",
+          "ALR": 9
+        },
+        "servicemonitors_WATCH": {
+          "rs": "servicemonitors",
+          "vb": "WATCH",
+          "ALR": 10
+        },
+        "thanosrulers_WATCH": {
+          "rs": "thanosrulers",
+          "vb": "WATCH",
+          "ALR": 6
+        },
+        "clusterurlmonitors_WATCH": {
+          "rs": "clusterurlmonitors",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "routemonitors_WATCH": {
+          "rs": "routemonitors",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "monitoringstacks_WATCH": {
+          "rs": "monitoringstacks",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "prometheusagents_WATCH": {
+          "rs": "prometheusagents",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "scrapeconfigs_WATCH": {
+          "rs": "scrapeconfigs",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "thanosqueriers_WATCH": {
+          "rs": "thanosqueriers",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "egressrouters_WATCH": {
+          "rs": "egressrouters",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "operatorpkis_WATCH": {
+          "rs": "operatorpkis",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "ingressclasses_WATCH": {
+          "rs": "ingressclasses",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "networkpolicies_WATCH": {
+          "rs": "networkpolicies",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "runtimeclasses_WATCH": {
+          "rs": "runtimeclasses",
+          "vb": "WATCH",
+          "ALR": 8
+        },
+        "managedfleetnotificationrecords_WATCH": {
+          "rs": "managedfleetnotificationrecords",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "managedfleetnotifications_WATCH": {
+          "rs": "managedfleetnotifications",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "managednotifications_WATCH": {
+          "rs": "managednotifications",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "ocmagents_WATCH": {
+          "rs": "ocmagents",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "cloudcredentials_WATCH": {
+          "rs": "cloudcredentials",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "clustercsidrivers_WATCH": {
+          "rs": "clustercsidrivers",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "csisnapshotcontrollers_WATCH": {
+          "rs": "csisnapshotcontrollers",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "etcds_WATCH": {
+          "rs": "etcds",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "imagecontentsourcepolicies_WATCH": {
+          "rs": "imagecontentsourcepolicies",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "ingresscontrollers_WATCH": {
+          "rs": "ingresscontrollers",
+          "vb": "WATCH",
+          "ALR": 10
+        },
+        "insightsoperators_WATCH": {
+          "rs": "insightsoperators",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "kubeapiservers_WATCH": {
+          "rs": "kubeapiservers",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "kubecontrollermanagers_WATCH": {
+          "rs": "kubecontrollermanagers",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "kubeschedulers_WATCH": {
+          "rs": "kubeschedulers",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "kubestorageversionmigrators_WATCH": {
+          "rs": "kubestorageversionmigrators",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "openshiftapiservers_WATCH": {
+          "rs": "openshiftapiservers",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "openshiftcontrollermanagers_WATCH": {
+          "rs": "openshiftcontrollermanagers",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "servicecas_WATCH": {
+          "rs": "servicecas",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "storages_WATCH": {
+          "rs": "storages",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "catalogsources_WATCH": {
+          "rs": "catalogsources",
+          "vb": "WATCH",
+          "ALR": 5
+        },
+        "clusterserviceversions_WATCH": {
+          "rs": "clusterserviceversions",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "installplans_WATCH": {
+          "rs": "installplans",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "olmconfigs_WATCH": {
+          "rs": "olmconfigs",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "operatorconditions_WATCH": {
+          "rs": "operatorconditions",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "operatorgroups_WATCH": {
+          "rs": "operatorgroups",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "operators_WATCH": {
+          "rs": "operators",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "subscriptions_WATCH": {
+          "rs": "subscriptions",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "clusterobjectdeployments_WATCH": {
+          "rs": "clusterobjectdeployments",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "clusterobjectsetphases_WATCH": {
+          "rs": "clusterobjectsetphases",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "clusterobjectsets_WATCH": {
+          "rs": "clusterobjectsets",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "clusterobjectslices_WATCH": {
+          "rs": "clusterobjectslices",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "clusterobjecttemplates_WATCH": {
+          "rs": "clusterobjecttemplates",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "clusterpackages_WATCH": {
+          "rs": "clusterpackages",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "objectdeployments_WATCH": {
+          "rs": "objectdeployments",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "objectsetphases_WATCH": {
+          "rs": "objectsetphases",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "objectsets_WATCH": {
+          "rs": "objectsets",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "objectslices_WATCH": {
+          "rs": "objectslices",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "objecttemplates_WATCH": {
+          "rs": "objecttemplates",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "packages_WATCH": {
+          "rs": "packages",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "performanceprofiles_WATCH": {
+          "rs": "performanceprofiles",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "poddisruptionbudgets_WATCH": {
+          "rs": "poddisruptionbudgets",
+          "vb": "WATCH",
+          "ALR": 10
+        },
+        "clusterresourcequotas_WATCH": {
+          "rs": "clusterresourcequotas",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "clusterrolebindings_WATCH": {
+          "rs": "clusterrolebindings",
+          "vb": "WATCH",
+          "ALR": 9
+        },
+        "clusterroles_WATCH": {
+          "rs": "clusterroles",
+          "vb": "WATCH",
+          "ALR": 9
+        },
+        "rolebindings_WATCH": {
+          "rs": "rolebindings",
+          "vb": "WATCH",
+          "ALR": 18
+        },
+        "roles_WATCH": {
+          "rs": "roles",
+          "vb": "WATCH",
+          "ALR": 16
+        },
+        "priorityclasses_WATCH": {
+          "rs": "priorityclasses",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "rangeallocations_WATCH": {
+          "rs": "rangeallocations",
+          "vb": "WATCH",
+          "ALR": 1
+        },
+        "securitycontextconstraints_WATCH": {
+          "rs": "securitycontextconstraints",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "volumesnapshotclasses_WATCH": {
+          "rs": "volumesnapshotclasses",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "volumesnapshotcontents_WATCH": {
+          "rs": "volumesnapshotcontents",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "volumesnapshots_WATCH": {
+          "rs": "volumesnapshots",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "splunkforwarders_WATCH": {
+          "rs": "splunkforwarders",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "csidrivers_WATCH": {
+          "rs": "csidrivers",
+          "vb": "WATCH",
+          "ALR": 9
+        },
+        "csinodes_WATCH": {
+          "rs": "csinodes",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "csistoragecapacities_WATCH": {
+          "rs": "csistoragecapacities",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "storageclasses_WATCH": {
+          "rs": "storageclasses",
+          "vb": "WATCH",
+          "ALR": 4
+        },
+        "volumeattachments_WATCH": {
+          "rs": "volumeattachments",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "profiles_WATCH": {
+          "rs": "profiles",
+          "vb": "WATCH",
+          "ALR": 13
+        },
+        "tuneds_WATCH": {
+          "rs": "tuneds",
+          "vb": "WATCH",
+          "ALR": 13
+        },
+        "upgradeconfigs_WATCH": {
+          "rs": "upgradeconfigs",
+          "vb": "WATCH",
+          "ALR": 3
+        },
+        "ippools_WATCH": {
+          "rs": "ippools",
+          "vb": "WATCH",
+          "ALR": 2
+        },
+        "overlappingrangeipreservations_WATCH": {
+          "rs": "overlappingrangeipreservations",
+          "vb": "WATCH",
+          "ALR": 2
+        }
+      },
+      "ARA": 0,
+      "ARDST": 0,
+      "ARDSTS": 0,
+      "ARDSTC": 0,
+      "apiserver_request_duration_resource": {
+        "": {
+          "sum": 0,
+          "rs": "",
+          "count": 0,
+          "ARDS": 0
+        },
+        "componentstatuses": {
+          "sum": 0,
+          "rs": "componentstatuses",
+          "count": 0,
+          "ARDS": 0
+        },
+        "configmaps": {
+          "sum": 0,
+          "rs": "configmaps",
+          "count": 0,
+          "ARDS": 0
+        },
+        "endpoints": {
+          "sum": 0,
+          "rs": "endpoints",
+          "count": 0,
+          "ARDS": 0
+        },
+        "events": {
+          "sum": 0,
+          "rs": "events",
+          "count": 0,
+          "ARDS": 0
+        },
+        "limitranges": {
+          "sum": 0,
+          "rs": "limitranges",
+          "count": 0,
+          "ARDS": 0
+        },
+        "namespaces": {
+          "sum": 0,
+          "rs": "namespaces",
+          "count": 0,
+          "ARDS": 0
+        },
+        "nodes": {
+          "sum": 0,
+          "rs": "nodes",
+          "count": 0,
+          "ARDS": 0
+        },
+        "persistentvolumeclaims": {
+          "sum": 0,
+          "rs": "persistentvolumeclaims",
+          "count": 0,
+          "ARDS": 0
+        },
+        "persistentvolumes": {
+          "sum": 0,
+          "rs": "persistentvolumes",
+          "count": 0,
+          "ARDS": 0
+        },
+        "pods": {
+          "sum": 0,
+          "rs": "pods",
+          "count": 0,
+          "ARDS": 0
+        },
+        "podtemplates": {
+          "sum": 0,
+          "rs": "podtemplates",
+          "count": 0,
+          "ARDS": 0
+        },
+        "replicationcontrollers": {
+          "sum": 0,
+          "rs": "replicationcontrollers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "resourcequotas": {
+          "sum": 0,
+          "rs": "resourcequotas",
+          "count": 0,
+          "ARDS": 0
+        },
+        "secrets": {
+          "sum": 0,
+          "rs": "secrets",
+          "count": 0,
+          "ARDS": 0
+        },
+        "serviceaccounts": {
+          "sum": 0,
+          "rs": "serviceaccounts",
+          "count": 0,
+          "ARDS": 0
+        },
+        "services": {
+          "sum": 0,
+          "rs": "services",
+          "count": 0,
+          "ARDS": 0
+        },
+        "addoninstances": {
+          "sum": 0,
+          "rs": "addoninstances",
+          "count": 0,
+          "ARDS": 0
+        },
+        "addonoperators": {
+          "sum": 0,
+          "rs": "addonoperators",
+          "count": 0,
+          "ARDS": 0
+        },
+        "addons": {
+          "sum": 0,
+          "rs": "addons",
+          "count": 0,
+          "ARDS": 0
+        },
+        "mutatingwebhookconfigurations": {
+          "sum": 0,
+          "rs": "mutatingwebhookconfigurations",
+          "count": 0,
+          "ARDS": 0
+        },
+        "validatingwebhookconfigurations": {
+          "sum": 0,
+          "rs": "validatingwebhookconfigurations",
+          "count": 0,
+          "ARDS": 0
+        },
+        "customresourcedefinitions": {
+          "sum": 0,
+          "rs": "customresourcedefinitions",
+          "count": 0,
+          "ARDS": 0
+        },
+        "apiservices": {
+          "sum": 0,
+          "rs": "apiservices",
+          "count": 0,
+          "ARDS": 0
+        },
+        "apirequestcounts": {
+          "sum": 0,
+          "rs": "apirequestcounts",
+          "count": 0,
+          "ARDS": 0
+        },
+        "controllerrevisions": {
+          "sum": 0,
+          "rs": "controllerrevisions",
+          "count": 0,
+          "ARDS": 0
+        },
+        "daemonsets": {
+          "sum": 0,
+          "rs": "daemonsets",
+          "count": 0,
+          "ARDS": 0
+        },
+        "deployments": {
+          "sum": 0,
+          "rs": "deployments",
+          "count": 0,
+          "ARDS": 0
+        },
+        "replicasets": {
+          "sum": 0,
+          "rs": "replicasets",
+          "count": 0,
+          "ARDS": 0
+        },
+        "statefulsets": {
+          "sum": 0,
+          "rs": "statefulsets",
+          "count": 0,
+          "ARDS": 0
+        },
+        "tokenreviews": {
+          "sum": 0,
+          "rs": "tokenreviews",
+          "count": 0,
+          "ARDS": 0
+        },
+        "selfsubjectaccessreviews": {
+          "sum": 0,
+          "rs": "selfsubjectaccessreviews",
+          "count": 0,
+          "ARDS": 0
+        },
+        "subjectaccessreviews": {
+          "sum": 0,
+          "rs": "subjectaccessreviews",
+          "count": 0,
+          "ARDS": 0
+        },
+        "rolebindingrestrictions": {
+          "sum": 0,
+          "rs": "rolebindingrestrictions",
+          "count": 0,
+          "ARDS": 0
+        },
+        "horizontalpodautoscalers": {
+          "sum": 0,
+          "rs": "horizontalpodautoscalers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterautoscalers": {
+          "sum": 0,
+          "rs": "clusterautoscalers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "machineautoscalers": {
+          "sum": 0,
+          "rs": "machineautoscalers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "cronjobs": {
+          "sum": 0,
+          "rs": "cronjobs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "jobs": {
+          "sum": 0,
+          "rs": "jobs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "certificatesigningrequests": {
+          "sum": 0,
+          "rs": "certificatesigningrequests",
+          "count": 0,
+          "ARDS": 0
+        },
+        "cloudprivateipconfigs": {
+          "sum": 0,
+          "rs": "cloudprivateipconfigs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "credentialsrequests": {
+          "sum": 0,
+          "rs": "credentialsrequests",
+          "count": 0,
+          "ARDS": 0
+        },
+        "apiservers": {
+          "sum": 0,
+          "rs": "apiservers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "authentications": {
+          "sum": 0,
+          "rs": "authentications",
+          "count": 0,
+          "ARDS": 0
+        },
+        "builds": {
+          "sum": 0,
+          "rs": "builds",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusteroperators": {
+          "sum": 0,
+          "rs": "clusteroperators",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterversions": {
+          "sum": 0,
+          "rs": "clusterversions",
+          "count": 0,
+          "ARDS": 0
+        },
+        "consoles": {
+          "sum": 0,
+          "rs": "consoles",
+          "count": 0,
+          "ARDS": 0
+        },
+        "dnses": {
+          "sum": 0,
+          "rs": "dnses",
+          "count": 0,
+          "ARDS": 0
+        },
+        "featuregates": {
+          "sum": 0,
+          "rs": "featuregates",
+          "count": 0,
+          "ARDS": 0
+        },
+        "imagecontentpolicies": {
+          "sum": 0,
+          "rs": "imagecontentpolicies",
+          "count": 0,
+          "ARDS": 0
+        },
+        "imagedigestmirrorsets": {
+          "sum": 0,
+          "rs": "imagedigestmirrorsets",
+          "count": 0,
+          "ARDS": 0
+        },
+        "images": {
+          "sum": 0,
+          "rs": "images",
+          "count": 0,
+          "ARDS": 0
+        },
+        "imagetagmirrorsets": {
+          "sum": 0,
+          "rs": "imagetagmirrorsets",
+          "count": 0,
+          "ARDS": 0
+        },
+        "infrastructures": {
+          "sum": 0,
+          "rs": "infrastructures",
+          "count": 0,
+          "ARDS": 0
+        },
+        "ingresses": {
+          "sum": 0,
+          "rs": "ingresses",
+          "count": 0,
+          "ARDS": 0
+        },
+        "networks": {
+          "sum": 0,
+          "rs": "networks",
+          "count": 0,
+          "ARDS": 0
+        },
+        "oauths": {
+          "sum": 0,
+          "rs": "oauths",
+          "count": 0,
+          "ARDS": 0
+        },
+        "operatorhubs": {
+          "sum": 0,
+          "rs": "operatorhubs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "projects": {
+          "sum": 0,
+          "rs": "projects",
+          "count": 0,
+          "ARDS": 0
+        },
+        "proxies": {
+          "sum": 0,
+          "rs": "proxies",
+          "count": 0,
+          "ARDS": 0
+        },
+        "schedulers": {
+          "sum": 0,
+          "rs": "schedulers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "consoleclidownloads": {
+          "sum": 0,
+          "rs": "consoleclidownloads",
+          "count": 0,
+          "ARDS": 0
+        },
+        "consoleexternalloglinks": {
+          "sum": 0,
+          "rs": "consoleexternalloglinks",
+          "count": 0,
+          "ARDS": 0
+        },
+        "consolelinks": {
+          "sum": 0,
+          "rs": "consolelinks",
+          "count": 0,
+          "ARDS": 0
+        },
+        "consolenotifications": {
+          "sum": 0,
+          "rs": "consolenotifications",
+          "count": 0,
+          "ARDS": 0
+        },
+        "consoleplugins": {
+          "sum": 0,
+          "rs": "consoleplugins",
+          "count": 0,
+          "ARDS": 0
+        },
+        "consolequickstarts": {
+          "sum": 0,
+          "rs": "consolequickstarts",
+          "count": 0,
+          "ARDS": 0
+        },
+        "consoleyamlsamples": {
+          "sum": 0,
+          "rs": "consoleyamlsamples",
+          "count": 0,
+          "ARDS": 0
+        },
+        "podnetworkconnectivitychecks": {
+          "sum": 0,
+          "rs": "podnetworkconnectivitychecks",
+          "count": 0,
+          "ARDS": 0
+        },
+        "leases": {
+          "sum": 0,
+          "rs": "leases",
+          "count": 0,
+          "ARDS": 0
+        },
+        "datadogagents": {
+          "sum": 0,
+          "rs": "datadogagents",
+          "count": 0,
+          "ARDS": 0
+        },
+        "datadogmetrics": {
+          "sum": 0,
+          "rs": "datadogmetrics",
+          "count": 0,
+          "ARDS": 0
+        },
+        "datadogmonitors": {
+          "sum": 0,
+          "rs": "datadogmonitors",
+          "count": 0,
+          "ARDS": 0
+        },
+        "endpointslices": {
+          "sum": 0,
+          "rs": "endpointslices",
+          "count": 0,
+          "ARDS": 0
+        },
+        "flowschemas": {
+          "sum": 0,
+          "rs": "flowschemas",
+          "count": 0,
+          "ARDS": 0
+        },
+        "prioritylevelconfigurations": {
+          "sum": 0,
+          "rs": "prioritylevelconfigurations",
+          "count": 0,
+          "ARDS": 0
+        },
+        "helmchartrepositories": {
+          "sum": 0,
+          "rs": "helmchartrepositories",
+          "count": 0,
+          "ARDS": 0
+        },
+        "projecthelmchartrepositories": {
+          "sum": 0,
+          "rs": "projecthelmchartrepositories",
+          "count": 0,
+          "ARDS": 0
+        },
+        "configs": {
+          "sum": 0,
+          "rs": "configs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "imagepruners": {
+          "sum": 0,
+          "rs": "imagepruners",
+          "count": 0,
+          "ARDS": 0
+        },
+        "metal3remediations": {
+          "sum": 0,
+          "rs": "metal3remediations",
+          "count": 0,
+          "ARDS": 0
+        },
+        "metal3remediationtemplates": {
+          "sum": 0,
+          "rs": "metal3remediationtemplates",
+          "count": 0,
+          "ARDS": 0
+        },
+        "dnsrecords": {
+          "sum": 0,
+          "rs": "dnsrecords",
+          "count": 0,
+          "ARDS": 0
+        },
+        "network-attachment-definitions": {
+          "sum": 0,
+          "rs": "network-attachment-definitions",
+          "count": 0,
+          "ARDS": 0
+        },
+        "egressfirewalls": {
+          "sum": 0,
+          "rs": "egressfirewalls",
+          "count": 0,
+          "ARDS": 0
+        },
+        "egressips": {
+          "sum": 0,
+          "rs": "egressips",
+          "count": 0,
+          "ARDS": 0
+        },
+        "egressqoses": {
+          "sum": 0,
+          "rs": "egressqoses",
+          "count": 0,
+          "ARDS": 0
+        },
+        "controlplanemachinesets": {
+          "sum": 0,
+          "rs": "controlplanemachinesets",
+          "count": 0,
+          "ARDS": 0
+        },
+        "machinehealthchecks": {
+          "sum": 0,
+          "rs": "machinehealthchecks",
+          "count": 0,
+          "ARDS": 0
+        },
+        "machines": {
+          "sum": 0,
+          "rs": "machines",
+          "count": 0,
+          "ARDS": 0
+        },
+        "machinesets": {
+          "sum": 0,
+          "rs": "machinesets",
+          "count": 0,
+          "ARDS": 0
+        },
+        "containerruntimeconfigs": {
+          "sum": 0,
+          "rs": "containerruntimeconfigs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "controllerconfigs": {
+          "sum": 0,
+          "rs": "controllerconfigs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "kubeletconfigs": {
+          "sum": 0,
+          "rs": "kubeletconfigs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "machineconfigpools": {
+          "sum": 0,
+          "rs": "machineconfigpools",
+          "count": 0,
+          "ARDS": 0
+        },
+        "machineconfigs": {
+          "sum": 0,
+          "rs": "machineconfigs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "customdomains": {
+          "sum": 0,
+          "rs": "customdomains",
+          "count": 0,
+          "ARDS": 0
+        },
+        "mustgathers": {
+          "sum": 0,
+          "rs": "mustgathers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "subjectpermissions": {
+          "sum": 0,
+          "rs": "subjectpermissions",
+          "count": 0,
+          "ARDS": 0
+        },
+        "baremetalhosts": {
+          "sum": 0,
+          "rs": "baremetalhosts",
+          "count": 0,
+          "ARDS": 0
+        },
+        "bmceventsubscriptions": {
+          "sum": 0,
+          "rs": "bmceventsubscriptions",
+          "count": 0,
+          "ARDS": 0
+        },
+        "firmwareschemas": {
+          "sum": 0,
+          "rs": "firmwareschemas",
+          "count": 0,
+          "ARDS": 0
+        },
+        "hardwaredata": {
+          "sum": 0,
+          "rs": "hardwaredata",
+          "count": 0,
+          "ARDS": 0
+        },
+        "hostfirmwaresettings": {
+          "sum": 0,
+          "rs": "hostfirmwaresettings",
+          "count": 0,
+          "ARDS": 0
+        },
+        "preprovisioningimages": {
+          "sum": 0,
+          "rs": "preprovisioningimages",
+          "count": 0,
+          "ARDS": 0
+        },
+        "provisionings": {
+          "sum": 0,
+          "rs": "provisionings",
+          "count": 0,
+          "ARDS": 0
+        },
+        "storagestates": {
+          "sum": 0,
+          "rs": "storagestates",
+          "count": 0,
+          "ARDS": 0
+        },
+        "storageversionmigrations": {
+          "sum": 0,
+          "rs": "storageversionmigrations",
+          "count": 0,
+          "ARDS": 0
+        },
+        "alertmanagerconfigs": {
+          "sum": 0,
+          "rs": "alertmanagerconfigs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "alertmanagers": {
+          "sum": 0,
+          "rs": "alertmanagers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "podmonitors": {
+          "sum": 0,
+          "rs": "podmonitors",
+          "count": 0,
+          "ARDS": 0
+        },
+        "probes": {
+          "sum": 0,
+          "rs": "probes",
+          "count": 0,
+          "ARDS": 0
+        },
+        "prometheuses": {
+          "sum": 0,
+          "rs": "prometheuses",
+          "count": 0,
+          "ARDS": 0
+        },
+        "prometheusrules": {
+          "sum": 0,
+          "rs": "prometheusrules",
+          "count": 0,
+          "ARDS": 0
+        },
+        "servicemonitors": {
+          "sum": 0,
+          "rs": "servicemonitors",
+          "count": 0,
+          "ARDS": 0
+        },
+        "thanosrulers": {
+          "sum": 0,
+          "rs": "thanosrulers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterurlmonitors": {
+          "sum": 0,
+          "rs": "clusterurlmonitors",
+          "count": 0,
+          "ARDS": 0
+        },
+        "routemonitors": {
+          "sum": 0,
+          "rs": "routemonitors",
+          "count": 0,
+          "ARDS": 0
+        },
+        "monitoringstacks": {
+          "sum": 0,
+          "rs": "monitoringstacks",
+          "count": 0,
+          "ARDS": 0
+        },
+        "prometheusagents": {
+          "sum": 0,
+          "rs": "prometheusagents",
+          "count": 0,
+          "ARDS": 0
+        },
+        "scrapeconfigs": {
+          "sum": 0,
+          "rs": "scrapeconfigs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "thanosqueriers": {
+          "sum": 0,
+          "rs": "thanosqueriers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "egressrouters": {
+          "sum": 0,
+          "rs": "egressrouters",
+          "count": 0,
+          "ARDS": 0
+        },
+        "operatorpkis": {
+          "sum": 0,
+          "rs": "operatorpkis",
+          "count": 0,
+          "ARDS": 0
+        },
+        "ingressclasses": {
+          "sum": 0,
+          "rs": "ingressclasses",
+          "count": 0,
+          "ARDS": 0
+        },
+        "networkpolicies": {
+          "sum": 0,
+          "rs": "networkpolicies",
+          "count": 0,
+          "ARDS": 0
+        },
+        "runtimeclasses": {
+          "sum": 0,
+          "rs": "runtimeclasses",
+          "count": 0,
+          "ARDS": 0
+        },
+        "managedfleetnotificationrecords": {
+          "sum": 0,
+          "rs": "managedfleetnotificationrecords",
+          "count": 0,
+          "ARDS": 0
+        },
+        "managedfleetnotifications": {
+          "sum": 0,
+          "rs": "managedfleetnotifications",
+          "count": 0,
+          "ARDS": 0
+        },
+        "managednotifications": {
+          "sum": 0,
+          "rs": "managednotifications",
+          "count": 0,
+          "ARDS": 0
+        },
+        "ocmagents": {
+          "sum": 0,
+          "rs": "ocmagents",
+          "count": 0,
+          "ARDS": 0
+        },
+        "cloudcredentials": {
+          "sum": 0,
+          "rs": "cloudcredentials",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clustercsidrivers": {
+          "sum": 0,
+          "rs": "clustercsidrivers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "csisnapshotcontrollers": {
+          "sum": 0,
+          "rs": "csisnapshotcontrollers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "etcds": {
+          "sum": 0,
+          "rs": "etcds",
+          "count": 0,
+          "ARDS": 0
+        },
+        "imagecontentsourcepolicies": {
+          "sum": 0,
+          "rs": "imagecontentsourcepolicies",
+          "count": 0,
+          "ARDS": 0
+        },
+        "ingresscontrollers": {
+          "sum": 0,
+          "rs": "ingresscontrollers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "insightsoperators": {
+          "sum": 0,
+          "rs": "insightsoperators",
+          "count": 0,
+          "ARDS": 0
+        },
+        "kubeapiservers": {
+          "sum": 0,
+          "rs": "kubeapiservers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "kubecontrollermanagers": {
+          "sum": 0,
+          "rs": "kubecontrollermanagers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "kubeschedulers": {
+          "sum": 0,
+          "rs": "kubeschedulers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "kubestorageversionmigrators": {
+          "sum": 0,
+          "rs": "kubestorageversionmigrators",
+          "count": 0,
+          "ARDS": 0
+        },
+        "openshiftapiservers": {
+          "sum": 0,
+          "rs": "openshiftapiservers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "openshiftcontrollermanagers": {
+          "sum": 0,
+          "rs": "openshiftcontrollermanagers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "servicecas": {
+          "sum": 0,
+          "rs": "servicecas",
+          "count": 0,
+          "ARDS": 0
+        },
+        "storages": {
+          "sum": 0,
+          "rs": "storages",
+          "count": 0,
+          "ARDS": 0
+        },
+        "catalogsources": {
+          "sum": 0,
+          "rs": "catalogsources",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterserviceversions": {
+          "sum": 0,
+          "rs": "clusterserviceversions",
+          "count": 0,
+          "ARDS": 0
+        },
+        "installplans": {
+          "sum": 0,
+          "rs": "installplans",
+          "count": 0,
+          "ARDS": 0
+        },
+        "olmconfigs": {
+          "sum": 0,
+          "rs": "olmconfigs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "operatorconditions": {
+          "sum": 0,
+          "rs": "operatorconditions",
+          "count": 0,
+          "ARDS": 0
+        },
+        "operatorgroups": {
+          "sum": 0,
+          "rs": "operatorgroups",
+          "count": 0,
+          "ARDS": 0
+        },
+        "operators": {
+          "sum": 0,
+          "rs": "operators",
+          "count": 0,
+          "ARDS": 0
+        },
+        "subscriptions": {
+          "sum": 0,
+          "rs": "subscriptions",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterobjectdeployments": {
+          "sum": 0,
+          "rs": "clusterobjectdeployments",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterobjectsetphases": {
+          "sum": 0,
+          "rs": "clusterobjectsetphases",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterobjectsets": {
+          "sum": 0,
+          "rs": "clusterobjectsets",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterobjectslices": {
+          "sum": 0,
+          "rs": "clusterobjectslices",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterobjecttemplates": {
+          "sum": 0,
+          "rs": "clusterobjecttemplates",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterpackages": {
+          "sum": 0,
+          "rs": "clusterpackages",
+          "count": 0,
+          "ARDS": 0
+        },
+        "objectdeployments": {
+          "sum": 0,
+          "rs": "objectdeployments",
+          "count": 0,
+          "ARDS": 0
+        },
+        "objectsetphases": {
+          "sum": 0,
+          "rs": "objectsetphases",
+          "count": 0,
+          "ARDS": 0
+        },
+        "objectsets": {
+          "sum": 0,
+          "rs": "objectsets",
+          "count": 0,
+          "ARDS": 0
+        },
+        "objectslices": {
+          "sum": 0,
+          "rs": "objectslices",
+          "count": 0,
+          "ARDS": 0
+        },
+        "objecttemplates": {
+          "sum": 0,
+          "rs": "objecttemplates",
+          "count": 0,
+          "ARDS": 0
+        },
+        "packages": {
+          "sum": 0,
+          "rs": "packages",
+          "count": 0,
+          "ARDS": 0
+        },
+        "performanceprofiles": {
+          "sum": 0,
+          "rs": "performanceprofiles",
+          "count": 0,
+          "ARDS": 0
+        },
+        "poddisruptionbudgets": {
+          "sum": 0,
+          "rs": "poddisruptionbudgets",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterresourcequotas": {
+          "sum": 0,
+          "rs": "clusterresourcequotas",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterrolebindings": {
+          "sum": 0,
+          "rs": "clusterrolebindings",
+          "count": 0,
+          "ARDS": 0
+        },
+        "clusterroles": {
+          "sum": 0,
+          "rs": "clusterroles",
+          "count": 0,
+          "ARDS": 0
+        },
+        "rolebindings": {
+          "sum": 0,
+          "rs": "rolebindings",
+          "count": 0,
+          "ARDS": 0
+        },
+        "roles": {
+          "sum": 0,
+          "rs": "roles",
+          "count": 0,
+          "ARDS": 0
+        },
+        "priorityclasses": {
+          "sum": 0,
+          "rs": "priorityclasses",
+          "count": 0,
+          "ARDS": 0
+        },
+        "rangeallocations": {
+          "sum": 0,
+          "rs": "rangeallocations",
+          "count": 0,
+          "ARDS": 0
+        },
+        "securitycontextconstraints": {
+          "sum": 0,
+          "rs": "securitycontextconstraints",
+          "count": 0,
+          "ARDS": 0
+        },
+        "volumesnapshotclasses": {
+          "sum": 0,
+          "rs": "volumesnapshotclasses",
+          "count": 0,
+          "ARDS": 0
+        },
+        "volumesnapshotcontents": {
+          "sum": 0,
+          "rs": "volumesnapshotcontents",
+          "count": 0,
+          "ARDS": 0
+        },
+        "volumesnapshots": {
+          "sum": 0,
+          "rs": "volumesnapshots",
+          "count": 0,
+          "ARDS": 0
+        },
+        "splunkforwarders": {
+          "sum": 0,
+          "rs": "splunkforwarders",
+          "count": 0,
+          "ARDS": 0
+        },
+        "csidrivers": {
+          "sum": 0,
+          "rs": "csidrivers",
+          "count": 0,
+          "ARDS": 0
+        },
+        "csinodes": {
+          "sum": 0,
+          "rs": "csinodes",
+          "count": 0,
+          "ARDS": 0
+        },
+        "csistoragecapacities": {
+          "sum": 0,
+          "rs": "csistoragecapacities",
+          "count": 0,
+          "ARDS": 0
+        },
+        "storageclasses": {
+          "sum": 0,
+          "rs": "storageclasses",
+          "count": 0,
+          "ARDS": 0
+        },
+        "volumeattachments": {
+          "sum": 0,
+          "rs": "volumeattachments",
+          "count": 0,
+          "ARDS": 0
+        },
+        "profiles": {
+          "sum": 0,
+          "rs": "profiles",
+          "count": 0,
+          "ARDS": 0
+        },
+        "tuneds": {
+          "sum": 0,
+          "rs": "tuneds",
+          "count": 0,
+          "ARDS": 0
+        },
+        "upgradeconfigs": {
+          "sum": 0,
+          "rs": "upgradeconfigs",
+          "count": 0,
+          "ARDS": 0
+        },
+        "ippools": {
+          "sum": 0,
+          "rs": "ippools",
+          "count": 0,
+          "ARDS": 0
+        },
+        "overlappingrangeipreservations": {
+          "sum": 0,
+          "rs": "overlappingrangeipreservations",
+          "count": 0,
+          "ARDS": 0
+        }
+      },
+      "request_count_code": {
+        "0": {
+          "cd": "0",
+          "ASR": 0
+        },
+        "200": {
+          "cd": "200",
+          "ASR": 0,
+          "RCR": 0
+        },
+        "201": {
+          "cd": "201",
+          "ASR": 0,
+          "RCR": 0
+        },
+        "301": {
+          "cd": "301",
+          "ASR": 0
+        },
+        "404": {
+          "cd": "404",
+          "ASR": 0,
+          "RCR": 0
+        },
+        "409": {
+          "cd": "409",
+          "ASR": 0,
+          "RCR": 0
+        },
+        "500": {
+          "cd": "500",
+          "ASR": 0,
+          "RCR": 0
+        },
+        "503": {
+          "cd": "503",
+          "RCR": 0
+        },
+        "504": {
+          "cd": "504",
+          "ASR": 0
+        }
+      },
+      "request_count_resource": {
+        "configmaps": {
+          "rs": "configmaps",
+          "ASR": 0
+        },
+        "events": {
+          "rs": "events",
+          "ASR": 0
+        },
+        "nodes": {
+          "rs": "nodes",
+          "ASR": 0
+        },
+        "persistentvolumeclaims": {
+          "rs": "persistentvolumeclaims",
+          "ASR": 0
+        },
+        "pods": {
+          "rs": "pods",
+          "ASR": 0
+        },
+        "secrets": {
+          "rs": "secrets",
+          "ASR": 0
+        },
+        "services": {
+          "rs": "services",
+          "ASR": 0
+        },
+        "addons": {
+          "rs": "addons",
+          "ASR": 0
+        },
+        "customresourcedefinitions": {
+          "rs": "customresourcedefinitions",
+          "ASR": 0
+        },
+        "apiservices": {
+          "rs": "apiservices",
+          "ASR": 0
+        },
+        "apirequestcounts": {
+          "rs": "apirequestcounts",
+          "ASR": 0
+        },
+        "controllerrevisions": {
+          "rs": "controllerrevisions",
+          "ASR": 0
+        },
+        "deployments": {
+          "rs": "deployments",
+          "ASR": 0
+        },
+        "jobs": {
+          "rs": "jobs",
+          "ASR": 0
+        },
+        "apiservers": {
+          "rs": "apiservers",
+          "ASR": 0
+        },
+        "builds": {
+          "rs": "builds",
+          "ASR": 0
+        },
+        "clusteroperators": {
+          "rs": "clusteroperators",
+          "ASR": 0
+        },
+        "clusterversions": {
+          "rs": "clusterversions",
+          "ASR": 0
+        },
+        "oauths": {
+          "rs": "oauths",
+          "ASR": 0
+        },
+        "consolelinks": {
+          "rs": "consolelinks",
+          "ASR": 0
+        },
+        "consolenotifications": {
+          "rs": "consolenotifications",
+          "ASR": 0
+        },
+        "consolequickstarts": {
+          "rs": "consolequickstarts",
+          "ASR": 0
+        },
+        "machines": {
+          "rs": "machines",
+          "ASR": 0
+        },
+        "controllerconfigs": {
+          "rs": "controllerconfigs",
+          "ASR": 0
+        },
+        "machineconfigpools": {
+          "rs": "machineconfigpools",
+          "ASR": 0
+        },
+        "bmceventsubscriptions": {
+          "rs": "bmceventsubscriptions",
+          "ASR": 0
+        },
+        "alertmanagerconfigs": {
+          "rs": "alertmanagerconfigs",
+          "ASR": 0
+        },
+        "alertmanagers": {
+          "rs": "alertmanagers",
+          "ASR": 0
+        },
+        "thanosrulers": {
+          "rs": "thanosrulers",
+          "ASR": 0
+        },
+        "authentications": {
+          "rs": "authentications",
+          "ASR": 0
+        },
+        "kubeapiservers": {
+          "rs": "kubeapiservers",
+          "ASR": 0
+        },
+        "openshiftcontrollermanagers": {
+          "rs": "openshiftcontrollermanagers",
+          "ASR": 0
+        },
+        "subscriptions": {
+          "rs": "subscriptions",
+          "ASR": 0
+        },
+        "volumesnapshots": {
+          "rs": "volumesnapshots",
+          "ASR": 0
+        },
+        "storageclasses": {
+          "rs": "storageclasses",
+          "ASR": 0
+        },
+        "tuneds": {
+          "rs": "tuneds",
+          "ASR": 0
+        },
+        "": {
+          "rs": "",
+          "ASR": 0
+        },
+        "componentstatuses": {
+          "rs": "componentstatuses",
+          "ASR": 0
+        },
+        "endpoints": {
+          "rs": "endpoints",
+          "ASR": 0
+        },
+        "limitranges": {
+          "rs": "limitranges",
+          "ASR": 0
+        },
+        "namespaces": {
+          "rs": "namespaces",
+          "ASR": 0
+        },
+        "persistentvolumes": {
+          "rs": "persistentvolumes",
+          "ASR": 0
+        },
+        "podtemplates": {
+          "rs": "podtemplates",
+          "ASR": 0
+        },
+        "replicationcontrollers": {
+          "rs": "replicationcontrollers",
+          "ASR": 0
+        },
+        "resourcequotas": {
+          "rs": "resourcequotas",
+          "ASR": 0
+        },
+        "serviceaccounts": {
+          "rs": "serviceaccounts",
+          "ASR": 0
+        },
+        "addoninstances": {
+          "rs": "addoninstances",
+          "ASR": 0
+        },
+        "addonoperators": {
+          "rs": "addonoperators",
+          "ASR": 0
+        },
+        "mutatingwebhookconfigurations": {
+          "rs": "mutatingwebhookconfigurations",
+          "ASR": 0
+        },
+        "validatingwebhookconfigurations": {
+          "rs": "validatingwebhookconfigurations",
+          "ASR": 0
+        },
+        "daemonsets": {
+          "rs": "daemonsets",
+          "ASR": 0
+        },
+        "replicasets": {
+          "rs": "replicasets",
+          "ASR": 0
+        },
+        "statefulsets": {
+          "rs": "statefulsets",
+          "ASR": 0
+        },
+        "rolebindingrestrictions": {
+          "rs": "rolebindingrestrictions",
+          "ASR": 0
+        },
+        "horizontalpodautoscalers": {
+          "rs": "horizontalpodautoscalers",
+          "ASR": 0
+        },
+        "clusterautoscalers": {
+          "rs": "clusterautoscalers",
+          "ASR": 0
+        },
+        "machineautoscalers": {
+          "rs": "machineautoscalers",
+          "ASR": 0
+        },
+        "cronjobs": {
+          "rs": "cronjobs",
+          "ASR": 0
+        },
+        "certificatesigningrequests": {
+          "rs": "certificatesigningrequests",
+          "ASR": 0
+        },
+        "cloudprivateipconfigs": {
+          "rs": "cloudprivateipconfigs",
+          "ASR": 0
+        },
+        "credentialsrequests": {
+          "rs": "credentialsrequests",
+          "ASR": 0
+        },
+        "consoles": {
+          "rs": "consoles",
+          "ASR": 0
+        },
+        "dnses": {
+          "rs": "dnses",
+          "ASR": 0
+        },
+        "featuregates": {
+          "rs": "featuregates",
+          "ASR": 0
+        },
+        "imagecontentpolicies": {
+          "rs": "imagecontentpolicies",
+          "ASR": 0
+        },
+        "imagedigestmirrorsets": {
+          "rs": "imagedigestmirrorsets",
+          "ASR": 0
+        },
+        "images": {
+          "rs": "images",
+          "ASR": 0
+        },
+        "imagetagmirrorsets": {
+          "rs": "imagetagmirrorsets",
+          "ASR": 0
+        },
+        "infrastructures": {
+          "rs": "infrastructures",
+          "ASR": 0
+        },
+        "ingresses": {
+          "rs": "ingresses",
+          "ASR": 0
+        },
+        "networks": {
+          "rs": "networks",
+          "ASR": 0
+        },
+        "operatorhubs": {
+          "rs": "operatorhubs",
+          "ASR": 0
+        },
+        "projects": {
+          "rs": "projects",
+          "ASR": 0
+        },
+        "proxies": {
+          "rs": "proxies",
+          "ASR": 0
+        },
+        "schedulers": {
+          "rs": "schedulers",
+          "ASR": 0
+        },
+        "consoleclidownloads": {
+          "rs": "consoleclidownloads",
+          "ASR": 0
+        },
+        "consoleexternalloglinks": {
+          "rs": "consoleexternalloglinks",
+          "ASR": 0
+        },
+        "consoleplugins": {
+          "rs": "consoleplugins",
+          "ASR": 0
+        },
+        "consoleyamlsamples": {
+          "rs": "consoleyamlsamples",
+          "ASR": 0
+        },
+        "podnetworkconnectivitychecks": {
+          "rs": "podnetworkconnectivitychecks",
+          "ASR": 0
+        },
+        "leases": {
+          "rs": "leases",
+          "ASR": 0
+        },
+        "datadogagents": {
+          "rs": "datadogagents",
+          "ASR": 0
+        },
+        "datadogmetrics": {
+          "rs": "datadogmetrics",
+          "ASR": 0
+        },
+        "datadogmonitors": {
+          "rs": "datadogmonitors",
+          "ASR": 0
+        },
+        "endpointslices": {
+          "rs": "endpointslices",
+          "ASR": 0
+        },
+        "flowschemas": {
+          "rs": "flowschemas",
+          "ASR": 0
+        },
+        "prioritylevelconfigurations": {
+          "rs": "prioritylevelconfigurations",
+          "ASR": 0
+        },
+        "helmchartrepositories": {
+          "rs": "helmchartrepositories",
+          "ASR": 0
+        },
+        "projecthelmchartrepositories": {
+          "rs": "projecthelmchartrepositories",
+          "ASR": 0
+        },
+        "configs": {
+          "rs": "configs",
+          "ASR": 0
+        },
+        "imagepruners": {
+          "rs": "imagepruners",
+          "ASR": 0
+        },
+        "metal3remediations": {
+          "rs": "metal3remediations",
+          "ASR": 0
+        },
+        "metal3remediationtemplates": {
+          "rs": "metal3remediationtemplates",
+          "ASR": 0
+        },
+        "dnsrecords": {
+          "rs": "dnsrecords",
+          "ASR": 0
+        },
+        "network-attachment-definitions": {
+          "rs": "network-attachment-definitions",
+          "ASR": 0
+        },
+        "egressfirewalls": {
+          "rs": "egressfirewalls",
+          "ASR": 0
+        },
+        "egressips": {
+          "rs": "egressips",
+          "ASR": 0
+        },
+        "egressqoses": {
+          "rs": "egressqoses",
+          "ASR": 0
+        },
+        "controlplanemachinesets": {
+          "rs": "controlplanemachinesets",
+          "ASR": 0
+        },
+        "machinehealthchecks": {
+          "rs": "machinehealthchecks",
+          "ASR": 0
+        },
+        "machinesets": {
+          "rs": "machinesets",
+          "ASR": 0
+        },
+        "containerruntimeconfigs": {
+          "rs": "containerruntimeconfigs",
+          "ASR": 0
+        },
+        "kubeletconfigs": {
+          "rs": "kubeletconfigs",
+          "ASR": 0
+        },
+        "machineconfigs": {
+          "rs": "machineconfigs",
+          "ASR": 0
+        },
+        "customdomains": {
+          "rs": "customdomains",
+          "ASR": 0
+        },
+        "mustgathers": {
+          "rs": "mustgathers",
+          "ASR": 0
+        },
+        "subjectpermissions": {
+          "rs": "subjectpermissions",
+          "ASR": 0
+        },
+        "baremetalhosts": {
+          "rs": "baremetalhosts",
+          "ASR": 0
+        },
+        "firmwareschemas": {
+          "rs": "firmwareschemas",
+          "ASR": 0
+        },
+        "hardwaredata": {
+          "rs": "hardwaredata",
+          "ASR": 0
+        },
+        "hostfirmwaresettings": {
+          "rs": "hostfirmwaresettings",
+          "ASR": 0
+        },
+        "preprovisioningimages": {
+          "rs": "preprovisioningimages",
+          "ASR": 0
+        },
+        "provisionings": {
+          "rs": "provisionings",
+          "ASR": 0
+        },
+        "storagestates": {
+          "rs": "storagestates",
+          "ASR": 0
+        },
+        "storageversionmigrations": {
+          "rs": "storageversionmigrations",
+          "ASR": 0
+        },
+        "podmonitors": {
+          "rs": "podmonitors",
+          "ASR": 0
+        },
+        "probes": {
+          "rs": "probes",
+          "ASR": 0
+        },
+        "prometheuses": {
+          "rs": "prometheuses",
+          "ASR": 0
+        },
+        "prometheusrules": {
+          "rs": "prometheusrules",
+          "ASR": 0
+        },
+        "servicemonitors": {
+          "rs": "servicemonitors",
+          "ASR": 0
+        },
+        "clusterurlmonitors": {
+          "rs": "clusterurlmonitors",
+          "ASR": 0
+        },
+        "routemonitors": {
+          "rs": "routemonitors",
+          "ASR": 0
+        },
+        "monitoringstacks": {
+          "rs": "monitoringstacks",
+          "ASR": 0
+        },
+        "prometheusagents": {
+          "rs": "prometheusagents",
+          "ASR": 0
+        },
+        "scrapeconfigs": {
+          "rs": "scrapeconfigs",
+          "ASR": 0
+        },
+        "thanosqueriers": {
+          "rs": "thanosqueriers",
+          "ASR": 0
+        },
+        "egressrouters": {
+          "rs": "egressrouters",
+          "ASR": 0
+        },
+        "operatorpkis": {
+          "rs": "operatorpkis",
+          "ASR": 0
+        },
+        "ingressclasses": {
+          "rs": "ingressclasses",
+          "ASR": 0
+        },
+        "networkpolicies": {
+          "rs": "networkpolicies",
+          "ASR": 0
+        },
+        "runtimeclasses": {
+          "rs": "runtimeclasses",
+          "ASR": 0
+        },
+        "managedfleetnotificationrecords": {
+          "rs": "managedfleetnotificationrecords",
+          "ASR": 0
+        },
+        "managedfleetnotifications": {
+          "rs": "managedfleetnotifications",
+          "ASR": 0
+        },
+        "managednotifications": {
+          "rs": "managednotifications",
+          "ASR": 0
+        },
+        "ocmagents": {
+          "rs": "ocmagents",
+          "ASR": 0
+        },
+        "cloudcredentials": {
+          "rs": "cloudcredentials",
+          "ASR": 0
+        },
+        "clustercsidrivers": {
+          "rs": "clustercsidrivers",
+          "ASR": 0
+        },
+        "csisnapshotcontrollers": {
+          "rs": "csisnapshotcontrollers",
+          "ASR": 0
+        },
+        "etcds": {
+          "rs": "etcds",
+          "ASR": 0
+        },
+        "imagecontentsourcepolicies": {
+          "rs": "imagecontentsourcepolicies",
+          "ASR": 0
+        },
+        "ingresscontrollers": {
+          "rs": "ingresscontrollers",
+          "ASR": 0
+        },
+        "insightsoperators": {
+          "rs": "insightsoperators",
+          "ASR": 0
+        },
+        "kubecontrollermanagers": {
+          "rs": "kubecontrollermanagers",
+          "ASR": 0
+        },
+        "kubeschedulers": {
+          "rs": "kubeschedulers",
+          "ASR": 0
+        },
+        "kubestorageversionmigrators": {
+          "rs": "kubestorageversionmigrators",
+          "ASR": 0
+        },
+        "openshiftapiservers": {
+          "rs": "openshiftapiservers",
+          "ASR": 0
+        },
+        "servicecas": {
+          "rs": "servicecas",
+          "ASR": 0
+        },
+        "storages": {
+          "rs": "storages",
+          "ASR": 0
+        },
+        "catalogsources": {
+          "rs": "catalogsources",
+          "ASR": 0
+        },
+        "clusterserviceversions": {
+          "rs": "clusterserviceversions",
+          "ASR": 0
+        },
+        "installplans": {
+          "rs": "installplans",
+          "ASR": 0
+        },
+        "olmconfigs": {
+          "rs": "olmconfigs",
+          "ASR": 0
+        },
+        "operatorconditions": {
+          "rs": "operatorconditions",
+          "ASR": 0
+        },
+        "operatorgroups": {
+          "rs": "operatorgroups",
+          "ASR": 0
+        },
+        "operators": {
+          "rs": "operators",
+          "ASR": 0
+        },
+        "clusterobjectdeployments": {
+          "rs": "clusterobjectdeployments",
+          "ASR": 0
+        },
+        "clusterobjectsetphases": {
+          "rs": "clusterobjectsetphases",
+          "ASR": 0
+        },
+        "clusterobjectsets": {
+          "rs": "clusterobjectsets",
+          "ASR": 0
+        },
+        "clusterobjectslices": {
+          "rs": "clusterobjectslices",
+          "ASR": 0
+        },
+        "clusterobjecttemplates": {
+          "rs": "clusterobjecttemplates",
+          "ASR": 0
+        },
+        "clusterpackages": {
+          "rs": "clusterpackages",
+          "ASR": 0
+        },
+        "objectdeployments": {
+          "rs": "objectdeployments",
+          "ASR": 0
+        },
+        "objectsetphases": {
+          "rs": "objectsetphases",
+          "ASR": 0
+        },
+        "objectsets": {
+          "rs": "objectsets",
+          "ASR": 0
+        },
+        "objectslices": {
+          "rs": "objectslices",
+          "ASR": 0
+        },
+        "objecttemplates": {
+          "rs": "objecttemplates",
+          "ASR": 0
+        },
+        "packages": {
+          "rs": "packages",
+          "ASR": 0
+        },
+        "performanceprofiles": {
+          "rs": "performanceprofiles",
+          "ASR": 0
+        },
+        "poddisruptionbudgets": {
+          "rs": "poddisruptionbudgets",
+          "ASR": 0
+        },
+        "clusterresourcequotas": {
+          "rs": "clusterresourcequotas",
+          "ASR": 0
+        },
+        "clusterrolebindings": {
+          "rs": "clusterrolebindings",
+          "ASR": 0
+        },
+        "clusterroles": {
+          "rs": "clusterroles",
+          "ASR": 0
+        },
+        "rolebindings": {
+          "rs": "rolebindings",
+          "ASR": 0
+        },
+        "roles": {
+          "rs": "roles",
+          "ASR": 0
+        },
+        "priorityclasses": {
+          "rs": "priorityclasses",
+          "ASR": 0
+        },
+        "rangeallocations": {
+          "rs": "rangeallocations",
+          "ASR": 0
+        },
+        "securitycontextconstraints": {
+          "rs": "securitycontextconstraints",
+          "ASR": 0
+        },
+        "volumesnapshotclasses": {
+          "rs": "volumesnapshotclasses",
+          "ASR": 0
+        },
+        "volumesnapshotcontents": {
+          "rs": "volumesnapshotcontents",
+          "ASR": 0
+        },
+        "splunkforwarders": {
+          "rs": "splunkforwarders",
+          "ASR": 0
+        },
+        "csidrivers": {
+          "rs": "csidrivers",
+          "ASR": 0
+        },
+        "csinodes": {
+          "rs": "csinodes",
+          "ASR": 0
+        },
+        "csistoragecapacities": {
+          "rs": "csistoragecapacities",
+          "ASR": 0
+        },
+        "volumeattachments": {
+          "rs": "volumeattachments",
+          "ASR": 0
+        },
+        "profiles": {
+          "rs": "profiles",
+          "ASR": 0
+        },
+        "upgradeconfigs": {
+          "rs": "upgradeconfigs",
+          "ASR": 0
+        },
+        "ippools": {
+          "rs": "ippools",
+          "ASR": 0
+        },
+        "overlappingrangeipreservations": {
+          "rs": "overlappingrangeipreservations",
+          "ASR": 0
+        },
+        "tokenreviews": {
+          "rs": "tokenreviews",
+          "ASR": 0
+        },
+        "selfsubjectaccessreviews": {
+          "rs": "selfsubjectaccessreviews",
+          "ASR": 0
+        },
+        "subjectaccessreviews": {
+          "rs": "subjectaccessreviews",
+          "ASR": 0
+        }
+      },
+      "request_count_verb": {
+        "WATCH": {
+          "vb": "WATCH",
+          "ASR": 0
+        },
+        "GET": {
+          "vb": "GET",
+          "ASR": 0,
+          "RCR": 0
+        },
+        "POST": {
+          "vb": "POST",
+          "ASR": 0,
+          "RCR": 0
+        },
+        "LIST": {
+          "vb": "LIST",
+          "ASR": 0
+        },
+        "APPLY": {
+          "vb": "APPLY",
+          "ASR": 0
+        },
+        "DELETE": {
+          "vb": "DELETE",
+          "ASR": 0
+        },
+        "PUT": {
+          "vb": "PUT",
+          "ASR": 0,
+          "RCR": 0
+        },
+        "PATCH": {
+          "vb": "PATCH",
+          "ASR": 0
+        }
+      },
+      "ASRT": 0,
+      "ARDA": 1,
+      "ARST": 0,
+      "ARSTS": 0,
+      "ARSTC": 0,
+      "apiserver_response_sizes_resource": {
+        "": {
+          "sum": 0,
+          "rs": "",
+          "count": 0,
+          "ARS": 0
+        },
+        "componentstatuses": {
+          "sum": 0,
+          "rs": "componentstatuses",
+          "count": 0,
+          "ARS": 0
+        },
+        "configmaps": {
+          "sum": 0,
+          "rs": "configmaps",
+          "count": 0,
+          "ARS": 0
+        },
+        "endpoints": {
+          "sum": 0,
+          "rs": "endpoints",
+          "count": 0,
+          "ARS": 0
+        },
+        "events": {
+          "sum": 0,
+          "rs": "events",
+          "count": 0,
+          "ARS": 0
+        },
+        "limitranges": {
+          "sum": 0,
+          "rs": "limitranges",
+          "count": 0,
+          "ARS": 0
+        },
+        "namespaces": {
+          "sum": 0,
+          "rs": "namespaces",
+          "count": 0,
+          "ARS": 0
+        },
+        "nodes": {
+          "sum": 0,
+          "rs": "nodes",
+          "count": 0,
+          "ARS": 0
+        },
+        "persistentvolumeclaims": {
+          "sum": 0,
+          "rs": "persistentvolumeclaims",
+          "count": 0,
+          "ARS": 0
+        },
+        "persistentvolumes": {
+          "sum": 0,
+          "rs": "persistentvolumes",
+          "count": 0,
+          "ARS": 0
+        },
+        "pods": {
+          "sum": 0,
+          "rs": "pods",
+          "count": 0,
+          "ARS": 0
+        },
+        "podtemplates": {
+          "sum": 0,
+          "rs": "podtemplates",
+          "count": 0,
+          "ARS": 0
+        },
+        "replicationcontrollers": {
+          "sum": 0,
+          "rs": "replicationcontrollers",
+          "count": 0,
+          "ARS": 0
+        },
+        "resourcequotas": {
+          "sum": 0,
+          "rs": "resourcequotas",
+          "count": 0,
+          "ARS": 0
+        },
+        "secrets": {
+          "sum": 0,
+          "rs": "secrets",
+          "count": 0,
+          "ARS": 0
+        },
+        "serviceaccounts": {
+          "sum": 0,
+          "rs": "serviceaccounts",
+          "count": 0,
+          "ARS": 0
+        },
+        "services": {
+          "sum": 0,
+          "rs": "services",
+          "count": 0,
+          "ARS": 0
+        },
+        "addoninstances": {
+          "sum": 0,
+          "rs": "addoninstances",
+          "count": 0,
+          "ARS": 0
+        },
+        "addonoperators": {
+          "sum": 0,
+          "rs": "addonoperators",
+          "count": 0,
+          "ARS": 0
+        },
+        "addons": {
+          "sum": 0,
+          "rs": "addons",
+          "count": 0,
+          "ARS": 0
+        },
+        "mutatingwebhookconfigurations": {
+          "sum": 0,
+          "rs": "mutatingwebhookconfigurations",
+          "count": 0,
+          "ARS": 0
+        },
+        "validatingwebhookconfigurations": {
+          "sum": 0,
+          "rs": "validatingwebhookconfigurations",
+          "count": 0,
+          "ARS": 0
+        },
+        "customresourcedefinitions": {
+          "sum": 0,
+          "rs": "customresourcedefinitions",
+          "count": 0,
+          "ARS": 0
+        },
+        "apiservices": {
+          "sum": 0,
+          "rs": "apiservices",
+          "count": 0,
+          "ARS": 0
+        },
+        "apirequestcounts": {
+          "sum": 0,
+          "rs": "apirequestcounts",
+          "count": 0,
+          "ARS": 0
+        },
+        "controllerrevisions": {
+          "sum": 0,
+          "rs": "controllerrevisions",
+          "count": 0,
+          "ARS": 0
+        },
+        "daemonsets": {
+          "sum": 0,
+          "rs": "daemonsets",
+          "count": 0,
+          "ARS": 0
+        },
+        "deployments": {
+          "sum": 0,
+          "rs": "deployments",
+          "count": 0,
+          "ARS": 0
+        },
+        "replicasets": {
+          "sum": 0,
+          "rs": "replicasets",
+          "count": 0,
+          "ARS": 0
+        },
+        "statefulsets": {
+          "sum": 0,
+          "rs": "statefulsets",
+          "count": 0,
+          "ARS": 0
+        },
+        "rolebindingrestrictions": {
+          "sum": 0,
+          "rs": "rolebindingrestrictions",
+          "count": 0,
+          "ARS": 0
+        },
+        "horizontalpodautoscalers": {
+          "sum": 0,
+          "rs": "horizontalpodautoscalers",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterautoscalers": {
+          "sum": 0,
+          "rs": "clusterautoscalers",
+          "count": 0,
+          "ARS": 0
+        },
+        "machineautoscalers": {
+          "sum": 0,
+          "rs": "machineautoscalers",
+          "count": 0,
+          "ARS": 0
+        },
+        "cronjobs": {
+          "sum": 0,
+          "rs": "cronjobs",
+          "count": 0,
+          "ARS": 0
+        },
+        "jobs": {
+          "sum": 0,
+          "rs": "jobs",
+          "count": 0,
+          "ARS": 0
+        },
+        "certificatesigningrequests": {
+          "sum": 0,
+          "rs": "certificatesigningrequests",
+          "count": 0,
+          "ARS": 0
+        },
+        "cloudprivateipconfigs": {
+          "sum": 0,
+          "rs": "cloudprivateipconfigs",
+          "count": 0,
+          "ARS": 0
+        },
+        "credentialsrequests": {
+          "sum": 0,
+          "rs": "credentialsrequests",
+          "count": 0,
+          "ARS": 0
+        },
+        "apiservers": {
+          "sum": 0,
+          "rs": "apiservers",
+          "count": 0,
+          "ARS": 0
+        },
+        "authentications": {
+          "sum": 0,
+          "rs": "authentications",
+          "count": 0,
+          "ARS": 0
+        },
+        "builds": {
+          "sum": 0,
+          "rs": "builds",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusteroperators": {
+          "sum": 0,
+          "rs": "clusteroperators",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterversions": {
+          "sum": 0,
+          "rs": "clusterversions",
+          "count": 0,
+          "ARS": 0
+        },
+        "consoles": {
+          "sum": 0,
+          "rs": "consoles",
+          "count": 0,
+          "ARS": 0
+        },
+        "dnses": {
+          "sum": 0,
+          "rs": "dnses",
+          "count": 0,
+          "ARS": 0
+        },
+        "featuregates": {
+          "sum": 0,
+          "rs": "featuregates",
+          "count": 0,
+          "ARS": 0
+        },
+        "imagecontentpolicies": {
+          "sum": 0,
+          "rs": "imagecontentpolicies",
+          "count": 0,
+          "ARS": 0
+        },
+        "imagedigestmirrorsets": {
+          "sum": 0,
+          "rs": "imagedigestmirrorsets",
+          "count": 0,
+          "ARS": 0
+        },
+        "images": {
+          "sum": 0,
+          "rs": "images",
+          "count": 0,
+          "ARS": 0
+        },
+        "imagetagmirrorsets": {
+          "sum": 0,
+          "rs": "imagetagmirrorsets",
+          "count": 0,
+          "ARS": 0
+        },
+        "infrastructures": {
+          "sum": 0,
+          "rs": "infrastructures",
+          "count": 0,
+          "ARS": 0
+        },
+        "ingresses": {
+          "sum": 0,
+          "rs": "ingresses",
+          "count": 0,
+          "ARS": 0
+        },
+        "networks": {
+          "sum": 0,
+          "rs": "networks",
+          "count": 0,
+          "ARS": 0
+        },
+        "oauths": {
+          "sum": 0,
+          "rs": "oauths",
+          "count": 0,
+          "ARS": 0
+        },
+        "operatorhubs": {
+          "sum": 0,
+          "rs": "operatorhubs",
+          "count": 0,
+          "ARS": 0
+        },
+        "projects": {
+          "sum": 0,
+          "rs": "projects",
+          "count": 0,
+          "ARS": 0
+        },
+        "proxies": {
+          "sum": 0,
+          "rs": "proxies",
+          "count": 0,
+          "ARS": 0
+        },
+        "schedulers": {
+          "sum": 0,
+          "rs": "schedulers",
+          "count": 0,
+          "ARS": 0
+        },
+        "consoleclidownloads": {
+          "sum": 0,
+          "rs": "consoleclidownloads",
+          "count": 0,
+          "ARS": 0
+        },
+        "consoleexternalloglinks": {
+          "sum": 0,
+          "rs": "consoleexternalloglinks",
+          "count": 0,
+          "ARS": 0
+        },
+        "consolelinks": {
+          "sum": 0,
+          "rs": "consolelinks",
+          "count": 0,
+          "ARS": 0
+        },
+        "consolenotifications": {
+          "sum": 0,
+          "rs": "consolenotifications",
+          "count": 0,
+          "ARS": 0
+        },
+        "consoleplugins": {
+          "sum": 0,
+          "rs": "consoleplugins",
+          "count": 0,
+          "ARS": 0
+        },
+        "consolequickstarts": {
+          "sum": 0,
+          "rs": "consolequickstarts",
+          "count": 0,
+          "ARS": 0
+        },
+        "consoleyamlsamples": {
+          "sum": 0,
+          "rs": "consoleyamlsamples",
+          "count": 0,
+          "ARS": 0
+        },
+        "podnetworkconnectivitychecks": {
+          "sum": 0,
+          "rs": "podnetworkconnectivitychecks",
+          "count": 0,
+          "ARS": 0
+        },
+        "leases": {
+          "sum": 0,
+          "rs": "leases",
+          "count": 0,
+          "ARS": 0
+        },
+        "datadogagents": {
+          "sum": 0,
+          "rs": "datadogagents",
+          "count": 0,
+          "ARS": 0
+        },
+        "datadogmetrics": {
+          "sum": 0,
+          "rs": "datadogmetrics",
+          "count": 0,
+          "ARS": 0
+        },
+        "datadogmonitors": {
+          "sum": 0,
+          "rs": "datadogmonitors",
+          "count": 0,
+          "ARS": 0
+        },
+        "endpointslices": {
+          "sum": 0,
+          "rs": "endpointslices",
+          "count": 0,
+          "ARS": 0
+        },
+        "flowschemas": {
+          "sum": 0,
+          "rs": "flowschemas",
+          "count": 0,
+          "ARS": 0
+        },
+        "prioritylevelconfigurations": {
+          "sum": 0,
+          "rs": "prioritylevelconfigurations",
+          "count": 0,
+          "ARS": 0
+        },
+        "helmchartrepositories": {
+          "sum": 0,
+          "rs": "helmchartrepositories",
+          "count": 0,
+          "ARS": 0
+        },
+        "projecthelmchartrepositories": {
+          "sum": 0,
+          "rs": "projecthelmchartrepositories",
+          "count": 0,
+          "ARS": 0
+        },
+        "configs": {
+          "sum": 0,
+          "rs": "configs",
+          "count": 0,
+          "ARS": 0
+        },
+        "imagepruners": {
+          "sum": 0,
+          "rs": "imagepruners",
+          "count": 0,
+          "ARS": 0
+        },
+        "metal3remediations": {
+          "sum": 0,
+          "rs": "metal3remediations",
+          "count": 0,
+          "ARS": 0
+        },
+        "metal3remediationtemplates": {
+          "sum": 0,
+          "rs": "metal3remediationtemplates",
+          "count": 0,
+          "ARS": 0
+        },
+        "dnsrecords": {
+          "sum": 0,
+          "rs": "dnsrecords",
+          "count": 0,
+          "ARS": 0
+        },
+        "network-attachment-definitions": {
+          "sum": 0,
+          "rs": "network-attachment-definitions",
+          "count": 0,
+          "ARS": 0
+        },
+        "egressfirewalls": {
+          "sum": 0,
+          "rs": "egressfirewalls",
+          "count": 0,
+          "ARS": 0
+        },
+        "egressips": {
+          "sum": 0,
+          "rs": "egressips",
+          "count": 0,
+          "ARS": 0
+        },
+        "egressqoses": {
+          "sum": 0,
+          "rs": "egressqoses",
+          "count": 0,
+          "ARS": 0
+        },
+        "controlplanemachinesets": {
+          "sum": 0,
+          "rs": "controlplanemachinesets",
+          "count": 0,
+          "ARS": 0
+        },
+        "machinehealthchecks": {
+          "sum": 0,
+          "rs": "machinehealthchecks",
+          "count": 0,
+          "ARS": 0
+        },
+        "machines": {
+          "sum": 0,
+          "rs": "machines",
+          "count": 0,
+          "ARS": 0
+        },
+        "machinesets": {
+          "sum": 0,
+          "rs": "machinesets",
+          "count": 0,
+          "ARS": 0
+        },
+        "containerruntimeconfigs": {
+          "sum": 0,
+          "rs": "containerruntimeconfigs",
+          "count": 0,
+          "ARS": 0
+        },
+        "controllerconfigs": {
+          "sum": 0,
+          "rs": "controllerconfigs",
+          "count": 0,
+          "ARS": 0
+        },
+        "kubeletconfigs": {
+          "sum": 0,
+          "rs": "kubeletconfigs",
+          "count": 0,
+          "ARS": 0
+        },
+        "machineconfigpools": {
+          "sum": 0,
+          "rs": "machineconfigpools",
+          "count": 0,
+          "ARS": 0
+        },
+        "machineconfigs": {
+          "sum": 0,
+          "rs": "machineconfigs",
+          "count": 0,
+          "ARS": 0
+        },
+        "customdomains": {
+          "sum": 0,
+          "rs": "customdomains",
+          "count": 0,
+          "ARS": 0
+        },
+        "mustgathers": {
+          "sum": 0,
+          "rs": "mustgathers",
+          "count": 0,
+          "ARS": 0
+        },
+        "subjectpermissions": {
+          "sum": 0,
+          "rs": "subjectpermissions",
+          "count": 0,
+          "ARS": 0
+        },
+        "baremetalhosts": {
+          "sum": 0,
+          "rs": "baremetalhosts",
+          "count": 0,
+          "ARS": 0
+        },
+        "bmceventsubscriptions": {
+          "sum": 0,
+          "rs": "bmceventsubscriptions",
+          "count": 0,
+          "ARS": 0
+        },
+        "firmwareschemas": {
+          "sum": 0,
+          "rs": "firmwareschemas",
+          "count": 0,
+          "ARS": 0
+        },
+        "hardwaredata": {
+          "sum": 0,
+          "rs": "hardwaredata",
+          "count": 0,
+          "ARS": 0
+        },
+        "hostfirmwaresettings": {
+          "sum": 0,
+          "rs": "hostfirmwaresettings",
+          "count": 0,
+          "ARS": 0
+        },
+        "preprovisioningimages": {
+          "sum": 0,
+          "rs": "preprovisioningimages",
+          "count": 0,
+          "ARS": 0
+        },
+        "provisionings": {
+          "sum": 0,
+          "rs": "provisionings",
+          "count": 0,
+          "ARS": 0
+        },
+        "storagestates": {
+          "sum": 0,
+          "rs": "storagestates",
+          "count": 0,
+          "ARS": 0
+        },
+        "storageversionmigrations": {
+          "sum": 0,
+          "rs": "storageversionmigrations",
+          "count": 0,
+          "ARS": 0
+        },
+        "alertmanagerconfigs": {
+          "sum": 0,
+          "rs": "alertmanagerconfigs",
+          "count": 0,
+          "ARS": 0
+        },
+        "alertmanagers": {
+          "sum": 0,
+          "rs": "alertmanagers",
+          "count": 0,
+          "ARS": 0
+        },
+        "podmonitors": {
+          "sum": 0,
+          "rs": "podmonitors",
+          "count": 0,
+          "ARS": 0
+        },
+        "probes": {
+          "sum": 0,
+          "rs": "probes",
+          "count": 0,
+          "ARS": 0
+        },
+        "prometheuses": {
+          "sum": 0,
+          "rs": "prometheuses",
+          "count": 0,
+          "ARS": 0
+        },
+        "prometheusrules": {
+          "sum": 0,
+          "rs": "prometheusrules",
+          "count": 0,
+          "ARS": 0
+        },
+        "servicemonitors": {
+          "sum": 0,
+          "rs": "servicemonitors",
+          "count": 0,
+          "ARS": 0
+        },
+        "thanosrulers": {
+          "sum": 0,
+          "rs": "thanosrulers",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterurlmonitors": {
+          "sum": 0,
+          "rs": "clusterurlmonitors",
+          "count": 0,
+          "ARS": 0
+        },
+        "routemonitors": {
+          "sum": 0,
+          "rs": "routemonitors",
+          "count": 0,
+          "ARS": 0
+        },
+        "monitoringstacks": {
+          "sum": 0,
+          "rs": "monitoringstacks",
+          "count": 0,
+          "ARS": 0
+        },
+        "prometheusagents": {
+          "sum": 0,
+          "rs": "prometheusagents",
+          "count": 0,
+          "ARS": 0
+        },
+        "scrapeconfigs": {
+          "sum": 0,
+          "rs": "scrapeconfigs",
+          "count": 0,
+          "ARS": 0
+        },
+        "thanosqueriers": {
+          "sum": 0,
+          "rs": "thanosqueriers",
+          "count": 0,
+          "ARS": 0
+        },
+        "egressrouters": {
+          "sum": 0,
+          "rs": "egressrouters",
+          "count": 0,
+          "ARS": 0
+        },
+        "operatorpkis": {
+          "sum": 0,
+          "rs": "operatorpkis",
+          "count": 0,
+          "ARS": 0
+        },
+        "ingressclasses": {
+          "sum": 0,
+          "rs": "ingressclasses",
+          "count": 0,
+          "ARS": 0
+        },
+        "networkpolicies": {
+          "sum": 0,
+          "rs": "networkpolicies",
+          "count": 0,
+          "ARS": 0
+        },
+        "runtimeclasses": {
+          "sum": 0,
+          "rs": "runtimeclasses",
+          "count": 0,
+          "ARS": 0
+        },
+        "managedfleetnotificationrecords": {
+          "sum": 0,
+          "rs": "managedfleetnotificationrecords",
+          "count": 0,
+          "ARS": 0
+        },
+        "managedfleetnotifications": {
+          "sum": 0,
+          "rs": "managedfleetnotifications",
+          "count": 0,
+          "ARS": 0
+        },
+        "managednotifications": {
+          "sum": 0,
+          "rs": "managednotifications",
+          "count": 0,
+          "ARS": 0
+        },
+        "ocmagents": {
+          "sum": 0,
+          "rs": "ocmagents",
+          "count": 0,
+          "ARS": 0
+        },
+        "cloudcredentials": {
+          "sum": 0,
+          "rs": "cloudcredentials",
+          "count": 0,
+          "ARS": 0
+        },
+        "clustercsidrivers": {
+          "sum": 0,
+          "rs": "clustercsidrivers",
+          "count": 0,
+          "ARS": 0
+        },
+        "csisnapshotcontrollers": {
+          "sum": 0,
+          "rs": "csisnapshotcontrollers",
+          "count": 0,
+          "ARS": 0
+        },
+        "etcds": {
+          "sum": 0,
+          "rs": "etcds",
+          "count": 0,
+          "ARS": 0
+        },
+        "imagecontentsourcepolicies": {
+          "sum": 0,
+          "rs": "imagecontentsourcepolicies",
+          "count": 0,
+          "ARS": 0
+        },
+        "ingresscontrollers": {
+          "sum": 0,
+          "rs": "ingresscontrollers",
+          "count": 0,
+          "ARS": 0
+        },
+        "insightsoperators": {
+          "sum": 0,
+          "rs": "insightsoperators",
+          "count": 0,
+          "ARS": 0
+        },
+        "kubeapiservers": {
+          "sum": 0,
+          "rs": "kubeapiservers",
+          "count": 0,
+          "ARS": 0
+        },
+        "kubecontrollermanagers": {
+          "sum": 0,
+          "rs": "kubecontrollermanagers",
+          "count": 0,
+          "ARS": 0
+        },
+        "kubeschedulers": {
+          "sum": 0,
+          "rs": "kubeschedulers",
+          "count": 0,
+          "ARS": 0
+        },
+        "kubestorageversionmigrators": {
+          "sum": 0,
+          "rs": "kubestorageversionmigrators",
+          "count": 0,
+          "ARS": 0
+        },
+        "openshiftapiservers": {
+          "sum": 0,
+          "rs": "openshiftapiservers",
+          "count": 0,
+          "ARS": 0
+        },
+        "openshiftcontrollermanagers": {
+          "sum": 0,
+          "rs": "openshiftcontrollermanagers",
+          "count": 0,
+          "ARS": 0
+        },
+        "servicecas": {
+          "sum": 0,
+          "rs": "servicecas",
+          "count": 0,
+          "ARS": 0
+        },
+        "storages": {
+          "sum": 0,
+          "rs": "storages",
+          "count": 0,
+          "ARS": 0
+        },
+        "catalogsources": {
+          "sum": 0,
+          "rs": "catalogsources",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterserviceversions": {
+          "sum": 0,
+          "rs": "clusterserviceversions",
+          "count": 0,
+          "ARS": 0
+        },
+        "installplans": {
+          "sum": 0,
+          "rs": "installplans",
+          "count": 0,
+          "ARS": 0
+        },
+        "olmconfigs": {
+          "sum": 0,
+          "rs": "olmconfigs",
+          "count": 0,
+          "ARS": 0
+        },
+        "operatorconditions": {
+          "sum": 0,
+          "rs": "operatorconditions",
+          "count": 0,
+          "ARS": 0
+        },
+        "operatorgroups": {
+          "sum": 0,
+          "rs": "operatorgroups",
+          "count": 0,
+          "ARS": 0
+        },
+        "operators": {
+          "sum": 0,
+          "rs": "operators",
+          "count": 0,
+          "ARS": 0
+        },
+        "subscriptions": {
+          "sum": 0,
+          "rs": "subscriptions",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterobjectdeployments": {
+          "sum": 0,
+          "rs": "clusterobjectdeployments",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterobjectsetphases": {
+          "sum": 0,
+          "rs": "clusterobjectsetphases",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterobjectsets": {
+          "sum": 0,
+          "rs": "clusterobjectsets",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterobjectslices": {
+          "sum": 0,
+          "rs": "clusterobjectslices",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterobjecttemplates": {
+          "sum": 0,
+          "rs": "clusterobjecttemplates",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterpackages": {
+          "sum": 0,
+          "rs": "clusterpackages",
+          "count": 0,
+          "ARS": 0
+        },
+        "objectdeployments": {
+          "sum": 0,
+          "rs": "objectdeployments",
+          "count": 0,
+          "ARS": 0
+        },
+        "objectsetphases": {
+          "sum": 0,
+          "rs": "objectsetphases",
+          "count": 0,
+          "ARS": 0
+        },
+        "objectsets": {
+          "sum": 0,
+          "rs": "objectsets",
+          "count": 0,
+          "ARS": 0
+        },
+        "objectslices": {
+          "sum": 0,
+          "rs": "objectslices",
+          "count": 0,
+          "ARS": 0
+        },
+        "objecttemplates": {
+          "sum": 0,
+          "rs": "objecttemplates",
+          "count": 0,
+          "ARS": 0
+        },
+        "packages": {
+          "sum": 0,
+          "rs": "packages",
+          "count": 0,
+          "ARS": 0
+        },
+        "performanceprofiles": {
+          "sum": 0,
+          "rs": "performanceprofiles",
+          "count": 0,
+          "ARS": 0
+        },
+        "poddisruptionbudgets": {
+          "sum": 0,
+          "rs": "poddisruptionbudgets",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterresourcequotas": {
+          "sum": 0,
+          "rs": "clusterresourcequotas",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterrolebindings": {
+          "sum": 0,
+          "rs": "clusterrolebindings",
+          "count": 0,
+          "ARS": 0
+        },
+        "clusterroles": {
+          "sum": 0,
+          "rs": "clusterroles",
+          "count": 0,
+          "ARS": 0
+        },
+        "rolebindings": {
+          "sum": 0,
+          "rs": "rolebindings",
+          "count": 0,
+          "ARS": 0
+        },
+        "roles": {
+          "sum": 0,
+          "rs": "roles",
+          "count": 0,
+          "ARS": 0
+        },
+        "priorityclasses": {
+          "sum": 0,
+          "rs": "priorityclasses",
+          "count": 0,
+          "ARS": 0
+        },
+        "rangeallocations": {
+          "sum": 0,
+          "rs": "rangeallocations",
+          "count": 0,
+          "ARS": 0
+        },
+        "securitycontextconstraints": {
+          "sum": 0,
+          "rs": "securitycontextconstraints",
+          "count": 0,
+          "ARS": 0
+        },
+        "volumesnapshotclasses": {
+          "sum": 0,
+          "rs": "volumesnapshotclasses",
+          "count": 0,
+          "ARS": 0
+        },
+        "volumesnapshotcontents": {
+          "sum": 0,
+          "rs": "volumesnapshotcontents",
+          "count": 0,
+          "ARS": 0
+        },
+        "volumesnapshots": {
+          "sum": 0,
+          "rs": "volumesnapshots",
+          "count": 0,
+          "ARS": 0
+        },
+        "splunkforwarders": {
+          "sum": 0,
+          "rs": "splunkforwarders",
+          "count": 0,
+          "ARS": 0
+        },
+        "csidrivers": {
+          "sum": 0,
+          "rs": "csidrivers",
+          "count": 0,
+          "ARS": 0
+        },
+        "csinodes": {
+          "sum": 0,
+          "rs": "csinodes",
+          "count": 0,
+          "ARS": 0
+        },
+        "csistoragecapacities": {
+          "sum": 0,
+          "rs": "csistoragecapacities",
+          "count": 0,
+          "ARS": 0
+        },
+        "storageclasses": {
+          "sum": 0,
+          "rs": "storageclasses",
+          "count": 0,
+          "ARS": 0
+        },
+        "volumeattachments": {
+          "sum": 0,
+          "rs": "volumeattachments",
+          "count": 0,
+          "ARS": 0
+        },
+        "profiles": {
+          "sum": 0,
+          "rs": "profiles",
+          "count": 0,
+          "ARS": 0
+        },
+        "tuneds": {
+          "sum": 0,
+          "rs": "tuneds",
+          "count": 0,
+          "ARS": 0
+        },
+        "upgradeconfigs": {
+          "sum": 0,
+          "rs": "upgradeconfigs",
+          "count": 0,
+          "ARS": 0
+        },
+        "ippools": {
+          "sum": 0,
+          "rs": "ippools",
+          "count": 0,
+          "ARS": 0
+        },
+        "overlappingrangeipreservations": {
+          "sum": 0,
+          "rs": "overlappingrangeipreservations",
+          "count": 0,
+          "ARS": 0
+        }
+      },
+      "ASOT": 8709,
+      "stored_objects": {
+        "addoninstances.addons.managed.openshift.io": {
+          "rs": "addoninstances.addons.managed.openshift.io",
+          "ASO": 0
+        },
+        "addonoperators.addons.managed.openshift.io": {
+          "rs": "addonoperators.addons.managed.openshift.io",
+          "ASO": 1
+        },
+        "addons.addons.managed.openshift.io": {
+          "rs": "addons.addons.managed.openshift.io",
+          "ASO": 0
+        },
+        "alertmanagerconfigs.monitoring.coreos.com": {
+          "rs": "alertmanagerconfigs.monitoring.coreos.com",
+          "ASO": 0
+        },
+        "alertmanagerconfigs.monitoring.rhobs": {
+          "rs": "alertmanagerconfigs.monitoring.rhobs",
+          "ASO": 0
+        },
+        "alertmanagers.monitoring.coreos.com": {
+          "rs": "alertmanagers.monitoring.coreos.com",
+          "ASO": 1
+        },
+        "alertmanagers.monitoring.rhobs": {
+          "rs": "alertmanagers.monitoring.rhobs",
+          "ASO": 0
+        },
+        "apirequestcounts.apiserver.openshift.io": {
+          "rs": "apirequestcounts.apiserver.openshift.io",
+          "ASO": 250
+        },
+        "apiservers.config.openshift.io": {
+          "rs": "apiservers.config.openshift.io",
+          "ASO": 1
+        },
+        "apiservices.apiregistration.k8s.io": {
+          "rs": "apiservices.apiregistration.k8s.io",
+          "ASO": 86
+        },
+        "authentications.config.openshift.io": {
+          "rs": "authentications.config.openshift.io",
+          "ASO": 1
+        },
+        "authentications.operator.openshift.io": {
+          "rs": "authentications.operator.openshift.io",
+          "ASO": 1
+        },
+        "baremetalhosts.metal3.io": {
+          "rs": "baremetalhosts.metal3.io",
+          "ASO": 0
+        },
+        "bmceventsubscriptions.metal3.io": {
+          "rs": "bmceventsubscriptions.metal3.io",
+          "ASO": 0
+        },
+        "builds.config.openshift.io": {
+          "rs": "builds.config.openshift.io",
+          "ASO": 1
+        },
+        "catalogsources.operators.coreos.com": {
+          "rs": "catalogsources.operators.coreos.com",
+          "ASO": 17
+        },
+        "certificatesigningrequests.certificates.k8s.io": {
+          "rs": "certificatesigningrequests.certificates.k8s.io",
+          "ASO": 1
+        },
+        "cloudcredentials.operator.openshift.io": {
+          "rs": "cloudcredentials.operator.openshift.io",
+          "ASO": 1
+        },
+        "cloudprivateipconfigs.cloud.network.openshift.io": {
+          "rs": "cloudprivateipconfigs.cloud.network.openshift.io",
+          "ASO": 0
+        },
+        "clusterautoscalers.autoscaling.openshift.io": {
+          "rs": "clusterautoscalers.autoscaling.openshift.io",
+          "ASO": 1
+        },
+        "clustercsidrivers.operator.openshift.io": {
+          "rs": "clustercsidrivers.operator.openshift.io",
+          "ASO": 1
+        },
+        "clusterobjectdeployments.package-operator.run": {
+          "rs": "clusterobjectdeployments.package-operator.run",
+          "ASO": 1
+        },
+        "clusterobjectsetphases.package-operator.run": {
+          "rs": "clusterobjectsetphases.package-operator.run",
+          "ASO": 0
+        },
+        "clusterobjectsets.package-operator.run": {
+          "rs": "clusterobjectsets.package-operator.run",
+          "ASO": 2
+        },
+        "clusterobjectslices.package-operator.run": {
+          "rs": "clusterobjectslices.package-operator.run",
+          "ASO": 0
+        },
+        "clusterobjecttemplates.package-operator.run": {
+          "rs": "clusterobjecttemplates.package-operator.run",
+          "ASO": 0
+        },
+        "clusteroperators.config.openshift.io": {
+          "rs": "clusteroperators.config.openshift.io",
+          "ASO": 33
+        },
+        "clusterpackages.package-operator.run": {
+          "rs": "clusterpackages.package-operator.run",
+          "ASO": 1
+        },
+        "clusterresourcequotas.quota.openshift.io": {
+          "rs": "clusterresourcequotas.quota.openshift.io",
+          "ASO": 0
+        },
+        "clusterrolebindings.rbac.authorization.k8s.io": {
+          "rs": "clusterrolebindings.rbac.authorization.k8s.io",
+          "ASO": 280
+        },
+        "clusterroles.rbac.authorization.k8s.io": {
+          "rs": "clusterroles.rbac.authorization.k8s.io",
+          "ASO": 469
+        },
+        "clusterserviceversions.operators.coreos.com": {
+          "rs": "clusterserviceversions.operators.coreos.com",
+          "ASO": 269
+        },
+        "clusterurlmonitors.monitoring.openshift.io": {
+          "rs": "clusterurlmonitors.monitoring.openshift.io",
+          "ASO": 1
+        },
+        "clusterversions.config.openshift.io": {
+          "rs": "clusterversions.config.openshift.io",
+          "ASO": 1
+        },
+        "configmaps": {
+          "rs": "configmaps",
+          "ASO": 620
+        },
+        "configs.imageregistry.operator.openshift.io": {
+          "rs": "configs.imageregistry.operator.openshift.io",
+          "ASO": 1
+        },
+        "configs.operator.openshift.io": {
+          "rs": "configs.operator.openshift.io",
+          "ASO": 1
+        },
+        "configs.samples.operator.openshift.io": {
+          "rs": "configs.samples.operator.openshift.io",
+          "ASO": 1
+        },
+        "consoleclidownloads.console.openshift.io": {
+          "rs": "consoleclidownloads.console.openshift.io",
+          "ASO": 3
+        },
+        "consoleexternalloglinks.console.openshift.io": {
+          "rs": "consoleexternalloglinks.console.openshift.io",
+          "ASO": 0
+        },
+        "consolelinks.console.openshift.io": {
+          "rs": "consolelinks.console.openshift.io",
+          "ASO": 0
+        },
+        "consolenotifications.console.openshift.io": {
+          "rs": "consolenotifications.console.openshift.io",
+          "ASO": 0
+        },
+        "consoleplugins.console.openshift.io": {
+          "rs": "consoleplugins.console.openshift.io",
+          "ASO": 0
+        },
+        "consolequickstarts.console.openshift.io": {
+          "rs": "consolequickstarts.console.openshift.io",
+          "ASO": 14
+        },
+        "consoles.config.openshift.io": {
+          "rs": "consoles.config.openshift.io",
+          "ASO": 1
+        },
+        "consoles.operator.openshift.io": {
+          "rs": "consoles.operator.openshift.io",
+          "ASO": 1
+        },
+        "consoleyamlsamples.console.openshift.io": {
+          "rs": "consoleyamlsamples.console.openshift.io",
+          "ASO": 0
+        },
+        "containerruntimeconfigs.machineconfiguration.openshift.io": {
+          "rs": "containerruntimeconfigs.machineconfiguration.openshift.io",
+          "ASO": 0
+        },
+        "controllerconfigs.machineconfiguration.openshift.io": {
+          "rs": "controllerconfigs.machineconfiguration.openshift.io",
+          "ASO": 1
+        },
+        "controllerrevisions.apps": {
+          "rs": "controllerrevisions.apps",
+          "ASO": 30
+        },
+        "controlplanemachinesets.machine.openshift.io": {
+          "rs": "controlplanemachinesets.machine.openshift.io",
+          "ASO": 1
+        },
+        "credentialsrequests.cloudcredential.openshift.io": {
+          "rs": "credentialsrequests.cloudcredential.openshift.io",
+          "ASO": 45
+        },
+        "cronjobs.batch": {
+          "rs": "cronjobs.batch",
+          "ASO": 9
+        },
+        "csidrivers.storage.k8s.io": {
+          "rs": "csidrivers.storage.k8s.io",
+          "ASO": 1
+        },
+        "csinodes.storage.k8s.io": {
+          "rs": "csinodes.storage.k8s.io",
+          "ASO": 9
+        },
+        "csisnapshotcontrollers.operator.openshift.io": {
+          "rs": "csisnapshotcontrollers.operator.openshift.io",
+          "ASO": 1
+        },
+        "csistoragecapacities.storage.k8s.io": {
+          "rs": "csistoragecapacities.storage.k8s.io",
+          "ASO": 0
+        },
+        "customdomains.managed.openshift.io": {
+          "rs": "customdomains.managed.openshift.io",
+          "ASO": 0
+        },
+        "customresourcedefinitions.apiextensions.k8s.io": {
+          "rs": "customresourcedefinitions.apiextensions.k8s.io",
+          "ASO": 155
+        },
+        "daemonsets.apps": {
+          "rs": "daemonsets.apps",
+          "ASO": 20
+        },
+        "datadogagents.datadoghq.com": {
+          "rs": "datadogagents.datadoghq.com",
+          "ASO": 1
+        },
+        "datadogmetrics.datadoghq.com": {
+          "rs": "datadogmetrics.datadoghq.com",
+          "ASO": 0
+        },
+        "datadogmonitors.datadoghq.com": {
+          "rs": "datadogmonitors.datadoghq.com",
+          "ASO": 0
+        },
+        "deployments.apps": {
+          "rs": "deployments.apps",
+          "ASO": 87
+        },
+        "dnses.config.openshift.io": {
+          "rs": "dnses.config.openshift.io",
+          "ASO": 1
+        },
+        "dnses.operator.openshift.io": {
+          "rs": "dnses.operator.openshift.io",
+          "ASO": 1
+        },
+        "dnsrecords.ingress.operator.openshift.io": {
+          "rs": "dnsrecords.ingress.operator.openshift.io",
+          "ASO": 1
+        },
+        "egressfirewalls.k8s.ovn.org": {
+          "rs": "egressfirewalls.k8s.ovn.org",
+          "ASO": 0
+        },
+        "egressips.k8s.ovn.org": {
+          "rs": "egressips.k8s.ovn.org",
+          "ASO": 0
+        },
+        "egressqoses.k8s.ovn.org": {
+          "rs": "egressqoses.k8s.ovn.org",
+          "ASO": 0
+        },
+        "egressrouters.network.operator.openshift.io": {
+          "rs": "egressrouters.network.operator.openshift.io",
+          "ASO": 0
+        },
+        "endpoints": {
+          "rs": "endpoints",
+          "ASO": 135
+        },
+        "endpointslices.discovery.k8s.io": {
+          "rs": "endpointslices.discovery.k8s.io",
+          "ASO": 135
+        },
+        "etcds.operator.openshift.io": {
+          "rs": "etcds.operator.openshift.io",
+          "ASO": 1
+        },
+        "events": {
+          "rs": "events",
+          "ASO": 1150
+        },
+        "featuregates.config.openshift.io": {
+          "rs": "featuregates.config.openshift.io",
+          "ASO": 1
+        },
+        "firmwareschemas.metal3.io": {
+          "rs": "firmwareschemas.metal3.io",
+          "ASO": 0
+        },
+        "flowschemas.flowcontrol.apiserver.k8s.io": {
+          "rs": "flowschemas.flowcontrol.apiserver.k8s.io",
+          "ASO": 25
+        },
+        "hardwaredata.metal3.io": {
+          "rs": "hardwaredata.metal3.io",
+          "ASO": 0
+        },
+        "helmchartrepositories.helm.openshift.io": {
+          "rs": "helmchartrepositories.helm.openshift.io",
+          "ASO": 1
+        },
+        "horizontalpodautoscalers.autoscaling": {
+          "rs": "horizontalpodautoscalers.autoscaling",
+          "ASO": 0
+        },
+        "hostfirmwaresettings.metal3.io": {
+          "rs": "hostfirmwaresettings.metal3.io",
+          "ASO": 0
+        },
+        "imagecontentpolicies.config.openshift.io": {
+          "rs": "imagecontentpolicies.config.openshift.io",
+          "ASO": 0
+        },
+        "imagecontentsourcepolicies.operator.openshift.io": {
+          "rs": "imagecontentsourcepolicies.operator.openshift.io",
+          "ASO": 58
+        },
+        "imagedigestmirrorsets.config.openshift.io": {
+          "rs": "imagedigestmirrorsets.config.openshift.io",
+          "ASO": 0
+        },
+        "imagepruners.imageregistry.operator.openshift.io": {
+          "rs": "imagepruners.imageregistry.operator.openshift.io",
+          "ASO": 1
+        },
+        "images.config.openshift.io": {
+          "rs": "images.config.openshift.io",
+          "ASO": 1
+        },
+        "imagetagmirrorsets.config.openshift.io": {
+          "rs": "imagetagmirrorsets.config.openshift.io",
+          "ASO": 0
+        },
+        "infrastructures.config.openshift.io": {
+          "rs": "infrastructures.config.openshift.io",
+          "ASO": 1
+        },
+        "ingressclasses.networking.k8s.io": {
+          "rs": "ingressclasses.networking.k8s.io",
+          "ASO": 1
+        },
+        "ingresscontrollers.operator.openshift.io": {
+          "rs": "ingresscontrollers.operator.openshift.io",
+          "ASO": 1
+        },
+        "ingresses.config.openshift.io": {
+          "rs": "ingresses.config.openshift.io",
+          "ASO": 1
+        },
+        "ingresses.networking.k8s.io": {
+          "rs": "ingresses.networking.k8s.io",
+          "ASO": 0
+        },
+        "insightsoperators.operator.openshift.io": {
+          "rs": "insightsoperators.operator.openshift.io",
+          "ASO": 1
+        },
+        "installplans.operators.coreos.com": {
+          "rs": "installplans.operators.coreos.com",
+          "ASO": 18
+        },
+        "ippools.whereabouts.cni.cncf.io": {
+          "rs": "ippools.whereabouts.cni.cncf.io",
+          "ASO": 0
+        },
+        "jobs.batch": {
+          "rs": "jobs.batch",
+          "ASO": 28
+        },
+        "kubeapiservers.operator.openshift.io": {
+          "rs": "kubeapiservers.operator.openshift.io",
+          "ASO": 1
+        },
+        "kubecontrollermanagers.operator.openshift.io": {
+          "rs": "kubecontrollermanagers.operator.openshift.io",
+          "ASO": 1
+        },
+        "kubeletconfigs.machineconfiguration.openshift.io": {
+          "rs": "kubeletconfigs.machineconfiguration.openshift.io",
+          "ASO": 1
+        },
+        "kubeschedulers.operator.openshift.io": {
+          "rs": "kubeschedulers.operator.openshift.io",
+          "ASO": 1
+        },
+        "kubestorageversionmigrators.operator.openshift.io": {
+          "rs": "kubestorageversionmigrators.operator.openshift.io",
+          "ASO": 1
+        },
+        "leases.coordination.k8s.io": {
+          "rs": "leases.coordination.k8s.io",
+          "ASO": 69
+        },
+        "limitranges": {
+          "rs": "limitranges",
+          "ASO": 0
+        },
+        "machineautoscalers.autoscaling.openshift.io": {
+          "rs": "machineautoscalers.autoscaling.openshift.io",
+          "ASO": 3
+        },
+        "machineconfigpools.machineconfiguration.openshift.io": {
+          "rs": "machineconfigpools.machineconfiguration.openshift.io",
+          "ASO": 2
+        },
+        "machineconfigs.machineconfiguration.openshift.io": {
+          "rs": "machineconfigs.machineconfiguration.openshift.io",
+          "ASO": 28
+        },
+        "machinehealthchecks.machine.openshift.io": {
+          "rs": "machinehealthchecks.machine.openshift.io",
+          "ASO": 4
+        },
+        "machines.machine.openshift.io": {
+          "rs": "machines.machine.openshift.io",
+          "ASO": 9
+        },
+        "machinesets.machine.openshift.io": {
+          "rs": "machinesets.machine.openshift.io",
+          "ASO": 6
+        },
+        "managedfleetnotificationrecords.ocmagent.managed.openshift.io": {
+          "rs": "managedfleetnotificationrecords.ocmagent.managed.openshift.io",
+          "ASO": 0
+        },
+        "managedfleetnotifications.ocmagent.managed.openshift.io": {
+          "rs": "managedfleetnotifications.ocmagent.managed.openshift.io",
+          "ASO": 2
+        },
+        "managednotifications.ocmagent.managed.openshift.io": {
+          "rs": "managednotifications.ocmagent.managed.openshift.io",
+          "ASO": 5
+        },
+        "metal3remediations.infrastructure.cluster.x-k8s.io": {
+          "rs": "metal3remediations.infrastructure.cluster.x-k8s.io",
+          "ASO": 0
+        },
+        "metal3remediationtemplates.infrastructure.cluster.x-k8s.io": {
+          "rs": "metal3remediationtemplates.infrastructure.cluster.x-k8s.io",
+          "ASO": 0
+        },
+        "monitoringstacks.monitoring.rhobs": {
+          "rs": "monitoringstacks.monitoring.rhobs",
+          "ASO": 0
+        },
+        "mustgathers.managed.openshift.io": {
+          "rs": "mustgathers.managed.openshift.io",
+          "ASO": 0
+        },
+        "mutatingwebhookconfigurations.admissionregistration.k8s.io": {
+          "rs": "mutatingwebhookconfigurations.admissionregistration.k8s.io",
+          "ASO": 3
+        },
+        "namespaces": {
+          "rs": "namespaces",
+          "ASO": 98
+        },
+        "network-attachment-definitions.k8s.cni.cncf.io": {
+          "rs": "network-attachment-definitions.k8s.cni.cncf.io",
+          "ASO": 0
+        },
+        "networkpolicies.networking.k8s.io": {
+          "rs": "networkpolicies.networking.k8s.io",
+          "ASO": 4
+        },
+        "networks.config.openshift.io": {
+          "rs": "networks.config.openshift.io",
+          "ASO": 1
+        },
+        "networks.operator.openshift.io": {
+          "rs": "networks.operator.openshift.io",
+          "ASO": 1
+        },
+        "nodes": {
+          "rs": "nodes",
+          "ASO": 9
+        },
+        "nodes.config.openshift.io": {
+          "rs": "nodes.config.openshift.io",
+          "ASO": 1
+        },
+        "oauths.config.openshift.io": {
+          "rs": "oauths.config.openshift.io",
+          "ASO": 1
+        },
+        "objectdeployments.package-operator.run": {
+          "rs": "objectdeployments.package-operator.run",
+          "ASO": 0
+        },
+        "objectsetphases.package-operator.run": {
+          "rs": "objectsetphases.package-operator.run",
+          "ASO": 0
+        },
+        "objectsets.package-operator.run": {
+          "rs": "objectsets.package-operator.run",
+          "ASO": 0
+        },
+        "objectslices.package-operator.run": {
+          "rs": "objectslices.package-operator.run",
+          "ASO": 0
+        },
+        "objecttemplates.package-operator.run": {
+          "rs": "objecttemplates.package-operator.run",
+          "ASO": 0
+        },
+        "ocmagents.ocmagent.managed.openshift.io": {
+          "rs": "ocmagents.ocmagent.managed.openshift.io",
+          "ASO": 1
+        },
+        "olmconfigs.operators.coreos.com": {
+          "rs": "olmconfigs.operators.coreos.com",
+          "ASO": 1
+        },
+        "openshiftapiservers.operator.openshift.io": {
+          "rs": "openshiftapiservers.operator.openshift.io",
+          "ASO": 1
+        },
+        "openshiftcontrollermanagers.operator.openshift.io": {
+          "rs": "openshiftcontrollermanagers.operator.openshift.io",
+          "ASO": 1
+        },
+        "operatorconditions.operators.coreos.com": {
+          "rs": "operatorconditions.operators.coreos.com",
+          "ASO": 14
+        },
+        "operatorgroups.operators.coreos.com": {
+          "rs": "operatorgroups.operators.coreos.com",
+          "ASO": 18
+        },
+        "operatorhubs.config.openshift.io": {
+          "rs": "operatorhubs.config.openshift.io",
+          "ASO": 1
+        },
+        "operatorpkis.network.operator.openshift.io": {
+          "rs": "operatorpkis.network.operator.openshift.io",
+          "ASO": 2
+        },
+        "operators.operators.coreos.com": {
+          "rs": "operators.operators.coreos.com",
+          "ASO": 13
+        },
+        "overlappingrangeipreservations.whereabouts.cni.cncf.io": {
+          "rs": "overlappingrangeipreservations.whereabouts.cni.cncf.io",
+          "ASO": 0
+        },
+        "packages.package-operator.run": {
+          "rs": "packages.package-operator.run",
+          "ASO": 0
+        },
+        "performanceprofiles.performance.openshift.io": {
+          "rs": "performanceprofiles.performance.openshift.io",
+          "ASO": 0
+        },
+        "persistentvolumeclaims": {
+          "rs": "persistentvolumeclaims",
+          "ASO": 4
+        },
+        "persistentvolumes": {
+          "rs": "persistentvolumes",
+          "ASO": 4
+        },
+        "poddisruptionbudgets.policy": {
+          "rs": "poddisruptionbudgets.policy",
+          "ASO": 25
+        },
+        "podmonitors.monitoring.coreos.com": {
+          "rs": "podmonitors.monitoring.coreos.com",
+          "ASO": 0
+        },
+        "podmonitors.monitoring.rhobs": {
+          "rs": "podmonitors.monitoring.rhobs",
+          "ASO": 0
+        },
+        "podnetworkconnectivitychecks.controlplane.operator.openshift.io": {
+          "rs": "podnetworkconnectivitychecks.controlplane.operator.openshift.io",
+          "ASO": 21
+        },
+        "pods": {
+          "rs": "pods",
+          "ASO": 380
+        },
+        "podtemplates": {
+          "rs": "podtemplates",
+          "ASO": 0
+        },
+        "preprovisioningimages.metal3.io": {
+          "rs": "preprovisioningimages.metal3.io",
+          "ASO": 0
+        },
+        "priorityclasses.scheduling.k8s.io": {
+          "rs": "priorityclasses.scheduling.k8s.io",
+          "ASO": 3
+        },
+        "prioritylevelconfigurations.flowcontrol.apiserver.k8s.io": {
+          "rs": "prioritylevelconfigurations.flowcontrol.apiserver.k8s.io",
+          "ASO": 9
+        },
+        "probes.monitoring.coreos.com": {
+          "rs": "probes.monitoring.coreos.com",
+          "ASO": 0
+        },
+        "probes.monitoring.rhobs": {
+          "rs": "probes.monitoring.rhobs",
+          "ASO": 0
+        },
+        "profiles.tuned.openshift.io": {
+          "rs": "profiles.tuned.openshift.io",
+          "ASO": 9
+        },
+        "projecthelmchartrepositories.helm.openshift.io": {
+          "rs": "projecthelmchartrepositories.helm.openshift.io",
+          "ASO": 0
+        },
+        "projects.config.openshift.io": {
+          "rs": "projects.config.openshift.io",
+          "ASO": 1
+        },
+        "prometheusagents.monitoring.rhobs": {
+          "rs": "prometheusagents.monitoring.rhobs",
+          "ASO": 0
+        },
+        "prometheuses.monitoring.coreos.com": {
+          "rs": "prometheuses.monitoring.coreos.com",
+          "ASO": 2
+        },
+        "prometheuses.monitoring.rhobs": {
+          "rs": "prometheuses.monitoring.rhobs",
+          "ASO": 0
+        },
+        "prometheusrules.monitoring.coreos.com": {
+          "rs": "prometheusrules.monitoring.coreos.com",
+          "ASO": 99
+        },
+        "prometheusrules.monitoring.rhobs": {
+          "rs": "prometheusrules.monitoring.rhobs",
+          "ASO": 0
+        },
+        "provisionings.metal3.io": {
+          "rs": "provisionings.metal3.io",
+          "ASO": 0
+        },
+        "proxies.config.openshift.io": {
+          "rs": "proxies.config.openshift.io",
+          "ASO": 1
+        },
+        "rangeallocations.security.internal.openshift.io": {
+          "rs": "rangeallocations.security.internal.openshift.io",
+          "ASO": 1
+        },
+        "replicasets.apps": {
+          "rs": "replicasets.apps",
+          "ASO": 162
+        },
+        "replicationcontrollers": {
+          "rs": "replicationcontrollers",
+          "ASO": 0
+        },
+        "resourcequotas": {
+          "rs": "resourcequotas",
+          "ASO": 1
+        },
+        "rolebindingrestrictions.authorization.openshift.io": {
+          "rs": "rolebindingrestrictions.authorization.openshift.io",
+          "ASO": 0
+        },
+        "rolebindings.rbac.authorization.k8s.io": {
+          "rs": "rolebindings.rbac.authorization.k8s.io",
+          "ASO": 1396
+        },
+        "roles.rbac.authorization.k8s.io": {
+          "rs": "roles.rbac.authorization.k8s.io",
+          "ASO": 260
+        },
+        "routemonitors.monitoring.openshift.io": {
+          "rs": "routemonitors.monitoring.openshift.io",
+          "ASO": 1
+        },
+        "runtimeclasses.node.k8s.io": {
+          "rs": "runtimeclasses.node.k8s.io",
+          "ASO": 0
+        },
+        "schedulers.config.openshift.io": {
+          "rs": "schedulers.config.openshift.io",
+          "ASO": 1
+        },
+        "scrapeconfigs.monitoring.rhobs": {
+          "rs": "scrapeconfigs.monitoring.rhobs",
+          "ASO": 0
+        },
+        "secrets": {
+          "rs": "secrets",
+          "ASO": 1249
+        },
+        "securitycontextconstraints.security.openshift.io": {
+          "rs": "securitycontextconstraints.security.openshift.io",
+          "ASO": 15
+        },
+        "serviceaccounts": {
+          "rs": "serviceaccounts",
+          "ASO": 485
+        },
+        "servicecas.operator.openshift.io": {
+          "rs": "servicecas.operator.openshift.io",
+          "ASO": 1
+        },
+        "servicemonitors.monitoring.coreos.com": {
+          "rs": "servicemonitors.monitoring.coreos.com",
+          "ASO": 82
+        },
+        "servicemonitors.monitoring.rhobs": {
+          "rs": "servicemonitors.monitoring.rhobs",
+          "ASO": 0
+        },
+        "services": {
+          "rs": "services",
+          "ASO": 136
+        },
+        "splunkforwarders.splunkforwarder.managed.openshift.io": {
+          "rs": "splunkforwarders.splunkforwarder.managed.openshift.io",
+          "ASO": 1
+        },
+        "statefulsets.apps": {
+          "rs": "statefulsets.apps",
+          "ASO": 4
+        },
+        "storageclasses.storage.k8s.io": {
+          "rs": "storageclasses.storage.k8s.io",
+          "ASO": 4
+        },
+        "storages.operator.openshift.io": {
+          "rs": "storages.operator.openshift.io",
+          "ASO": 1
+        },
+        "storagestates.migration.k8s.io": {
+          "rs": "storagestates.migration.k8s.io",
+          "ASO": 0
+        },
+        "storageversionmigrations.migration.k8s.io": {
+          "rs": "storageversionmigrations.migration.k8s.io",
+          "ASO": 2
+        },
+        "subjectpermissions.managed.openshift.io": {
+          "rs": "subjectpermissions.managed.openshift.io",
+          "ASO": 14
+        },
+        "subscriptions.operators.coreos.com": {
+          "rs": "subscriptions.operators.coreos.com",
+          "ASO": 13
+        },
+        "thanosqueriers.monitoring.rhobs": {
+          "rs": "thanosqueriers.monitoring.rhobs",
+          "ASO": 0
+        },
+        "thanosrulers.monitoring.coreos.com": {
+          "rs": "thanosrulers.monitoring.coreos.com",
+          "ASO": 1
+        },
+        "thanosrulers.monitoring.rhobs": {
+          "rs": "thanosrulers.monitoring.rhobs",
+          "ASO": 0
+        },
+        "tuneds.tuned.openshift.io": {
+          "rs": "tuneds.tuned.openshift.io",
+          "ASO": 2
+        },
+        "upgradeconfigs.upgrade.managed.openshift.io": {
+          "rs": "upgradeconfigs.upgrade.managed.openshift.io",
+          "ASO": 0
+        },
+        "validatingwebhookconfigurations.admissionregistration.k8s.io": {
+          "rs": "validatingwebhookconfigurations.admissionregistration.k8s.io",
+          "ASO": 27
+        },
+        "volumeattachments.storage.k8s.io": {
+          "rs": "volumeattachments.storage.k8s.io",
+          "ASO": 4
+        },
+        "volumesnapshotclasses.snapshot.storage.k8s.io": {
+          "rs": "volumesnapshotclasses.snapshot.storage.k8s.io",
+          "ASO": 1
+        },
+        "volumesnapshotcontents.snapshot.storage.k8s.io": {
+          "rs": "volumesnapshotcontents.snapshot.storage.k8s.io",
+          "ASO": 0
+        },
+        "volumesnapshots.snapshot.storage.k8s.io": {
+          "rs": "volumesnapshots.snapshot.storage.k8s.io",
+          "ASO": 0
+        }
+      },
+      "ATHE": 0,
+      "AWIS": 0,
+      "authentication_attempts": {
+        "error": {
+          "sum": 0,
+          "re": "error",
+          "count": 0,
+          "ADS": 0
+        },
+        "success": {
+          "sum": 0,
+          "re": "success",
+          "count": 0,
+          "ADS": 0
+        }
+      },
+      "ERDS": 0,
+      "ERDSS": 0,
+      "ERDSC": 0,
+      "GR": 11096,
+      "GT": 19,
+      "grpc_request_serv_meth": {
+        "etcdserverpb.KV_Txn": {
+          "gs": "etcdserverpb.KV",
+          "gm": "Txn",
+          "GCH": 0
+        },
+        "etcdserverpb.KV_Range": {
+          "gs": "etcdserverpb.KV",
+          "gm": "Range",
+          "GCH": 0
+        },
+        "etcdserverpb.Lease_LeaseGrant": {
+          "gs": "etcdserverpb.Lease",
+          "gm": "LeaseGrant",
+          "GCH": 0
+        },
+        "etcdserverpb.Maintenance_Status": {
+          "gs": "etcdserverpb.Maintenance",
+          "gm": "Status",
+          "GCH": 0
+        }
+      },
+      "grpc_request_code": {
+        "Canceled": {
+          "gc": "Canceled",
+          "GCH": 0
+        },
+        "DeadlineExceeded": {
+          "gc": "DeadlineExceeded",
+          "GCH": 0
+        },
+        "OK": {
+          "gc": "OK",
+          "GCH": 0
+        }
+      },
+      "kube_features": {
+        "ADC_CSIMigrationVSphere": {
+          "na": "ADC_CSIMigrationVSphere",
+          "st": "",
+          "KFE": 1
+        },
+        "APIListChunking": {
+          "na": "APIListChunking",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "APIPriorityAndFairness": {
+          "na": "APIPriorityAndFairness",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "APIResponseCompression": {
+          "na": "APIResponseCompression",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "APISelfSubjectReview": {
+          "na": "APISelfSubjectReview",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "APIServerIdentity": {
+          "na": "APIServerIdentity",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "APIServerTracing": {
+          "na": "APIServerTracing",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "AdvancedAuditing": {
+          "na": "AdvancedAuditing",
+          "st": "",
+          "KFE": 1
+        },
+        "AggregatedDiscoveryEndpoint": {
+          "na": "AggregatedDiscoveryEndpoint",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "AllAlpha": {
+          "na": "AllAlpha",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "AllBeta": {
+          "na": "AllBeta",
+          "st": "BETA",
+          "KFE": 0
+        },
+        "AnyVolumeDataSource": {
+          "na": "AnyVolumeDataSource",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "AppArmor": {
+          "na": "AppArmor",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "CPUManager": {
+          "na": "CPUManager",
+          "st": "",
+          "KFE": 1
+        },
+        "CPUManagerPolicyAlphaOptions": {
+          "na": "CPUManagerPolicyAlphaOptions",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "CPUManagerPolicyBetaOptions": {
+          "na": "CPUManagerPolicyBetaOptions",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "CPUManagerPolicyOptions": {
+          "na": "CPUManagerPolicyOptions",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "CSIInlineVolume": {
+          "na": "CSIInlineVolume",
+          "st": "",
+          "KFE": 1
+        },
+        "CSIMigration": {
+          "na": "CSIMigration",
+          "st": "",
+          "KFE": 1
+        },
+        "CSIMigrationAWS": {
+          "na": "CSIMigrationAWS",
+          "st": "",
+          "KFE": 1
+        },
+        "CSIMigrationAzureDisk": {
+          "na": "CSIMigrationAzureDisk",
+          "st": "",
+          "KFE": 1
+        },
+        "CSIMigrationAzureFile": {
+          "na": "CSIMigrationAzureFile",
+          "st": "",
+          "KFE": 1
+        },
+        "CSIMigrationGCE": {
+          "na": "CSIMigrationGCE",
+          "st": "",
+          "KFE": 1
+        },
+        "CSIMigrationPortworx": {
+          "na": "CSIMigrationPortworx",
+          "st": "BETA",
+          "KFE": 0
+        },
+        "CSIMigrationRBD": {
+          "na": "CSIMigrationRBD",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "CSIMigrationvSphere": {
+          "na": "CSIMigrationvSphere",
+          "st": "",
+          "KFE": 1
+        },
+        "CSINodeExpandSecret": {
+          "na": "CSINodeExpandSecret",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "CSIStorageCapacity": {
+          "na": "CSIStorageCapacity",
+          "st": "",
+          "KFE": 1
+        },
+        "CSIVolumeHealth": {
+          "na": "CSIVolumeHealth",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "ComponentSLIs": {
+          "na": "ComponentSLIs",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "ConsistentHTTPGetHandlers": {
+          "na": "ConsistentHTTPGetHandlers",
+          "st": "",
+          "KFE": 1
+        },
+        "ContainerCheckpoint": {
+          "na": "ContainerCheckpoint",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "ContextualLogging": {
+          "na": "ContextualLogging",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "ControllerManagerLeaderMigration": {
+          "na": "ControllerManagerLeaderMigration",
+          "st": "",
+          "KFE": 1
+        },
+        "CronJobTimeZone": {
+          "na": "CronJobTimeZone",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "CrossNamespaceVolumeDataSource": {
+          "na": "CrossNamespaceVolumeDataSource",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "CustomCPUCFSQuotaPeriod": {
+          "na": "CustomCPUCFSQuotaPeriod",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "CustomResourceValidationExpressions": {
+          "na": "CustomResourceValidationExpressions",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "DaemonSetUpdateSurge": {
+          "na": "DaemonSetUpdateSurge",
+          "st": "",
+          "KFE": 1
+        },
+        "DelegateFSGroupToCSIDriver": {
+          "na": "DelegateFSGroupToCSIDriver",
+          "st": "",
+          "KFE": 1
+        },
+        "DevicePlugins": {
+          "na": "DevicePlugins",
+          "st": "",
+          "KFE": 1
+        },
+        "DisableAcceleratorUsageMetrics": {
+          "na": "DisableAcceleratorUsageMetrics",
+          "st": "",
+          "KFE": 1
+        },
+        "DisableCloudProviders": {
+          "na": "DisableCloudProviders",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "DisableKubeletCloudCredentialProviders": {
+          "na": "DisableKubeletCloudCredentialProviders",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "DownwardAPIHugePages": {
+          "na": "DownwardAPIHugePages",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "DryRun": {
+          "na": "DryRun",
+          "st": "",
+          "KFE": 1
+        },
+        "DynamicResourceAllocation": {
+          "na": "DynamicResourceAllocation",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "EfficientWatchResumption": {
+          "na": "EfficientWatchResumption",
+          "st": "",
+          "KFE": 1
+        },
+        "EndpointSliceTerminatingCondition": {
+          "na": "EndpointSliceTerminatingCondition",
+          "st": "",
+          "KFE": 1
+        },
+        "EphemeralContainers": {
+          "na": "EphemeralContainers",
+          "st": "",
+          "KFE": 1
+        },
+        "EventedPLEG": {
+          "na": "EventedPLEG",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "ExecProbeTimeout": {
+          "na": "ExecProbeTimeout",
+          "st": "",
+          "KFE": 1
+        },
+        "ExpandCSIVolumes": {
+          "na": "ExpandCSIVolumes",
+          "st": "",
+          "KFE": 1
+        },
+        "ExpandInUsePersistentVolumes": {
+          "na": "ExpandInUsePersistentVolumes",
+          "st": "",
+          "KFE": 1
+        },
+        "ExpandPersistentVolumes": {
+          "na": "ExpandPersistentVolumes",
+          "st": "",
+          "KFE": 1
+        },
+        "ExpandedDNSConfig": {
+          "na": "ExpandedDNSConfig",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "ExperimentalHostUserNamespaceDefaulting": {
+          "na": "ExperimentalHostUserNamespaceDefaulting",
+          "st": "BETA",
+          "KFE": 0
+        },
+        "GRPCContainerProbe": {
+          "na": "GRPCContainerProbe",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "GracefulNodeShutdown": {
+          "na": "GracefulNodeShutdown",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "GracefulNodeShutdownBasedOnPodPriority": {
+          "na": "GracefulNodeShutdownBasedOnPodPriority",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "HPAContainerMetrics": {
+          "na": "HPAContainerMetrics",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "HPAScaleToZero": {
+          "na": "HPAScaleToZero",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "HonorPVReclaimPolicy": {
+          "na": "HonorPVReclaimPolicy",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "IPTablesOwnershipCleanup": {
+          "na": "IPTablesOwnershipCleanup",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "IdentifyPodOS": {
+          "na": "IdentifyPodOS",
+          "st": "",
+          "KFE": 1
+        },
+        "InTreePluginAWSUnregister": {
+          "na": "InTreePluginAWSUnregister",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "InTreePluginAzureDiskUnregister": {
+          "na": "InTreePluginAzureDiskUnregister",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "InTreePluginAzureFileUnregister": {
+          "na": "InTreePluginAzureFileUnregister",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "InTreePluginGCEUnregister": {
+          "na": "InTreePluginGCEUnregister",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "InTreePluginOpenStackUnregister": {
+          "na": "InTreePluginOpenStackUnregister",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "InTreePluginPortworxUnregister": {
+          "na": "InTreePluginPortworxUnregister",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "InTreePluginRBDUnregister": {
+          "na": "InTreePluginRBDUnregister",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "InTreePluginvSphereUnregister": {
+          "na": "InTreePluginvSphereUnregister",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "JobMutableNodeSchedulingDirectives": {
+          "na": "JobMutableNodeSchedulingDirectives",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "JobPodFailurePolicy": {
+          "na": "JobPodFailurePolicy",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "JobReadyPods": {
+          "na": "JobReadyPods",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "JobTrackingWithFinalizers": {
+          "na": "JobTrackingWithFinalizers",
+          "st": "",
+          "KFE": 1
+        },
+        "KMSv2": {
+          "na": "KMSv2",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "KubeletCredentialProviders": {
+          "na": "KubeletCredentialProviders",
+          "st": "",
+          "KFE": 1
+        },
+        "KubeletInUserNamespace": {
+          "na": "KubeletInUserNamespace",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "KubeletPodResources": {
+          "na": "KubeletPodResources",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "KubeletPodResourcesGetAllocatable": {
+          "na": "KubeletPodResourcesGetAllocatable",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "KubeletTracing": {
+          "na": "KubeletTracing",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "LegacyServiceAccountTokenNoAutoGeneration": {
+          "na": "LegacyServiceAccountTokenNoAutoGeneration",
+          "st": "",
+          "KFE": 1
+        },
+        "LegacyServiceAccountTokenTracking": {
+          "na": "LegacyServiceAccountTokenTracking",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "LocalStorageCapacityIsolation": {
+          "na": "LocalStorageCapacityIsolation",
+          "st": "",
+          "KFE": 1
+        },
+        "LocalStorageCapacityIsolationFSQuotaMonitoring": {
+          "na": "LocalStorageCapacityIsolationFSQuotaMonitoring",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "LogarithmicScaleDown": {
+          "na": "LogarithmicScaleDown",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "LoggingAlphaOptions": {
+          "na": "LoggingAlphaOptions",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "LoggingBetaOptions": {
+          "na": "LoggingBetaOptions",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "MatchLabelKeysInPodTopologySpread": {
+          "na": "MatchLabelKeysInPodTopologySpread",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "MaxUnavailableStatefulSet": {
+          "na": "MaxUnavailableStatefulSet",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "MemoryManager": {
+          "na": "MemoryManager",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "MemoryQoS": {
+          "na": "MemoryQoS",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "MinDomainsInPodTopologySpread": {
+          "na": "MinDomainsInPodTopologySpread",
+          "st": "BETA",
+          "KFE": 0
+        },
+        "MinimizeIPTablesRestore": {
+          "na": "MinimizeIPTablesRestore",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "MixedProtocolLBService": {
+          "na": "MixedProtocolLBService",
+          "st": "",
+          "KFE": 1
+        },
+        "MultiCIDRRangeAllocator": {
+          "na": "MultiCIDRRangeAllocator",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "NetworkPolicyEndPort": {
+          "na": "NetworkPolicyEndPort",
+          "st": "",
+          "KFE": 1
+        },
+        "NetworkPolicyStatus": {
+          "na": "NetworkPolicyStatus",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "NodeInclusionPolicyInPodTopologySpread": {
+          "na": "NodeInclusionPolicyInPodTopologySpread",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "NodeOutOfServiceVolumeDetach": {
+          "na": "NodeOutOfServiceVolumeDetach",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "NodeSwap": {
+          "na": "NodeSwap",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "OpenAPIEnums": {
+          "na": "OpenAPIEnums",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "OpenAPIV3": {
+          "na": "OpenAPIV3",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "PDBUnhealthyPodEvictionPolicy": {
+          "na": "PDBUnhealthyPodEvictionPolicy",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "PodAndContainerStatsFromCRI": {
+          "na": "PodAndContainerStatsFromCRI",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "PodDeletionCost": {
+          "na": "PodDeletionCost",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "PodDisruptionConditions": {
+          "na": "PodDisruptionConditions",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "PodHasNetworkCondition": {
+          "na": "PodHasNetworkCondition",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "PodSchedulingReadiness": {
+          "na": "PodSchedulingReadiness",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "PodSecurity": {
+          "na": "PodSecurity",
+          "st": "",
+          "KFE": 1
+        },
+        "ProbeTerminationGracePeriod": {
+          "na": "ProbeTerminationGracePeriod",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "ProcMountType": {
+          "na": "ProcMountType",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "ProxyTerminatingEndpoints": {
+          "na": "ProxyTerminatingEndpoints",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "QOSReserved": {
+          "na": "QOSReserved",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "ReadWriteOncePod": {
+          "na": "ReadWriteOncePod",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "RecoverVolumeExpansionFailure": {
+          "na": "RecoverVolumeExpansionFailure",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "RemainingItemCount": {
+          "na": "RemainingItemCount",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "RemoveSelfLink": {
+          "na": "RemoveSelfLink",
+          "st": "",
+          "KFE": 1
+        },
+        "RetroactiveDefaultStorageClass": {
+          "na": "RetroactiveDefaultStorageClass",
+          "st": "BETA",
+          "KFE": 0
+        },
+        "RotateKubeletServerCertificate": {
+          "na": "RotateKubeletServerCertificate",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "SELinuxMountReadWriteOncePod": {
+          "na": "SELinuxMountReadWriteOncePod",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "SeccompDefault": {
+          "na": "SeccompDefault",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "ServerSideApply": {
+          "na": "ServerSideApply",
+          "st": "",
+          "KFE": 1
+        },
+        "ServerSideFieldValidation": {
+          "na": "ServerSideFieldValidation",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "ServiceIPStaticSubrange": {
+          "na": "ServiceIPStaticSubrange",
+          "st": "",
+          "KFE": 1
+        },
+        "ServiceInternalTrafficPolicy": {
+          "na": "ServiceInternalTrafficPolicy",
+          "st": "",
+          "KFE": 1
+        },
+        "SizeMemoryBackedVolumes": {
+          "na": "SizeMemoryBackedVolumes",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "StatefulSetAutoDeletePVC": {
+          "na": "StatefulSetAutoDeletePVC",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "StatefulSetMinReadySeconds": {
+          "na": "StatefulSetMinReadySeconds",
+          "st": "",
+          "KFE": 1
+        },
+        "StatefulSetStartOrdinal": {
+          "na": "StatefulSetStartOrdinal",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "StorageVersionAPI": {
+          "na": "StorageVersionAPI",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "StorageVersionHash": {
+          "na": "StorageVersionHash",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "TopologyAwareHints": {
+          "na": "TopologyAwareHints",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "TopologyManager": {
+          "na": "TopologyManager",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "TopologyManagerPolicyAlphaOptions": {
+          "na": "TopologyManagerPolicyAlphaOptions",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "TopologyManagerPolicyBetaOptions": {
+          "na": "TopologyManagerPolicyBetaOptions",
+          "st": "BETA",
+          "KFE": 0
+        },
+        "TopologyManagerPolicyOptions": {
+          "na": "TopologyManagerPolicyOptions",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "UnauthenticatedHTTP2DOSMitigation": {
+          "na": "UnauthenticatedHTTP2DOSMitigation",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "UserNamespacesStatelessPodsSupport": {
+          "na": "UserNamespacesStatelessPodsSupport",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "ValidatingAdmissionPolicy": {
+          "na": "ValidatingAdmissionPolicy",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "VolumeCapacityPriority": {
+          "na": "VolumeCapacityPriority",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "WatchBookmark": {
+          "na": "WatchBookmark",
+          "st": "",
+          "KFE": 1
+        },
+        "WinDSR": {
+          "na": "WinDSR",
+          "st": "ALPHA",
+          "KFE": 0
+        },
+        "WinOverlay": {
+          "na": "WinOverlay",
+          "st": "BETA",
+          "KFE": 1
+        },
+        "WindowsHostNetwork": {
+          "na": "WindowsHostNetwork",
+          "st": "ALPHA",
+          "KFE": 1
+        },
+        "WindowsHostProcessContainers": {
+          "na": "WindowsHostProcessContainers",
+          "st": "",
+          "KFE": 1
+        }
+      },
+      "PCS": 0,
+      "POF": 1122,
+      "PRMB": 3129999360,
+      "PVMB": 5278011392,
+      "request_count_by_host": {
+        "[::1]:6443": {
+          "ho": "[::1]:6443",
+          "RCR": 0
+        },
+        "machine-api-operator-webhook.openshift-machine-api.svc:443": {
+          "ho": "machine-api-operator-webhook.openshift-machine-api.svc:443",
+          "RCR": 0
+        },
+        "prometheus-operator-admission-webhook.openshift-monitoring.svc:8443": {
+          "ho": "prometheus-operator-admission-webhook.openshift-monitoring.svc:8443",
+          "RCR": 0
+        },
+        "validation-webhook.openshift-validation-webhook.svc:443": {
+          "ho": "validation-webhook.openshift-validation-webhook.svc:443",
+          "RCR": 0
+        },
+        "172.30.230.118:443": {
+          "ho": "172.30.230.118:443",
+          "RCR": 0
+        }
+      },
+      "workqueue_add": {
+        "APIServiceRegistrationController": {
+          "na": "APIServiceRegistrationController",
+          "WQA": 0
+        },
+        "AvailableConditionController": {
+          "na": "AvailableConditionController",
+          "WQA": 0
+        },
+        "DiscoveryController": {
+          "na": "DiscoveryController",
+          "WQA": 0
+        },
+        "DynamicCABundle-aggregator-proxy-cert": {
+          "na": "DynamicCABundle-aggregator-proxy-cert",
+          "WQA": 0
+        },
+        "DynamicCABundle-client-ca-bundle": {
+          "na": "DynamicCABundle-client-ca-bundle",
+          "WQA": 0
+        },
+        "DynamicCABundle-request-header": {
+          "na": "DynamicCABundle-request-header",
+          "WQA": 0
+        },
+        "DynamicCABundle-serving-cert": {
+          "na": "DynamicCABundle-serving-cert",
+          "WQA": 0
+        },
+        "DynamicCABundle-sni-serving-cert": {
+          "na": "DynamicCABundle-sni-serving-cert",
+          "WQA": 0
+        },
+        "DynamicClientCertificate": {
+          "na": "DynamicClientCertificate",
+          "WQA": 0
+        },
+        "DynamicServingCertificateController": {
+          "na": "DynamicServingCertificateController",
+          "WQA": 0
+        },
+        "admission_quota_controller": {
+          "na": "admission_quota_controller",
+          "WQA": 0
+        },
+        "autoregister": {
+          "na": "autoregister",
+          "WQA": 0
+        },
+        "cluster_authentication_trust_controller": {
+          "na": "cluster_authentication_trust_controller",
+          "WQA": 0
+        },
+        "controller_clusterquotamappingcontroller_clusterquotas": {
+          "na": "controller_clusterquotamappingcontroller_clusterquotas",
+          "WQA": 0
+        },
+        "controller_clusterquotamappingcontroller_namespaces": {
+          "na": "controller_clusterquotamappingcontroller_namespaces",
+          "WQA": 0
+        },
+        "crdEstablishing": {
+          "na": "crdEstablishing",
+          "WQA": 0
+        },
+        "crd_autoregistration_controller": {
+          "na": "crd_autoregistration_controller",
+          "WQA": 0
+        },
+        "crd_finalizer": {
+          "na": "crd_finalizer",
+          "WQA": 0
+        },
+        "crd_naming_condition_controller": {
+          "na": "crd_naming_condition_controller",
+          "WQA": 0
+        },
+        "crd_openapi_controller": {
+          "na": "crd_openapi_controller",
+          "WQA": 0
+        },
+        "crd_openapi_v3_controller": {
+          "na": "crd_openapi_v3_controller",
+          "WQA": 0
+        },
+        "kubernetes_api_approval_conformant_condition_controller": {
+          "na": "kubernetes_api_approval_conformant_condition_controller",
+          "WQA": 0
+        },
+        "legacy_token_tracking_controller": {
+          "na": "legacy_token_tracking_controller",
+          "WQA": 0
+        },
+        "non_structural_schema_condition_controller": {
+          "na": "non_structural_schema_condition_controller",
+          "WQA": 0
+        },
+        "open_api_aggregation_controller": {
+          "na": "open_api_aggregation_controller",
+          "WQA": 0
+        },
+        "open_api_v3_aggregation_controller": {
+          "na": "open_api_v3_aggregation_controller",
+          "WQA": 0
+        },
+        "priority_and_fairness_config_queue": {
+          "na": "priority_and_fairness_config_queue",
+          "WQA": 0
+        }
+      },
+      "workqueue_size": {
+        "APIServiceRegistrationController": {
+          "na": "APIServiceRegistrationController",
+          "WQD": 0
+        },
+        "AvailableConditionController": {
+          "na": "AvailableConditionController",
+          "WQD": 0
+        },
+        "DiscoveryController": {
+          "na": "DiscoveryController",
+          "WQD": 0
+        },
+        "DynamicCABundle-aggregator-proxy-cert": {
+          "na": "DynamicCABundle-aggregator-proxy-cert",
+          "WQD": 0
+        },
+        "DynamicCABundle-client-ca-bundle": {
+          "na": "DynamicCABundle-client-ca-bundle",
+          "WQD": 0
+        },
+        "DynamicCABundle-request-header": {
+          "na": "DynamicCABundle-request-header",
+          "WQD": 0
+        },
+        "DynamicCABundle-serving-cert": {
+          "na": "DynamicCABundle-serving-cert",
+          "WQD": 0
+        },
+        "DynamicCABundle-sni-serving-cert": {
+          "na": "DynamicCABundle-sni-serving-cert",
+          "WQD": 0
+        },
+        "DynamicClientCertificate": {
+          "na": "DynamicClientCertificate",
+          "WQD": 0
+        },
+        "DynamicServingCertificateController": {
+          "na": "DynamicServingCertificateController",
+          "WQD": 0
+        },
+        "admission_quota_controller": {
+          "na": "admission_quota_controller",
+          "WQD": 0
+        },
+        "autoregister": {
+          "na": "autoregister",
+          "WQD": 0
+        },
+        "cluster_authentication_trust_controller": {
+          "na": "cluster_authentication_trust_controller",
+          "WQD": 0
+        },
+        "controller_clusterquotamappingcontroller_clusterquotas": {
+          "na": "controller_clusterquotamappingcontroller_clusterquotas",
+          "WQD": 0
+        },
+        "controller_clusterquotamappingcontroller_namespaces": {
+          "na": "controller_clusterquotamappingcontroller_namespaces",
+          "WQD": 0
+        },
+        "crdEstablishing": {
+          "na": "crdEstablishing",
+          "WQD": 0
+        },
+        "crd_autoregistration_controller": {
+          "na": "crd_autoregistration_controller",
+          "WQD": 0
+        },
+        "crd_finalizer": {
+          "na": "crd_finalizer",
+          "WQD": 0
+        },
+        "crd_naming_condition_controller": {
+          "na": "crd_naming_condition_controller",
+          "WQD": 0
+        },
+        "crd_openapi_controller": {
+          "na": "crd_openapi_controller",
+          "WQD": 0
+        },
+        "crd_openapi_v3_controller": {
+          "na": "crd_openapi_v3_controller",
+          "WQD": 0
+        },
+        "kubernetes_api_approval_conformant_condition_controller": {
+          "na": "kubernetes_api_approval_conformant_condition_controller",
+          "WQD": 0
+        },
+        "legacy_token_tracking_controller": {
+          "na": "legacy_token_tracking_controller",
+          "WQD": 0
+        },
+        "non_structural_schema_condition_controller": {
+          "na": "non_structural_schema_condition_controller",
+          "WQD": 0
+        },
+        "open_api_aggregation_controller": {
+          "na": "open_api_aggregation_controller",
+          "WQD": 0
+        },
+        "open_api_v3_aggregation_controller": {
+          "na": "open_api_v3_aggregation_controller",
+          "WQD": 0
+        },
+        "priority_and_fairness_config_queue": {
+          "na": "priority_and_fairness_config_queue",
+          "WQD": 0
+        }
+      },
+      "SDTS": 189382656
+    }
+  }
+}
