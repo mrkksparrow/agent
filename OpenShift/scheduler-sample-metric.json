@@ -1,0 +1,138 @@
+{
+  "KubeScheduler": {
+    "10.0.206.47": {
+      "DCErrors": {},
+      "GR": 230,
+      "GSLSS": 0,
+      "GSLSC": 0,
+      "GSLS": 0,
+      "GT": 16,
+      "LEMS": 1,
+      "PCS": 0,
+      "POF": 17,
+      "PRMB": 97067008,
+      "PVMB": 1862389760,
+      "scheduler_goroutines": {
+        "DefaultPreemption": {
+          "op": "DefaultPreemption",
+          "SGR": 0
+        },
+        "Filter": {
+          "op": "Filter",
+          "SGR": 0
+        },
+        "InterPodAffinity": {
+          "op": "InterPodAffinity",
+          "SGR": 0
+        },
+        "PodTopologySpread": {
+          "op": "PodTopologySpread",
+          "SGR": 0
+        },
+        "Score": {
+          "op": "Score",
+          "SGR": 0
+        },
+        "binding": {
+          "op": "binding",
+          "SGR": 0
+        }
+      },
+      "ASPP": 0,
+      "BSPP": 0,
+      "GSPP": 0,
+      "USPP": 0,
+      "SPSAS": 0,
+      "SPSAC": 0,
+      "SPSA": 0,
+      "pod_scheduling_attempts": {
+        "1": {
+          "SPSDS": 0,
+          "at": "1",
+          "SPSDC": 0,
+          "SPSD": 0
+        },
+        "2": {
+          "SPSDS": 0,
+          "at": "2",
+          "SPSDC": 0,
+          "SPSD": 0
+        },
+        "3": {
+          "SPSDS": 0,
+          "at": "3",
+          "SPSDC": 0,
+          "SPSD": 0
+        }
+      },
+      "SPA": 0,
+      "SPVS": 0,
+      "SPVC": 0,
+      "SPV": 0,
+      "scheduling_pods_queue": {
+        "AssignedPodDelete_active": {
+          "ev": "AssignedPodDelete",
+          "qu": "active",
+          "SQIP": 0
+        },
+        "AssignedPodDelete_backoff": {
+          "ev": "AssignedPodDelete",
+          "qu": "backoff",
+          "SQIP": 0
+        },
+        "BackoffComplete_active": {
+          "ev": "BackoffComplete",
+          "qu": "active",
+          "SQIP": 0
+        },
+        "PodAdd_active": {
+          "ev": "PodAdd",
+          "qu": "active",
+          "SQIP": 0
+        },
+        "ScheduleAttemptFailure_backoff": {
+          "ev": "ScheduleAttemptFailure",
+          "qu": "backoff",
+          "SQIP": 0
+        },
+        "ScheduleAttemptFailure_unschedulable": {
+          "ev": "ScheduleAttemptFailure",
+          "qu": "unschedulable",
+          "SQIP": 0
+        }
+      },
+      "ESSA": 0,
+      "SSSA": 0,
+      "USSA": 0,
+      "SCSA": 0,
+      "SCSN": 9,
+      "SCSP": 312,
+      "SADSS": 0,
+      "SADSC": 0,
+      "SADS": 0,
+      "ESADS": 0,
+      "ESADSS": 0,
+      "ESADSC": 0,
+      "SSADS": 0,
+      "SSADSS": 0,
+      "SSADSC": 0,
+      "USADS": 0,
+      "USADSS": 0,
+      "USADSC": 0,
+      "unschedulable_pods": {
+        "InterPodAffinity": {
+          "pl": "InterPodAffinity",
+          "SUP": 46
+        },
+        "NodeAffinity": {
+          "pl": "NodeAffinity",
+          "SUP": 46
+        },
+        "TaintToleration": {
+          "pl": "TaintToleration",
+          "SUP": 46
+        }
+      }
+    }
+  }
+}
