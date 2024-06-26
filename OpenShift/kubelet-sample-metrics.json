@@ -1,0 +1,293 @@
+{
+  "KubeKubelet": {
+    "10.0.166.4": {
+      "DCErrors": {},
+      "GR": 1539,
+      "GT": 21,
+      "KCMDT": 0,
+      "KCMDTS": 0,
+      "KCMDTC": 0,
+      "operation": {
+        "create": {
+          "KCMDS": 0,
+          "ot": "create",
+          "KCMDC": 0,
+          "KCMD": 0
+        },
+        "destroy": {
+          "KCMDS": 0,
+          "ot": "destroy",
+          "KCMDC": 0,
+          "KCMD": 0
+        },
+        "update": {
+          "KCMDS": 0,
+          "ot": "update",
+          "KCMDC": 0,
+          "KCMD": 0
+        },
+        "container_status": {
+          "KRODS": 0,
+          "ot": "container_status",
+          "KRODC": 0,
+          "KROD": 0,
+          "KROE": 0,
+          "KRO": 0
+        },
+        "create_container": {
+          "KRODS": 0,
+          "ot": "create_container",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "exec": {
+          "KRODS": 0,
+          "ot": "exec",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "exec_sync": {
+          "KRODS": 0,
+          "ot": "exec_sync",
+          "KRODC": 0,
+          "KROD": 0,
+          "KROE": 0,
+          "KRO": 0
+        },
+        "image_status": {
+          "KRODS": 0,
+          "ot": "image_status",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "list_containers": {
+          "KRODS": 0,
+          "ot": "list_containers",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "list_images": {
+          "KRODS": 0,
+          "ot": "list_images",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "list_podsandbox": {
+          "KRODS": 0,
+          "ot": "list_podsandbox",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "podsandbox_status": {
+          "KRODS": 0,
+          "ot": "podsandbox_status",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "port_forward": {
+          "KRODS": 0,
+          "ot": "port_forward",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "pull_image": {
+          "KRODS": 0,
+          "ot": "pull_image",
+          "KRODC": 0,
+          "KROD": 0,
+          "KROE": 0,
+          "KRO": 0
+        },
+        "remove_container": {
+          "KRODS": 0,
+          "ot": "remove_container",
+          "KRODC": 0,
+          "KROD": 0,
+          "KROE": 0,
+          "KRO": 0
+        },
+        "remove_podsandbox": {
+          "KRODS": 0,
+          "ot": "remove_podsandbox",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "run_podsandbox": {
+          "KRODS": 0,
+          "ot": "run_podsandbox",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "start_container": {
+          "KRODS": 0,
+          "ot": "start_container",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "status": {
+          "KRODS": 0,
+          "ot": "status",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "stop_container": {
+          "KRODS": 0,
+          "ot": "stop_container",
+          "KRODC": 0,
+          "KROD": 0,
+          "KROE": 0,
+          "KRO": 0
+        },
+        "stop_podsandbox": {
+          "KRODS": 0,
+          "ot": "stop_podsandbox",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        },
+        "version": {
+          "KRODS": 0,
+          "ot": "version",
+          "KRODC": 0,
+          "KROD": 0,
+          "KRO": 0
+        }
+      },
+      "KCLFUB": 1377689600,
+      "KNN": "ip-10-0-166-4.ec2.internal",
+      "KPDE": 0,
+      "KPLSS": 1719399303,
+      "KPRDS": 0,
+      "KPRDC": 0,
+      "KPRD": 0,
+      "KPRIS": 0,
+      "KPRIC": 0,
+      "KPRI": 0,
+      "KPSDS": 0,
+      "KPSDC": 0,
+      "KPSD": 0,
+      "KPWDCR": 0,
+      "KPWDCRS": 0,
+      "KPWDCRC": 0,
+      "KPWDSY": 0,
+      "KPWDSYS": 0,
+      "KPWDSYC": 0,
+      "KPWDUP": 0,
+      "KPWDUPS": 0,
+      "KPWDUPC": 0,
+      "KPWSDS": 0,
+      "KPWSDC": 0,
+      "KPWSD": 0,
+      "KRCC": 1,
+      "KRCE": 41,
+      "KRCR": 99,
+      "KRP": 47,
+      "KRODT": 0,
+      "KRODTS": 0,
+      "KRODTC": 0,
+      "KROET": 0,
+      "KROT": 0,
+      "PCS": 0,
+      "POF": 38,
+      "PRMB": 266272768,
+      "PVMB": 2596007936,
+      "RCRT": 0,
+      "SODST": 0,
+      "SODSTS": 0,
+      "SODSTC": 0,
+      "SODFT": 0,
+      "SODFTS": 0,
+      "SODFTC": 0,
+      "storage_operation": {
+        "kubernetes.io/configmap_success": {
+          "SODVSS": 0,
+          "vp": "kubernetes.io/configmap",
+          "st": "success",
+          "SODVSC": 0,
+          "SODVS": 0
+        },
+        "kubernetes.io/csi:csi.oneagent.dynatrace.com_success": {
+          "SODVSS": 0,
+          "vp": "kubernetes.io/csi:csi.oneagent.dynatrace.com",
+          "st": "success",
+          "SODVSC": 0,
+          "SODVS": 0
+        },
+        "kubernetes.io/empty-dir_success": {
+          "SODVSS": 0,
+          "vp": "kubernetes.io/empty-dir",
+          "st": "success",
+          "SODVSC": 0,
+          "SODVS": 0
+        },
+        "kubernetes.io/host-path_success": {
+          "SODVSS": 0,
+          "vp": "kubernetes.io/host-path",
+          "st": "success",
+          "SODVSC": 0,
+          "SODVS": 0
+        },
+        "kubernetes.io/projected_success": {
+          "SODVSS": 0,
+          "vp": "kubernetes.io/projected",
+          "st": "success",
+          "SODVSC": 0,
+          "SODVS": 0
+        },
+        "kubernetes.io/secret_success": {
+          "SODVSS": 0,
+          "vp": "kubernetes.io/secret",
+          "st": "success",
+          "SODVSC": 0,
+          "SODVS": 0
+        },
+        "kubernetes.io/csi:csi.oneagent.dynatrace.com_fail-unknown": {
+          "SODVSS": 0,
+          "vp": "kubernetes.io/csi:csi.oneagent.dynatrace.com",
+          "st": "fail-unknown",
+          "SODVSC": 0,
+          "SODVS": 0
+        }
+      },
+      "volume": {
+        "kubernetes.io/configmap": {
+          "pn": "kubernetes.io/configmap",
+          "VMTVA": 48,
+          "VMTVD": 48
+        },
+        "kubernetes.io/empty-dir": {
+          "pn": "kubernetes.io/empty-dir",
+          "VMTVA": 9,
+          "VMTVD": 9
+        },
+        "kubernetes.io/host-path": {
+          "pn": "kubernetes.io/host-path",
+          "VMTVA": 91,
+          "VMTVD": 91
+        },
+        "kubernetes.io/projected": {
+          "pn": "kubernetes.io/projected",
+          "VMTVA": 44,
+          "VMTVD": 44
+        },
+        "kubernetes.io/secret": {
+          "pn": "kubernetes.io/secret",
+          "VMTVA": 48,
+          "VMTVD": 48
+        }
+      }
+    }
+  }
+}
