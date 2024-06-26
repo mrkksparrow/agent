@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: site24x7-agent
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: site24x7-agent
+  updateStrategy:
+      type: RollingUpdate # Only supported in Kubernetes version 1.6 or later.
+  template:
+    metadata:
+      labels:
+        app: site24x7-agent
+      name: site24x7-agent
+    spec:
+      serviceAccountName: site24x7
+      tolerations:
+      # Deploy Agents on master nodes
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+      # Deploy Agents on infra nodes
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/infra
+        operator: Exists
+      nodeSelector:
+        kubernetes.io/os: linux
+      containers:
+      - image: mkav2k/source-agent-image:latest
+        imagePullPolicy: Always
+        name: site24x7-agent
+        env:
+          - name: KEY
+            valueFrom:
+              secretKeyRef:
+                name: "site24x7-agent"
+                key: KEY
+          - name: ca_cert
+            valueFrom:
+              secretKeyRef:
+                name: "site24x7-agent-etcd"
+                key: ca_cert
+          - name: server_cert
+            valueFrom:
+              secretKeyRef:
+                name: "site24x7-agent-etcd"
+                key: server_cert
+          - name: server_key
+            valueFrom:
+              secretKeyRef:
+                name: "site24x7-agent-etcd"
+                key: server_key
+          - name: installer
+            value: openshift
+          - name: NODE_IP
+            valueFrom:
+              fieldRef:
+                 fieldPath: status.hostIP
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                 fieldPath: spec.nodeName
+          - name: SERVERLESS
+            value: "true"
+        securityContext:
+          privileged: true
+        volumeMounts:
+          - name: etcfs
+            mountPath: /host/etc/
+            readOnly: true
+      volumes:
+        - hostPath:
+            path: /etc/
+          name: etcfs
