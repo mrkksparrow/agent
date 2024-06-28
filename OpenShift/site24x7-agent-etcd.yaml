@@ -64,13 +64,15 @@ spec:
                  fieldPath: spec.nodeName
           - name: SERVERLESS
             value: "true"
-        securityContext:
-          privileged: true
         volumeMounts:
-          - name: etcfs
-            mountPath: /host/etc/
+          - name: etcd-certs
             readOnly: true
+            mountPath: /etc/etcd-certs
       volumes:
-        - hostPath:
-            path: /etc/
-          name: etcfs
+        - name: etcd-certs
+          projected:
+            sources: 
+            - secret:
+                name: etcd-all-certs
+            - configMap:
+                name: etcd-ca-bundle
