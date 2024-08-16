@@ -347,15 +347,15 @@
         "AUA": 0
       }
     },
-    "CADS": 0.00002007228337419805,
-    "CADSS": 3.608735610996945,
-    "CADSC": 179787,
-    "WADS": 0.0019150789318899224,
-    "WADSS": 3.008589001999068,
-    "WADSC": 1571,
-    "AAE": 5734,
+    "CADS": 0.000019024394658769985,
+    "CADSS": 3.3865705419969627,
+    "CADSC": 178012,
+    "WADS": 0.001789543041129617,
+    "WADSS": 2.784528971997684,
+    "WADSC": 1556,
+    "AAE": 5733,
     "ARR": 0,
-    "ACIR": 6,
+    "ACIR": 2,
     "CIQR": 2,
     "KAIS": 0,
     "long_running_request": {
@@ -367,12 +367,12 @@
       "secrets_WATCH": {
         "rs": "secrets",
         "vb": "WATCH",
-        "ALR": 159
+        "ALR": 160
       },
       "pods_WATCH": {
         "rs": "pods",
         "vb": "WATCH",
-        "ALR": 24
+        "ALR": 25
       },
       "nodes_WATCH": {
         "rs": "nodes",
@@ -411,1962 +411,9 @@
       }
     },
     "ARA": 0,
-    "ARDST": 43.24200676799649,
-    "ARDSTS": 272684.0946789859,
-    "ARDSTC": 6306,
-    "apiserver_resource": {
-      "": {
-        "ARDSS": 0.5625260020010501,
-        "rs": "",
-        "ARDSC": 777,
-        "ARDS": 0.00072397168854704,
-        "ASR": 777,
-        "ARSS": 4843354,
-        "ARSC": 777,
-        "ARS": 6233.402831402831
-      },
-      "componentstatuses": {
-        "ARDSS": 0.3969539029999396,
-        "rs": "componentstatuses",
-        "ARDSC": 20,
-        "ARDS": 0.01984769514999698,
-        "ASR": 20,
-        "ARSS": 15080,
-        "ARSC": 20,
-        "ARS": 754
-      },
-      "configmaps": {
-        "ARDSS": 60240.41613382648,
-        "rs": "configmaps",
-        "ARDSC": 291,
-        "ARDS": 207.01173929149994,
-        "ASR": 291,
-        "ARSS": 1763166,
-        "ARSC": 223,
-        "ARS": 7906.5739910313905
-      },
-      "endpoints": {
-        "ARDSS": 1471.1693866111468,
-        "rs": "endpoints",
-        "ARDSC": 55,
-        "ARDS": 26.74853430202085,
-        "ASR": 55,
-        "ARSS": 46057,
-        "ARSC": 53,
-        "ARS": 869
-      },
-      "events": {
-        "ARDSS": 38.06553570198449,
-        "rs": "events",
-        "ARDSC": 26,
-        "ARDS": 1.4640590654609418,
-        "ASR": 26,
-        "ARSS": 173704,
-        "ARSC": 20,
-        "ARS": 8685.2
-      },
-      "limitranges": {
-        "ARDSS": 1861.0057500110859,
-        "rs": "limitranges",
-        "ARDSC": 5,
-        "ARDS": 372.20115000221716,
-        "ASR": 5,
-        "ARSS": 3329,
-        "ARSC": 5,
-        "ARS": 665.8
-      },
-      "namespaces": {
-        "ARDSS": 5387.122295372226,
-        "rs": "namespaces",
-        "ARDSC": 49,
-        "ARDS": 109.94127133412707,
-        "ASR": 49,
-        "ARSS": 73730,
-        "ARSC": 49,
-        "ARS": 1504.6938775510205
-      },
-      "nodes": {
-        "ARDSS": 6809.208166819527,
-        "rs": "nodes",
-        "ARDSC": 139,
-        "ARDS": 48.987109113809545,
-        "ASR": 139,
-        "ARSS": 4210614,
-        "ARSC": 135,
-        "ARS": 31189.733333333334
-      },
-      "persistentvolumeclaims": {
-        "ARDSS": 2253.02725934175,
-        "rs": "persistentvolumeclaims",
-        "ARDSC": 13,
-        "ARDS": 173.3097891801346,
-        "ASR": 13,
-        "ARSS": 19910,
-        "ARSC": 13,
-        "ARS": 1531.5384615384614
-      },
-      "persistentvolumes": {
-        "ARDSS": 2331.0416815131643,
-        "rs": "persistentvolumes",
-        "ARDSC": 13,
-        "ARDS": 179.31089857793572,
-        "ASR": 13,
-        "ARSS": 19284,
-        "ARSC": 13,
-        "ARS": 1483.3846153846155
-      },
-      "pods": {
-        "ARDSS": 6916.290082895812,
-        "rs": "pods",
-        "ARDSC": 97,
-        "ARDS": 71.3019596174826,
-        "ASR": 97,
-        "ARSS": 7171505,
-        "ARSC": 83,
-        "ARS": 86403.67469879518
-      },
-      "podtemplates": {
-        "ARDSS": 511.001602505974,
-        "rs": "podtemplates",
-        "ARDSC": 1,
-        "ARDS": 511.001602505974,
-        "ASR": 1,
-        "ARSS": 1230,
-        "ARSC": 1,
-        "ARS": 1230
-      },
-      "replicationcontrollers": {
-        "ARDSS": 1472.0033287818078,
-        "rs": "replicationcontrollers",
-        "ARDSC": 3,
-        "ARDS": 490.6677762606026,
-        "ASR": 3,
-        "ARSS": 3656,
-        "ARSC": 3,
-        "ARS": 1218.6666666666667
-      },
-      "resourcequotas": {
-        "ARDSS": 1308.0307379451401,
-        "rs": "resourcequotas",
-        "ARDSC": 19,
-        "ARDS": 68.84372304974421,
-        "ASR": 19,
-        "ARSS": 2870,
-        "ARSC": 19,
-        "ARS": 151.05263157894737
-      },
-      "secrets": {
-        "ARDSS": 51059.5714222609,
-        "rs": "secrets",
-        "ARDSC": 200,
-        "ARDS": 255.29785711130452,
-        "ASR": 200,
-        "ARSS": 89910,
-        "ARSC": 118,
-        "ARS": 761.9491525423729
-      },
-      "serviceaccounts": {
-        "ARDSS": 1348.5157052369407,
-        "rs": "serviceaccounts",
-        "ARDSC": 62,
-        "ARDS": 21.750253310273237,
-        "ASR": 62,
-        "ARSS": 33337,
-        "ARSC": 10,
-        "ARS": 3333.7
-      },
-      "services": {
-        "ARDSS": 5376.685355639229,
-        "rs": "services",
-        "ARDSC": 214,
-        "ARDS": 25.1246979235478,
-        "ASR": 214,
-        "ARSS": 436987,
-        "ARSC": 48,
-        "ARS": 9103.895833333334
-      },
-      "addoninstances": {
-        "ARDSS": 0,
-        "rs": "addoninstances",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "addonoperators": {
-        "ARDSS": 0,
-        "rs": "addonoperators",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "addons": {
-        "ARDSS": 0,
-        "rs": "addons",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "mutatingwebhookconfigurations": {
-        "ARDSS": 2420.0048639439046,
-        "rs": "mutatingwebhookconfigurations",
-        "ARDSC": 5,
-        "ARDS": 484.0009727887809,
-        "ASR": 5,
-        "ARSS": 5757,
-        "ARSC": 5,
-        "ARS": 1151.4
-      },
-      "validatingwebhookconfigurations": {
-        "ARDSS": 1164.0025982481893,
-        "rs": "validatingwebhookconfigurations",
-        "ARDSC": 3,
-        "ARDS": 388.0008660827298,
-        "ASR": 3,
-        "ARSS": 2662,
-        "ARSC": 3,
-        "ARS": 887.3333333333334
-      },
-      "customresourcedefinitions": {
-        "ARDSS": 2490.0135399512947,
-        "rs": "customresourcedefinitions",
-        "ARDSC": 6,
-        "ARDS": 415.00225665854913,
-        "ASR": 6,
-        "ARSS": 14191,
-        "ARSC": 6,
-        "ARS": 2365.1666666666665
-      },
-      "apiservices": {
-        "ARDSS": 796.0012059018482,
-        "rs": "apiservices",
-        "ARDSC": 2,
-        "ARDS": 398.0006029509241,
-        "ASR": 2,
-        "ARSS": 1632,
-        "ARSC": 2,
-        "ARS": 816
-      },
-      "apirequestcounts": {
-        "ARDSS": 371.2260079409789,
-        "rs": "apirequestcounts",
-        "ARDSC": 611,
-        "ARDS": 0.6075712077593762,
-        "ASR": 611,
-        "ARSS": 17060075,
-        "ARSC": 431,
-        "ARS": 39582.54060324826
-      },
-      "controllerrevisions": {
-        "ARDSS": 564.0014329180121,
-        "rs": "controllerrevisions",
-        "ARDSC": 1,
-        "ARDS": 564.0014329180121,
-        "ASR": 1,
-        "ARSS": 7300,
-        "ARSC": 1,
-        "ARS": 7300
-      },
-      "daemonsets": {
-        "ARDSS": 1238.007179845008,
-        "rs": "daemonsets",
-        "ARDSC": 3,
-        "ARDS": 412.66905994833604,
-        "ASR": 3,
-        "ARSS": 173961,
-        "ARSC": 3,
-        "ARS": 57987
-      },
-      "deployments": {
-        "ARDSS": 2228.0254760269663,
-        "rs": "deployments",
-        "ARDSC": 11,
-        "ARDS": 202.54777054790603,
-        "ASR": 11,
-        "ARSS": 29098,
-        "ARSC": 11,
-        "ARS": 2645.2727272727275
-      },
-      "replicasets": {
-        "ARDSS": 1254.0067398778629,
-        "rs": "replicasets",
-        "ARDSC": 3,
-        "ARDS": 418.0022466259543,
-        "ASR": 3,
-        "ARSS": 5664,
-        "ARSC": 3,
-        "ARS": 1888
-      },
-      "statefulsets": {
-        "ARDSS": 2558.0160851797555,
-        "rs": "statefulsets",
-        "ARDSC": 7,
-        "ARDS": 365.4308693113936,
-        "ASR": 7,
-        "ARSS": 14382,
-        "ARSC": 7,
-        "ARS": 2054.5714285714284
-      },
-      "tokenreviews": {
-        "ARDSS": 0.7972970629996325,
-        "rs": "tokenreviews",
-        "ARDSC": 167,
-        "ARDS": 0.0047742339101774405,
-        "ASR": 167
-      },
-      "selfsubjectaccessreviews": {
-        "ARDSS": 0,
-        "rs": "selfsubjectaccessreviews",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0
-      },
-      "subjectaccessreviews": {
-        "ARDSS": 1.0990276649999942,
-        "rs": "subjectaccessreviews",
-        "ARDSC": 647,
-        "ARDS": 0.0016986517233384764,
-        "ASR": 647
-      },
-      "rolebindingrestrictions": {
-        "ARDSS": 472.0010515800095,
-        "rs": "rolebindingrestrictions",
-        "ARDSC": 1,
-        "ARDS": 472.0010515800095,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "horizontalpodautoscalers": {
-        "ARDSS": 1545.0065121611115,
-        "rs": "horizontalpodautoscalers",
-        "ARDSC": 4,
-        "ARDS": 386.25162804027786,
-        "ASR": 4,
-        "ARSS": 7036,
-        "ARSC": 4,
-        "ARS": 1759
-      },
-      "clusterautoscalers": {
-        "ARDSS": 303.0008408749709,
-        "rs": "clusterautoscalers",
-        "ARDSC": 1,
-        "ARDS": 303.0008408749709,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "machineautoscalers": {
-        "ARDSS": 0,
-        "rs": "machineautoscalers",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "cronjobs": {
-        "ARDSS": 1452.0056634449866,
-        "rs": "cronjobs",
-        "ARDSC": 3,
-        "ARDS": 484.00188781499554,
-        "ASR": 3,
-        "ARSS": 107647,
-        "ARSC": 3,
-        "ARS": 35882.333333333336
-      },
-      "jobs": {
-        "ARDSS": 876.0165039673448,
-        "rs": "jobs",
-        "ARDSC": 31,
-        "ARDS": 28.25859690217241,
-        "ASR": 31,
-        "ARSS": 124095,
-        "ARSC": 31,
-        "ARS": 4003.064516129032
-      },
-      "certificatesigningrequests": {
-        "ARDSS": 740.0069094119826,
-        "rs": "certificatesigningrequests",
-        "ARDSC": 2,
-        "ARDS": 370.0034547059913,
-        "ASR": 2,
-        "ARSS": 1638,
-        "ARSC": 2,
-        "ARS": 819
-      },
-      "cloudprivateipconfigs": {
-        "ARDSS": 419.0007377360016,
-        "rs": "cloudprivateipconfigs",
-        "ARDSC": 1,
-        "ARDS": 419.0007377360016,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "credentialsrequests": {
-        "ARDSS": 1009.9465938950525,
-        "rs": "credentialsrequests",
-        "ARDSC": 1487,
-        "ARDS": 0.679183990514494,
-        "ASR": 1488,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "apiservers": {
-        "ARDSS": 427.001314010995,
-        "rs": "apiservers",
-        "ARDSC": 1,
-        "ARDS": 427.001314010995,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "authentications": {
-        "ARDSS": 1108.0018086070195,
-        "rs": "authentications",
-        "ARDSC": 2,
-        "ARDS": 554.0009043035097,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "builds": {
-        "ARDSS": 309.0016553730238,
-        "rs": "builds",
-        "ARDSC": 1,
-        "ARDS": 309.0016553730238,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "clusteroperators": {
-        "ARDSS": 1257.079528382033,
-        "rs": "clusteroperators",
-        "ARDSC": 11,
-        "ARDS": 114.27995712563937,
-        "ASR": 11,
-        "ARSS": 120994,
-        "ARSC": 2,
-        "ARS": 60497
-      },
-      "clusterversions": {
-        "ARDSS": 536.0082689690323,
-        "rs": "clusterversions",
-        "ARDSC": 2,
-        "ARDS": 268.00413448451616,
-        "ASR": 2,
-        "ARSS": 5466,
-        "ARSC": 1,
-        "ARS": 5466
-      },
-      "consoles": {
-        "ARDSS": 308.00102185597643,
-        "rs": "consoles",
-        "ARDSC": 1,
-        "ARDS": 308.00102185597643,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "dnses": {
-        "ARDSS": 368.0018488030182,
-        "rs": "dnses",
-        "ARDSC": 1,
-        "ARDS": 368.0018488030182,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "featuregates": {
-        "ARDSS": 641.0049563680077,
-        "rs": "featuregates",
-        "ARDSC": 2,
-        "ARDS": 320.50247818400385,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "imagecontentpolicies": {
-        "ARDSS": 470.0016614620108,
-        "rs": "imagecontentpolicies",
-        "ARDSC": 1,
-        "ARDS": 470.0016614620108,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "imagedigestmirrorsets": {
-        "ARDSS": 401.00165120500606,
-        "rs": "imagedigestmirrorsets",
-        "ARDSC": 1,
-        "ARDS": 401.00165120500606,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "images": {
-        "ARDSS": 559.0011238449952,
-        "rs": "images",
-        "ARDSC": 1,
-        "ARDS": 559.0011238449952,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "imagetagmirrorsets": {
-        "ARDSS": 0,
-        "rs": "imagetagmirrorsets",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "infrastructures": {
-        "ARDSS": 1615.0063880609814,
-        "rs": "infrastructures",
-        "ARDSC": 4,
-        "ARDS": 403.75159701524535,
-        "ASR": 4,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "ingresses": {
-        "ARDSS": 1937.0109183290042,
-        "rs": "ingresses",
-        "ARDSC": 4,
-        "ARDS": 484.25272958225105,
-        "ASR": 4,
-        "ARSS": 4067,
-        "ARSC": 3,
-        "ARS": 1355.6666666666667
-      },
-      "networks": {
-        "ARDSS": 371.0008084530127,
-        "rs": "networks",
-        "ARDSC": 1,
-        "ARDS": 371.0008084530127,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "oauths": {
-        "ARDSS": 0,
-        "rs": "oauths",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "operatorhubs": {
-        "ARDSS": 377.000830888981,
-        "rs": "operatorhubs",
-        "ARDSC": 1,
-        "ARDS": 377.000830888981,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "projects": {
-        "ARDSS": 0,
-        "rs": "projects",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "proxies": {
-        "ARDSS": 1023.0112511320684,
-        "rs": "proxies",
-        "ARDSC": 3,
-        "ARDS": 341.00375037735614,
-        "ASR": 3,
-        "ARSS": 681,
-        "ARSC": 1,
-        "ARS": 681
-      },
-      "schedulers": {
-        "ARDSS": 0,
-        "rs": "schedulers",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "consoleclidownloads": {
-        "ARDSS": 552.0010136530036,
-        "rs": "consoleclidownloads",
-        "ARDSC": 1,
-        "ARDS": 552.0010136530036,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "consoleexternalloglinks": {
-        "ARDSS": 576.0014707859955,
-        "rs": "consoleexternalloglinks",
-        "ARDSC": 1,
-        "ARDS": 576.0014707859955,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "consolelinks": {
-        "ARDSS": 514.0011162660085,
-        "rs": "consolelinks",
-        "ARDSC": 1,
-        "ARDS": 514.0011162660085,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "consolenotifications": {
-        "ARDSS": 453.0014380119974,
-        "rs": "consolenotifications",
-        "ARDSC": 1,
-        "ARDS": 453.0014380119974,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "consoleplugins": {
-        "ARDSS": 514.0012373640202,
-        "rs": "consoleplugins",
-        "ARDSC": 1,
-        "ARDS": 514.0012373640202,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "consolequickstarts": {
-        "ARDSS": 426.000887643022,
-        "rs": "consolequickstarts",
-        "ARDSC": 1,
-        "ARDS": 426.000887643022,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "consolesamples": {
-        "ARDSS": 475.0006036059931,
-        "rs": "consolesamples",
-        "ARDSC": 1,
-        "ARDS": 475.0006036059931,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "consoleyamlsamples": {
-        "ARDSS": 595.0007545690169,
-        "rs": "consoleyamlsamples",
-        "ARDSC": 1,
-        "ARDS": 595.0007545690169,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "podnetworkconnectivitychecks": {
-        "ARDSS": 894.0030414678622,
-        "rs": "podnetworkconnectivitychecks",
-        "ARDSC": 2,
-        "ARDS": 447.0015207339311,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "leases": {
-        "ARDSS": 953.7290691170319,
-        "rs": "leases",
-        "ARDSC": 987,
-        "ARDS": 0.966290850169232,
-        "ASR": 987,
-        "ARSS": 1174661,
-        "ARSC": 531,
-        "ARS": 2212.1676082862523
-      },
-      "datadogagents": {
-        "ARDSS": 490.4355119119829,
-        "rs": "datadogagents",
-        "ARDSC": 42,
-        "ARDS": 11.677035997904355,
-        "ASR": 42,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "datadogmetrics": {
-        "ARDSS": 573.0007808520459,
-        "rs": "datadogmetrics",
-        "ARDSC": 1,
-        "ARDS": 573.0007808520459,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "datadogmonitors": {
-        "ARDSS": 569.0010402339976,
-        "rs": "datadogmonitors",
-        "ARDSC": 1,
-        "ARDS": 569.0010402339976,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "endpointslices": {
-        "ARDSS": 1396.07654180093,
-        "rs": "endpointslices",
-        "ARDSC": 33,
-        "ARDS": 42.30534975154333,
-        "ASR": 33,
-        "ARSS": 15974,
-        "ARSC": 33,
-        "ARS": 484.06060606060606
-      },
-      "flowschemas": {
-        "ARDSS": 436.00126591697335,
-        "rs": "flowschemas",
-        "ARDSC": 1,
-        "ARDS": 436.00126591697335,
-        "ASR": 1,
-        "ARSS": 928,
-        "ARSC": 1,
-        "ARS": 928
-      },
-      "prioritylevelconfigurations": {
-        "ARDSS": 928.0026404600358,
-        "rs": "prioritylevelconfigurations",
-        "ARDSC": 2,
-        "ARDS": 464.0013202300179,
-        "ASR": 2,
-        "ARSS": 2176,
-        "ARSC": 2,
-        "ARS": 1088
-      },
-      "helmchartrepositories": {
-        "ARDSS": 577.000871717988,
-        "rs": "helmchartrepositories",
-        "ARDSC": 1,
-        "ARDS": 577.000871717988,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "projecthelmchartrepositories": {
-        "ARDSS": 0,
-        "rs": "projecthelmchartrepositories",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "configs": {
-        "ARDSS": 1375.0029280069866,
-        "rs": "configs",
-        "ARDSC": 3,
-        "ARDS": 458.3343093356622,
-        "ASR": 3,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "imagepruners": {
-        "ARDSS": 0,
-        "rs": "imagepruners",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "metal3remediations": {
-        "ARDSS": 0,
-        "rs": "metal3remediations",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "metal3remediationtemplates": {
-        "ARDSS": 460.0012164589716,
-        "rs": "metal3remediationtemplates",
-        "ARDSC": 1,
-        "ARDS": 460.0012164589716,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "dnsrecords": {
-        "ARDSS": 308.0007204290014,
-        "rs": "dnsrecords",
-        "ARDSC": 1,
-        "ARDS": 308.0007204290014,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "network-attachment-definitions": {
-        "ARDSS": 1433.0040388049092,
-        "rs": "network-attachment-definitions",
-        "ARDSC": 3,
-        "ARDS": 477.66801293496974,
-        "ASR": 3,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "adminpolicybasedexternalroutes": {
-        "ARDSS": 1772.0056682131253,
-        "rs": "adminpolicybasedexternalroutes",
-        "ARDSC": 4,
-        "ARDS": 443.00141705328133,
-        "ASR": 4,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "egressfirewalls": {
-        "ARDSS": 713.0018487698399,
-        "rs": "egressfirewalls",
-        "ARDSC": 2,
-        "ARDS": 356.5009243849199,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "egressips": {
-        "ARDSS": 1860.0048443959095,
-        "rs": "egressips",
-        "ARDSC": 4,
-        "ARDS": 465.00121109897736,
-        "ASR": 4,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "egressqoses": {
-        "ARDSS": 1460.0039552149829,
-        "rs": "egressqoses",
-        "ARDSC": 3,
-        "ARDS": 486.66798507166095,
-        "ASR": 3,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "egressservices": {
-        "ARDSS": 1971.0058876571711,
-        "rs": "egressservices",
-        "ARDSC": 4,
-        "ARDS": 492.7514719142928,
-        "ASR": 4,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "controlplanemachinesets": {
-        "ARDSS": 0,
-        "rs": "controlplanemachinesets",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "machinehealthchecks": {
-        "ARDSS": 365.0016574090114,
-        "rs": "machinehealthchecks",
-        "ARDSC": 1,
-        "ARDS": 365.0016574090114,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "machines": {
-        "ARDSS": 362.00137022702256,
-        "rs": "machines",
-        "ARDSC": 1,
-        "ARDS": 362.00137022702256,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "machinesets": {
-        "ARDSS": 465.0012010880164,
-        "rs": "machinesets",
-        "ARDSC": 1,
-        "ARDS": 465.0012010880164,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "containerruntimeconfigs": {
-        "ARDSS": 0,
-        "rs": "containerruntimeconfigs",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "controllerconfigs": {
-        "ARDSS": 1086.0060471019242,
-        "rs": "controllerconfigs",
-        "ARDSC": 2,
-        "ARDS": 543.0030235509621,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "kubeletconfigs": {
-        "ARDSS": 0,
-        "rs": "kubeletconfigs",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "machineconfigpools": {
-        "ARDSS": 356.0014626409975,
-        "rs": "machineconfigpools",
-        "ARDSC": 1,
-        "ARDS": 356.0014626409975,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "machineconfigs": {
-        "ARDSS": 1050.0059776320122,
-        "rs": "machineconfigs",
-        "ARDSC": 2,
-        "ARDS": 525.0029888160061,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "customdomains": {
-        "ARDSS": 0,
-        "rs": "customdomains",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "mustgathers": {
-        "ARDSS": 463.00151593401097,
-        "rs": "mustgathers",
-        "ARDSC": 1,
-        "ARDS": 463.00151593401097,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "subjectpermissions": {
-        "ARDSS": 585.0007100700168,
-        "rs": "subjectpermissions",
-        "ARDSC": 1,
-        "ARDS": 585.0007100700168,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "baremetalhosts": {
-        "ARDSS": 0,
-        "rs": "baremetalhosts",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "bmceventsubscriptions": {
-        "ARDSS": 497.00102721102303,
-        "rs": "bmceventsubscriptions",
-        "ARDSC": 1,
-        "ARDS": 497.00102721102303,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "firmwareschemas": {
-        "ARDSS": 510.00093808199745,
-        "rs": "firmwareschemas",
-        "ARDSC": 1,
-        "ARDS": 510.00093808199745,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "hardwaredata": {
-        "ARDSS": 466.00105421000626,
-        "rs": "hardwaredata",
-        "ARDSC": 1,
-        "ARDS": 466.00105421000626,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "hostfirmwaresettings": {
-        "ARDSS": 398.0014429599978,
-        "rs": "hostfirmwaresettings",
-        "ARDSC": 1,
-        "ARDS": 398.0014429599978,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "preprovisioningimages": {
-        "ARDSS": 0,
-        "rs": "preprovisioningimages",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "provisionings": {
-        "ARDSS": 314.0013776990236,
-        "rs": "provisionings",
-        "ARDSC": 1,
-        "ARDS": 314.0013776990236,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "storagestates": {
-        "ARDSS": 0,
-        "rs": "storagestates",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "storageversionmigrations": {
-        "ARDSS": 590.0016276240349,
-        "rs": "storageversionmigrations",
-        "ARDSC": 1,
-        "ARDS": 590.0016276240349,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "alertmanagerconfigs": {
-        "ARDSS": 1787.0122296069749,
-        "rs": "alertmanagerconfigs",
-        "ARDSC": 4,
-        "ARDS": 446.7530574017437,
-        "ASR": 4,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "alertmanagers": {
-        "ARDSS": 1831.0107741719112,
-        "rs": "alertmanagers",
-        "ARDSC": 4,
-        "ARDS": 457.7526935429778,
-        "ASR": 4,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "podmonitors": {
-        "ARDSS": 1358.002108017914,
-        "rs": "podmonitors",
-        "ARDSC": 3,
-        "ARDS": 452.6673693393047,
-        "ASR": 3,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "probes": {
-        "ARDSS": 2127.011592017021,
-        "rs": "probes",
-        "ARDSC": 4,
-        "ARDS": 531.7528980042553,
-        "ASR": 4,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "prometheuses": {
-        "ARDSS": 962.0022073580185,
-        "rs": "prometheuses",
-        "ARDSC": 2,
-        "ARDS": 481.00110367900925,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "prometheusrules": {
-        "ARDSS": 2188.0124350622064,
-        "rs": "prometheusrules",
-        "ARDSC": 5,
-        "ARDS": 437.60248701244126,
-        "ASR": 5,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "servicemonitors": {
-        "ARDSS": 1282.009493074061,
-        "rs": "servicemonitors",
-        "ARDSC": 4,
-        "ARDS": 320.50237326851527,
-        "ASR": 4,
-        "ARSS": 1008,
-        "ARSC": 1,
-        "ARS": 1008
-      },
-      "thanosrulers": {
-        "ARDSS": 1029.005677950976,
-        "rs": "thanosrulers",
-        "ARDSC": 2,
-        "ARDS": 514.502838975488,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "alertingrules": {
-        "ARDSS": 372.0013921969803,
-        "rs": "alertingrules",
-        "ARDSC": 1,
-        "ARDS": 372.0013921969803,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "alertrelabelconfigs": {
-        "ARDSS": 406.0010068329866,
-        "rs": "alertrelabelconfigs",
-        "ARDSC": 1,
-        "ARDS": 406.0010068329866,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "clusterurlmonitors": {
-        "ARDSS": 509.00061871798243,
-        "rs": "clusterurlmonitors",
-        "ARDSC": 1,
-        "ARDS": 509.00061871798243,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "routemonitors": {
-        "ARDSS": 324.0009901159792,
-        "rs": "routemonitors",
-        "ARDSC": 1,
-        "ARDS": 324.0009901159792,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "monitoringstacks": {
-        "ARDSS": 503.0008914520149,
-        "rs": "monitoringstacks",
-        "ARDSC": 1,
-        "ARDS": 503.0008914520149,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "prometheusagents": {
-        "ARDSS": 534.0014849510044,
-        "rs": "prometheusagents",
-        "ARDSC": 1,
-        "ARDS": 534.0014849510044,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "scrapeconfigs": {
-        "ARDSS": 330.0006920929882,
-        "rs": "scrapeconfigs",
-        "ARDSC": 1,
-        "ARDS": 330.0006920929882,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "thanosqueriers": {
-        "ARDSS": 404.0008604549803,
-        "rs": "thanosqueriers",
-        "ARDSC": 1,
-        "ARDS": 404.0008604549803,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "egressrouters": {
-        "ARDSS": 572.000743564975,
-        "rs": "egressrouters",
-        "ARDSC": 1,
-        "ARDS": 572.000743564975,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "operatorpkis": {
-        "ARDSS": 0,
-        "rs": "operatorpkis",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "ingressclasses": {
-        "ARDSS": 694.0014655539999,
-        "rs": "ingressclasses",
-        "ARDSC": 2,
-        "ARDS": 347.00073277699994,
-        "ASR": 2,
-        "ARSS": 1344,
-        "ARSC": 2,
-        "ARS": 672
-      },
-      "networkpolicies": {
-        "ARDSS": 2243.0225702189477,
-        "rs": "networkpolicies",
-        "ARDSC": 8,
-        "ARDS": 280.37782127736847,
-        "ASR": 8,
-        "ARSS": 11654,
-        "ARSC": 8,
-        "ARS": 1456.75
-      },
-      "runtimeclasses": {
-        "ARDSS": 1120.0027996459976,
-        "rs": "runtimeclasses",
-        "ARDSC": 2,
-        "ARDS": 560.0013998229988,
-        "ASR": 2,
-        "ARSS": 1848,
-        "ARSC": 2,
-        "ARS": 924
-      },
-      "managedfleetnotificationrecords": {
-        "ARDSS": 349.0009519140003,
-        "rs": "managedfleetnotificationrecords",
-        "ARDSC": 1,
-        "ARDS": 349.0009519140003,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "managedfleetnotifications": {
-        "ARDSS": 0,
-        "rs": "managedfleetnotifications",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "managednotifications": {
-        "ARDSS": 505.0013699909905,
-        "rs": "managednotifications",
-        "ARDSC": 1,
-        "ARDS": 505.0013699909905,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "ocmagents": {
-        "ARDSS": 301.0039045190206,
-        "rs": "ocmagents",
-        "ARDSC": 1,
-        "ARDS": 301.0039045190206,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "cloudcredentials": {
-        "ARDSS": 1339.005159812048,
-        "rs": "cloudcredentials",
-        "ARDSC": 3,
-        "ARDS": 446.3350532706827,
-        "ASR": 3,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "clustercsidrivers": {
-        "ARDSS": 516.00072171801,
-        "rs": "clustercsidrivers",
-        "ARDSC": 1,
-        "ARDS": 516.00072171801,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "csisnapshotcontrollers": {
-        "ARDSS": 480.00082209001994,
-        "rs": "csisnapshotcontrollers",
-        "ARDSC": 1,
-        "ARDS": 480.00082209001994,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "etcds": {
-        "ARDSS": 518.0009047570056,
-        "rs": "etcds",
-        "ARDSC": 1,
-        "ARDS": 518.0009047570056,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "imagecontentsourcepolicies": {
-        "ARDSS": 0,
-        "rs": "imagecontentsourcepolicies",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "ingresscontrollers": {
-        "ARDSS": 0,
-        "rs": "ingresscontrollers",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "insightsoperators": {
-        "ARDSS": 0,
-        "rs": "insightsoperators",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "kubeapiservers": {
-        "ARDSS": 443.0018252899754,
-        "rs": "kubeapiservers",
-        "ARDSC": 1,
-        "ARDS": 443.0018252899754,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "kubecontrollermanagers": {
-        "ARDSS": 388.0039499939885,
-        "rs": "kubecontrollermanagers",
-        "ARDSC": 1,
-        "ARDS": 388.0039499939885,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "kubeschedulers": {
-        "ARDSS": 721.002482525073,
-        "rs": "kubeschedulers",
-        "ARDSC": 2,
-        "ARDS": 360.5012412625365,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "kubestorageversionmigrators": {
-        "ARDSS": 1027.0019718999974,
-        "rs": "kubestorageversionmigrators",
-        "ARDSC": 2,
-        "ARDS": 513.5009859499987,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "openshiftapiservers": {
-        "ARDSS": 469.000896913989,
-        "rs": "openshiftapiservers",
-        "ARDSC": 1,
-        "ARDS": 469.000896913989,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "openshiftcontrollermanagers": {
-        "ARDSS": 592.0009847150068,
-        "rs": "openshiftcontrollermanagers",
-        "ARDSC": 1,
-        "ARDS": 592.0009847150068,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "servicecas": {
-        "ARDSS": 599.0010844080243,
-        "rs": "servicecas",
-        "ARDSC": 1,
-        "ARDS": 599.0010844080243,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "storages": {
-        "ARDSS": 599.0015393909998,
-        "rs": "storages",
-        "ARDSC": 1,
-        "ARDS": 599.0015393909998,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "catalogsources": {
-        "ARDSS": 517.020169023046,
-        "rs": "catalogsources",
-        "ARDSC": 3,
-        "ARDS": 172.34005634101536,
-        "ASR": 3,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "clusterserviceversions": {
-        "ARDSS": 663.0054373210296,
-        "rs": "clusterserviceversions",
-        "ARDSC": 2,
-        "ARDS": 331.5027186605148,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "installplans": {
-        "ARDSS": 975.0039115749158,
-        "rs": "installplans",
-        "ARDSC": 3,
-        "ARDS": 325.0013038583053,
-        "ASR": 3,
-        "ARSS": 139,
-        "ARSC": 1,
-        "ARS": 139
-      },
-      "olmconfigs": {
-        "ARDSS": 427.0015945099876,
-        "rs": "olmconfigs",
-        "ARDSC": 1,
-        "ARDS": 427.0015945099876,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "operatorconditions": {
-        "ARDSS": 361.0013999780058,
-        "rs": "operatorconditions",
-        "ARDSC": 1,
-        "ARDS": 361.0013999780058,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "operatorgroups": {
-        "ARDSS": 702.0079788420117,
-        "rs": "operatorgroups",
-        "ARDSC": 2,
-        "ARDS": 351.0039894210058,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "operators": {
-        "ARDSS": 463.0014985469752,
-        "rs": "operators",
-        "ARDSC": 1,
-        "ARDS": 463.0014985469752,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "subscriptions": {
-        "ARDSS": 397.0020175600237,
-        "rs": "subscriptions",
-        "ARDSC": 2,
-        "ARDS": 198.50100878001186,
-        "ASR": 2,
-        "ARSS": 140,
-        "ARSC": 1,
-        "ARS": 140
-      },
-      "clusterobjectdeployments": {
-        "ARDSS": 548.0014175130054,
-        "rs": "clusterobjectdeployments",
-        "ARDSC": 1,
-        "ARDS": 548.0014175130054,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "clusterobjectsetphases": {
-        "ARDSS": 0,
-        "rs": "clusterobjectsetphases",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "clusterobjectsets": {
-        "ARDSS": 372.0011326689855,
-        "rs": "clusterobjectsets",
-        "ARDSC": 1,
-        "ARDS": 372.0011326689855,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "clusterobjectslices": {
-        "ARDSS": 501.0015442179865,
-        "rs": "clusterobjectslices",
-        "ARDSC": 1,
-        "ARDS": 501.0015442179865,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "clusterobjecttemplates": {
-        "ARDSS": 0,
-        "rs": "clusterobjecttemplates",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "clusterpackages": {
-        "ARDSS": 561.000816137006,
-        "rs": "clusterpackages",
-        "ARDSC": 1,
-        "ARDS": 561.000816137006,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "objectdeployments": {
-        "ARDSS": 484.0007541369996,
-        "rs": "objectdeployments",
-        "ARDSC": 1,
-        "ARDS": 484.0007541369996,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "objectsetphases": {
-        "ARDSS": 477.00128356099594,
-        "rs": "objectsetphases",
-        "ARDSC": 1,
-        "ARDS": 477.00128356099594,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "objectsets": {
-        "ARDSS": 531.0012751229806,
-        "rs": "objectsets",
-        "ARDSC": 1,
-        "ARDS": 531.0012751229806,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "objectslices": {
-        "ARDSS": 379.0007960550138,
-        "rs": "objectslices",
-        "ARDSC": 1,
-        "ARDS": 379.0007960550138,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "objecttemplates": {
-        "ARDSS": 531.0016579019721,
-        "rs": "objecttemplates",
-        "ARDSC": 1,
-        "ARDS": 531.0016579019721,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "packages": {
-        "ARDSS": 569.0012922160095,
-        "rs": "packages",
-        "ARDSC": 1,
-        "ARDS": 569.0012922160095,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "performanceprofiles": {
-        "ARDSS": 544.001079530979,
-        "rs": "performanceprofiles",
-        "ARDSC": 1,
-        "ARDS": 544.001079530979,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "poddisruptionbudgets": {
-        "ARDSS": 2544.009469354029,
-        "rs": "poddisruptionbudgets",
-        "ARDSC": 6,
-        "ARDS": 424.0015782256715,
-        "ASR": 6,
-        "ARSS": 5558,
-        "ARSC": 6,
-        "ARS": 926.3333333333334
-      },
-      "clusterresourcequotas": {
-        "ARDSS": 1044.0425498700263,
-        "rs": "clusterresourcequotas",
-        "ARDSC": 22,
-        "ARDS": 47.45647953954665,
-        "ASR": 22,
-        "ARSS": 2800,
-        "ARSC": 20,
-        "ARS": 140
-      },
-      "clusterrolebindings": {
-        "ARDSS": 655.0203356678683,
-        "rs": "clusterrolebindings",
-        "ARDSC": 8,
-        "ARDS": 81.87754195848353,
-        "ASR": 8,
-        "ARSS": 43983,
-        "ARSC": 8,
-        "ARS": 5497.875
-      },
-      "clusterroles": {
-        "ARDSS": 1218.0060682049952,
-        "rs": "clusterroles",
-        "ARDSC": 3,
-        "ARDS": 406.00202273499843,
-        "ASR": 3,
-        "ARSS": 425050,
-        "ARSC": 3,
-        "ARS": 141683.33333333334
-      },
-      "rolebindings": {
-        "ARDSS": 2608.0370085410277,
-        "rs": "rolebindings",
-        "ARDSC": 7,
-        "ARDS": 372.5767155058611,
-        "ASR": 7,
-        "ARSS": 135224,
-        "ARSC": 7,
-        "ARS": 19317.714285714286
-      },
-      "roles": {
-        "ARDSS": 2148.008158015902,
-        "rs": "roles",
-        "ARDSC": 5,
-        "ARDS": 429.6016316031804,
-        "ASR": 5,
-        "ARSS": 3588,
-        "ARSC": 5,
-        "ARS": 717.6
-      },
-      "priorityclasses": {
-        "ARDSS": 941.0021031040233,
-        "rs": "priorityclasses",
-        "ARDSC": 2,
-        "ARDS": 470.50105155201163,
-        "ASR": 2,
-        "ARSS": 1683,
-        "ARSC": 2,
-        "ARS": 841.5
-      },
-      "rangeallocations": {
-        "ARDSS": 588.0007430000114,
-        "rs": "rangeallocations",
-        "ARDSC": 1,
-        "ARDS": 588.0007430000114,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "securitycontextconstraints": {
-        "ARDSS": 0,
-        "rs": "securitycontextconstraints",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "volumesnapshotclasses": {
-        "ARDSS": 1067.0019687040476,
-        "rs": "volumesnapshotclasses",
-        "ARDSC": 2,
-        "ARDS": 533.5009843520238,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "volumesnapshotcontents": {
-        "ARDSS": 731.0021754420595,
-        "rs": "volumesnapshotcontents",
-        "ARDSC": 2,
-        "ARDS": 365.50108772102976,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "volumesnapshots": {
-        "ARDSS": 0,
-        "rs": "volumesnapshots",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "splunkforwarders": {
-        "ARDSS": 308.0012838789844,
-        "rs": "splunkforwarders",
-        "ARDSC": 1,
-        "ARDS": 308.0012838789844,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "csidrivers": {
-        "ARDSS": 1747.005415406078,
-        "rs": "csidrivers",
-        "ARDSC": 4,
-        "ARDS": 436.7513538515195,
-        "ASR": 4,
-        "ARSS": 2904,
-        "ARSC": 4,
-        "ARS": 726
-      },
-      "csinodes": {
-        "ARDSS": 1163.0030051660724,
-        "rs": "csinodes",
-        "ARDSC": 3,
-        "ARDS": 387.6676683886908,
-        "ASR": 3,
-        "ARSS": 1806,
-        "ARSC": 3,
-        "ARS": 602
-      },
-      "csistoragecapacities": {
-        "ARDSS": 1142.001679040026,
-        "rs": "csistoragecapacities",
-        "ARDSC": 2,
-        "ARDS": 571.000839520013,
-        "ASR": 2,
-        "ARSS": 2037,
-        "ARSC": 2,
-        "ARS": 1018.5
-      },
-      "storageclasses": {
-        "ARDSS": 1299.0029907841235,
-        "rs": "storageclasses",
-        "ARDSC": 3,
-        "ARDS": 433.00099692804116,
-        "ASR": 3,
-        "ARSS": 2184,
-        "ARSC": 3,
-        "ARS": 728
-      },
-      "volumeattachments": {
-        "ARDSS": 367.0005586850457,
-        "rs": "volumeattachments",
-        "ARDSC": 1,
-        "ARDS": 367.0005586850457,
-        "ASR": 1,
-        "ARSS": 735,
-        "ARSC": 1,
-        "ARS": 735
-      },
-      "profiles": {
-        "ARDSS": 523.0016429310199,
-        "rs": "profiles",
-        "ARDSC": 1,
-        "ARDS": 523.0016429310199,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "tuneds": {
-        "ARDSS": 917.0056261310237,
-        "rs": "tuneds",
-        "ARDSC": 2,
-        "ARDS": 458.5028130655119,
-        "ASR": 2,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "upgradeconfigs": {
-        "ARDSS": 0,
-        "rs": "upgradeconfigs",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "ippools": {
-        "ARDSS": 0,
-        "rs": "ippools",
-        "ARDSC": 0,
-        "ARDS": 0,
-        "ASR": 0,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      },
-      "overlappingrangeipreservations": {
-        "ARDSS": 476.0012066810159,
-        "rs": "overlappingrangeipreservations",
-        "ARDSC": 1,
-        "ARDS": 476.0012066810159,
-        "ASR": 1,
-        "ARSS": 0,
-        "ARSC": 0,
-        "ARS": 0
-      }
-    },
+    "ARDST": 40.70391209835422,
+    "ARDSTS": 257696.46749468058,
+    "ARDSTC": 6331,
     "request_count_code": {
       "0": {
         "cd": "0",
@@ -2374,17 +421,17 @@
       },
       "200": {
         "cd": "200",
-        "ASR": 5431,
-        "RCR": 2374
+        "ASR": 5478,
+        "RCR": 2345
       },
       "201": {
         "cd": "201",
-        "ASR": 834,
+        "ASR": 814,
         "RCR": 0
       },
       "304": {
         "cd": "304",
-        "ASR": 0
+        "ASR": 2
       },
       "404": {
         "cd": "404",
@@ -2393,7 +440,7 @@
       },
       "409": {
         "cd": "409",
-        "ASR": 42,
+        "ASR": 37,
         "RCR": 0
       },
       "422": {
@@ -2413,7 +460,7 @@
     "request_count_verb": {
       "WATCH": {
         "vb": "WATCH",
-        "ASR": 730
+        "ASR": 698
       },
       "CONNECT": {
         "vb": "CONNECT",
@@ -2421,12 +468,12 @@
       },
       "GET": {
         "vb": "GET",
-        "ASR": 2098,
-        "RCR": 595
+        "ASR": 2071,
+        "RCR": 582
       },
       "LIST": {
         "vb": "LIST",
-        "ASR": 102
+        "ASR": 217
       },
       "APPLY": {
         "vb": "APPLY",
@@ -2434,7 +481,7 @@
       },
       "DELETE": {
         "vb": "DELETE",
-        "ASR": 6
+        "ASR": 4
       },
       "PATCH": {
         "vb": "PATCH",
@@ -2443,25 +490,25 @@
       },
       "PUT": {
         "vb": "PUT",
-        "ASR": 2487,
-        "RCR": 209
+        "ASR": 2482,
+        "RCR": 207
       },
       "POST": {
         "vb": "POST",
-        "ASR": 876,
-        "RCR": 1570
+        "ASR": 851,
+        "RCR": 1556
       }
     },
-    "ASRT": 6307,
+    "ASRT": 6331,
     "ARDA": 1,
-    "ARST": 13949.725226860253,
-    "ARSTS": 38431493,
-    "ARSTC": 2755,
-    "ASOT": 9411,
+    "ARST": 14342.323883770376,
+    "ARSTS": 40474038,
+    "ARSTC": 2822,
+    "ASOT": 9552,
     "stored_objects": {
       "events": {
         "rs": "events",
-        "ASO": 1458
+        "ASO": 1597
       },
       "rolebindings.rbac.authorization.k8s.io": {
         "rs": "rolebindings.rbac.authorization.k8s.io",
@@ -2504,16 +551,16 @@
     "AWIS": 0,
     "authentication_attempts": {
       "success": {
-        "ADSS": 2.355314731987164,
+        "ADSS": 2.3051912250039095,
         "re": "success",
-        "ADSC": 6445,
-        "ADS": 0.0003654483680352466
+        "ADSC": 6456,
+        "ADS": 0.0003570618378258844
       }
     },
-    "ERDS": 0.0024925066880957867,
-    "ERDSS": 11.747184020995443,
-    "ERDSC": 4713,
-    "GR": 8923,
+    "ERDS": 0.002384414929854998,
+    "ERDSS": 11.421347514005442,
+    "ERDSC": 4790,
+    "GR": 9146,
     "GT": 19,
     "grpc_request_serv_meth": {
       "etcdserverpb.Watch_Watch": {
@@ -2529,22 +576,22 @@
       "etcdserverpb.Lease_LeaseGrant": {
         "gs": "etcdserverpb.Lease",
         "gm": "LeaseGrant",
-        "GCH": 31
+        "GCH": 30
       },
       "etcdserverpb.KV_Range": {
         "gs": "etcdserverpb.KV",
         "gm": "Range",
-        "GCH": 3360
+        "GCH": 3456
       },
       "etcdserverpb.Maintenance_Status": {
         "gs": "etcdserverpb.Maintenance",
         "gm": "Status",
-        "GCH": 32
+        "GCH": 34
       },
       "etcdserverpb.KV_Txn": {
         "gs": "etcdserverpb.KV",
         "gm": "Txn",
-        "GCH": 1554
+        "GCH": 1533
       }
     },
     "grpc_request_code": {
@@ -2558,7 +605,7 @@
       },
       "OK": {
         "gc": "OK",
-        "GCH": 4978
+        "GCH": 5054
       },
       "Unavailable": {
         "gc": "Unavailable",
@@ -3312,9 +1359,9 @@
         "KFE": 1
       }
     },
-    "PCS": 61.50999999999476,
+    "PCS": 59.50999999999476,
     "POF": 1056,
-    "PRMB": 2512113664,
+    "PRMB": 2503524352,
     "PVMB": 4568711168,
     "request_count_host": {
       "127.0.0.1:9743": {
@@ -3323,7 +1370,7 @@
       },
       "[::1]:6443": {
         "ho": "[::1]:6443",
-        "RCR": 804
+        "RCR": 789
       },
       "pod-identity-webhook.openshift-cloud-credential-operator.svc:443": {
         "ho": "pod-identity-webhook.openshift-cloud-credential-operator.svc:443",
@@ -3331,7 +1378,7 @@
       },
       "validation-webhook.openshift-validation-webhook.svc:443": {
         "ho": "validation-webhook.openshift-validation-webhook.svc:443",
-        "RCR": 1556
+        "RCR": 1542
       },
       "webhook.openshift-console-operator.svc:9443": {
         "ho": "webhook.openshift-console-operator.svc:9443",
@@ -3342,35 +1389,42 @@
         "RCR": 0
       }
     },
-    "workqueue": {
+    "AGUA": "['v1.', 'v1.admissionregistration.k8s.io', 'v1.apiextensions.k8s.io', 'v1.apiserver.openshift.io', 'v1.apps', 'v1.apps.openshift.io', 'v1.authentication.k8s.io', 'v1.authorization.k8s.io', 'v1.authorization.openshift.io', 'v1.autoscaling', 'v1.autoscaling.openshift.io', 'v1.batch', 'v1.build.openshift.io', 'v1.certificates.k8s.io', 'v1.cloud.network.openshift.io', 'v1.cloudcredential.openshift.io', 'v1.config.openshift.io', 'v1.console.openshift.io', 'v1.coordination.k8s.io', 'v1.discovery.k8s.io', 'v1.events.k8s.io', 'v1.image.openshift.io', 'v1.imageregistry.operator.openshift.io', 'v1.ingress.operator.openshift.io', 'v1.k8s.cni.cncf.io', 'v1.k8s.ovn.org', 'v1.machine.openshift.io', 'v1.machineconfiguration.openshift.io', 'v1.monitoring.coreos.com', 'v1.monitoring.openshift.io', 'v1.monitoring.rhobs', 'v1.network.operator.openshift.io', 'v1.networking.k8s.io', 'v1.node.k8s.io', 'v1.oauth.openshift.io', 'v1.operator.openshift.io', 'v1.operators.coreos.com', 'v1.packages.operators.coreos.com', 'v1.performance.openshift.io', 'v1.policy', 'v1.project.openshift.io', 'v1.quota.openshift.io', 'v1.rbac.authorization.k8s.io', 'v1.route.openshift.io', 'v1.samples.operator.openshift.io', 'v1.scheduling.k8s.io', 'v1.security.internal.openshift.io', 'v1.security.openshift.io', 'v1.snapshot.storage.k8s.io', 'v1.storage.k8s.io', 'v1.template.openshift.io', 'v1.tuned.openshift.io', 'v1.user.openshift.io', 'v1alpha1.addons.managed.openshift.io', 'v1alpha1.console.openshift.io', 'v1alpha1.controlplane.operator.openshift.io', 'v1alpha1.datadoghq.com', 'v1alpha1.managed.openshift.io', 'v1alpha1.metal3.io', 'v1alpha1.migration.k8s.io', 'v1alpha1.monitoring.coreos.com', 'v1alpha1.monitoring.openshift.io', 'v1alpha1.monitoring.rhobs', 'v1alpha1.ocmagent.managed.openshift.io', 'v1alpha1.operator.openshift.io', 'v1alpha1.operators.coreos.com', 'v1alpha1.package-operator.run', 'v1alpha1.performance.openshift.io', 'v1alpha1.splunkforwarder.managed.openshift.io', 'v1alpha1.upgrade.managed.openshift.io', 'v1alpha1.whereabouts.cni.cncf.io', 'v1alpha2.operators.coreos.com', 'v1alpha5.infrastructure.cluster.x-k8s.io', 'v1beta1.autoscaling.openshift.io', 'v1beta1.external.metrics.k8s.io', 'v1beta1.helm.openshift.io', 'v1beta1.infrastructure.cluster.x-k8s.io', 'v1beta1.machine.openshift.io', 'v1beta1.metrics.k8s.io', 'v1beta1.monitoring.coreos.com', 'v1beta2.flowcontrol.apiserver.k8s.io', 'v1beta3.flowcontrol.apiserver.k8s.io', 'v2.autoscaling', 'v2.operators.coreos.com', 'v2.performance.openshift.io', 'v2alpha1.datadoghq.com']",
+    "SDTS": 174137344,
+    "workqueue_add": {
       "open_api_v3_aggregation_controller": {
         "na": "open_api_v3_aggregation_controller",
-        "WQA": 971,
+        "WQA": 961,
         "WQD": 0
       },
       "AvailableConditionController": {
         "na": "AvailableConditionController",
-        "WQA": 888,
+        "WQA": 774,
         "WQD": 0
       },
       "open_api_aggregation_controller": {
         "na": "open_api_aggregation_controller",
-        "WQA": 662,
-        "WQD": 0
-      },
-      "admission_quota_controller": {
-        "na": "admission_quota_controller",
-        "WQA": 258,
+        "WQA": 655,
         "WQD": 0
       },
       "autoregister": {
         "na": "autoregister",
-        "WQA": 251,
+        "WQA": 257,
+        "WQD": 0
+      },
+      "admission_quota_controller": {
+        "na": "admission_quota_controller",
+        "WQA": 243,
         "WQD": 0
       },
       "crd_autoregistration_controller": {
         "na": "crd_autoregistration_controller",
-        "WQA": 169,
+        "WQA": 172,
+        "WQD": 0
+      },
+      "DiscoveryController": {
+        "na": "DiscoveryController",
+        "WQA": 161,
         "WQD": 0
       },
       "crd_naming_condition_controller": {
@@ -3387,20 +1441,22 @@
         "na": "crd_openapi_v3_controller",
         "WQA": 160,
         "WQD": 0
-      },
-      "kubernetes_api_approval_conformant_condition_controller": {
-        "na": "kubernetes_api_approval_conformant_condition_controller",
-        "WQA": 160,
-        "WQD": 0
-      },
+      }
+    },
+    "workqueue_depth": {
       "APIServiceRegistrationController": {
         "na": "APIServiceRegistrationController",
         "WQA": 86,
         "WQD": 0
       },
+      "AvailableConditionController": {
+        "na": "AvailableConditionController",
+        "WQA": 774,
+        "WQD": 0
+      },
       "DiscoveryController": {
         "na": "DiscoveryController",
-        "WQA": 128,
+        "WQA": 161,
         "WQD": 0
       },
       "DynamicCABundle-aggregator-proxy-cert": {
@@ -3439,8 +1495,306 @@
         "WQD": 0
       }
     },
-    "AGUA": "['v1.', 'v1.admissionregistration.k8s.io', 'v1.apiextensions.k8s.io', 'v1.apiserver.openshift.io', 'v1.apps', 'v1.apps.openshift.io', 'v1.authentication.k8s.io', 'v1.authorization.k8s.io', 'v1.authorization.openshift.io', 'v1.autoscaling', 'v1.autoscaling.openshift.io', 'v1.batch', 'v1.build.openshift.io', 'v1.certificates.k8s.io', 'v1.cloud.network.openshift.io', 'v1.cloudcredential.openshift.io', 'v1.config.openshift.io', 'v1.console.openshift.io', 'v1.coordination.k8s.io', 'v1.discovery.k8s.io', 'v1.events.k8s.io', 'v1.image.openshift.io', 'v1.imageregistry.operator.openshift.io', 'v1.ingress.operator.openshift.io', 'v1.k8s.cni.cncf.io', 'v1.k8s.ovn.org', 'v1.machine.openshift.io', 'v1.machineconfiguration.openshift.io', 'v1.monitoring.coreos.com', 'v1.monitoring.openshift.io', 'v1.monitoring.rhobs', 'v1.network.operator.openshift.io', 'v1.networking.k8s.io', 'v1.node.k8s.io', 'v1.oauth.openshift.io', 'v1.operator.openshift.io', 'v1.operators.coreos.com', 'v1.packages.operators.coreos.com', 'v1.performance.openshift.io', 'v1.policy', 'v1.project.openshift.io', 'v1.quota.openshift.io', 'v1.rbac.authorization.k8s.io', 'v1.route.openshift.io', 'v1.samples.operator.openshift.io', 'v1.scheduling.k8s.io', 'v1.security.internal.openshift.io', 'v1.security.openshift.io', 'v1.snapshot.storage.k8s.io', 'v1.storage.k8s.io', 'v1.template.openshift.io', 'v1.tuned.openshift.io', 'v1.user.openshift.io', 'v1alpha1.addons.managed.openshift.io', 'v1alpha1.console.openshift.io', 'v1alpha1.controlplane.operator.openshift.io', 'v1alpha1.datadoghq.com', 'v1alpha1.managed.openshift.io', 'v1alpha1.metal3.io', 'v1alpha1.migration.k8s.io', 'v1alpha1.monitoring.coreos.com', 'v1alpha1.monitoring.openshift.io', 'v1alpha1.monitoring.rhobs', 'v1alpha1.ocmagent.managed.openshift.io', 'v1alpha1.operator.openshift.io', 'v1alpha1.operators.coreos.com', 'v1alpha1.package-operator.run', 'v1alpha1.performance.openshift.io', 'v1alpha1.splunkforwarder.managed.openshift.io', 'v1alpha1.upgrade.managed.openshift.io', 'v1alpha1.whereabouts.cni.cncf.io', 'v1alpha2.operators.coreos.com', 'v1alpha5.infrastructure.cluster.x-k8s.io', 'v1beta1.autoscaling.openshift.io', 'v1beta1.external.metrics.k8s.io', 'v1beta1.helm.openshift.io', 'v1beta1.infrastructure.cluster.x-k8s.io', 'v1beta1.machine.openshift.io', 'v1beta1.metrics.k8s.io', 'v1beta1.monitoring.coreos.com', 'v1beta2.flowcontrol.apiserver.k8s.io', 'v1beta3.flowcontrol.apiserver.k8s.io', 'v2.autoscaling', 'v2.operators.coreos.com', 'v2.performance.openshift.io', 'v2alpha1.datadoghq.com']",
-    "SDTS": 171237376,
+    "apiserver_resource_rd": {
+      "configmaps": {
+        "ARDSS": 61039.47713582688,
+        "rs": "configmaps",
+        "ARDSC": 283,
+        "ARDS": 215.6871983598123,
+        "ASR": 283,
+        "ARSS": 4402216,
+        "ARSC": 220,
+        "ARS": 20010.072727272727
+      },
+      "secrets": {
+        "ARDSS": 43364.18428750416,
+        "rs": "secrets",
+        "ARDSC": 179,
+        "ARDS": 242.25801277935287,
+        "ASR": 179,
+        "ARSS": 73305,
+        "ARSC": 97,
+        "ARS": 755.7216494845361
+      },
+      "pods": {
+        "ARDSS": 8080.300483785498,
+        "rs": "pods",
+        "ARDSC": 106,
+        "ARDS": 76.229249847033,
+        "ASR": 106,
+        "ARSS": 6490968,
+        "ARSC": 92,
+        "ARS": 70554
+      },
+      "nodes": {
+        "ARDSS": 5725.180979907671,
+        "rs": "nodes",
+        "ARDSC": 133,
+        "ARDS": 43.046473533140386,
+        "ASR": 133,
+        "ARSS": 3534972,
+        "ARSC": 129,
+        "ARS": 27402.883720930233
+      },
+      "namespaces": {
+        "ARDSS": 5618.107954018142,
+        "rs": "namespaces",
+        "ARDSC": 47,
+        "ARDS": 119.53421178762004,
+        "ASR": 47,
+        "ARSS": 51973,
+        "ARSC": 47,
+        "ARS": 1105.8085106382978
+      },
+      "services": {
+        "ARDSS": 5380.680099963072,
+        "rs": "services",
+        "ARDSC": 214,
+        "ARDS": 25.14336495309847,
+        "ASR": 214,
+        "ARSS": 820822,
+        "ARSC": 48,
+        "ARS": 17100.458333333332
+      },
+      "statefulsets": {
+        "ARDSS": 3051.025488097919,
+        "rs": "statefulsets",
+        "ARDSC": 7,
+        "ARDS": 435.86078401398845,
+        "ASR": 7,
+        "ARSS": 15729,
+        "ARSC": 7,
+        "ARS": 2247
+      },
+      "deployments": {
+        "ARDSS": 2948.0368378099747,
+        "rs": "deployments",
+        "ARDSC": 11,
+        "ARDS": 268.0033488918159,
+        "ASR": 11,
+        "ARSS": 26649,
+        "ARSC": 11,
+        "ARS": 2422.6363636363635
+      },
+      "poddisruptionbudgets": {
+        "ARDSS": 2753.01060930104,
+        "rs": "poddisruptionbudgets",
+        "ARDSC": 6,
+        "ARDS": 458.8351015501733,
+        "ASR": 6,
+        "ARSS": 5202,
+        "ARSC": 6,
+        "ARS": 867
+      },
+      "roles": {
+        "ARDSS": 2560.008689986891,
+        "rs": "roles",
+        "ARDSC": 6,
+        "ARDS": 426.66811499781517,
+        "ASR": 6,
+        "ARSS": 5571,
+        "ARSC": 6,
+        "ARS": 928.5
+      }
+    },
+    "apiserver_resource_rs": {
+      "apirequestcounts": {
+        "ARDSS": 7.933747128006871,
+        "rs": "apirequestcounts",
+        "ARDSC": 597,
+        "ARDS": 0.013289358673378344,
+        "ASR": 597,
+        "ARSS": 16536996,
+        "ARSC": 419,
+        "ARS": 39467.770883054895
+      },
+      "pods": {
+        "ARDSS": 8080.300483785498,
+        "rs": "pods",
+        "ARDSC": 106,
+        "ARDS": 76.229249847033,
+        "ASR": 106,
+        "ARSS": 6490968,
+        "ARSC": 92,
+        "ARS": 70554
+      },
+      "": {
+        "ARDSS": 0.5642633599982734,
+        "rs": "",
+        "ARDSC": 775,
+        "ARDS": 0.0007280817548364817,
+        "ASR": 775,
+        "ARSS": 4955946,
+        "ARSC": 775,
+        "ARS": 6394.769032258065
+      },
+      "configmaps": {
+        "ARDSS": 61039.47713582688,
+        "rs": "configmaps",
+        "ARDSC": 283,
+        "ARDS": 215.6871983598123,
+        "ASR": 283,
+        "ARSS": 4402216,
+        "ARSC": 220,
+        "ARS": 20010.072727272727
+      },
+      "nodes": {
+        "ARDSS": 5725.180979907671,
+        "rs": "nodes",
+        "ARDSC": 133,
+        "ARDS": 43.046473533140386,
+        "ASR": 133,
+        "ARSS": 3534972,
+        "ARSC": 129,
+        "ARS": 27402.883720930233
+      },
+      "leases": {
+        "ARDSS": 1577.5998172440882,
+        "rs": "leases",
+        "ARDSC": 968,
+        "ARDS": 1.6297518773182729,
+        "ASR": 968,
+        "ARSS": 1751426,
+        "ARSC": 516,
+        "ARS": 3394.236434108527
+      },
+      "services": {
+        "ARDSS": 5380.680099963072,
+        "rs": "services",
+        "ARDSC": 214,
+        "ARDS": 25.14336495309847,
+        "ASR": 214,
+        "ARSS": 820822,
+        "ARSC": 48,
+        "ARS": 17100.458333333332
+      },
+      "clusterroles": {
+        "ARDSS": 1390.0066100051627,
+        "rs": "clusterroles",
+        "ARDSC": 3,
+        "ARDS": 463.33553666838753,
+        "ASR": 3,
+        "ARSS": 565194,
+        "ARSC": 3,
+        "ARS": 188398
+      },
+      "jobs": {
+        "ARDSS": 1577.0200230474584,
+        "rs": "jobs",
+        "ARDSC": 32,
+        "ARDS": 49.281875720233074,
+        "ASR": 32,
+        "ARSS": 238444,
+        "ARSC": 32,
+        "ARS": 7451.375
+      },
+      "clusterserviceversions": {
+        "ARDSS": 492.06263027002126,
+        "rs": "clusterserviceversions",
+        "ARDSC": 14,
+        "ARDS": 35.14733073357295,
+        "ASR": 14,
+        "ARSS": 206514,
+        "ARSC": 13,
+        "ARS": 15885.692307692309
+      }
+    },
+    "apiserver_resource_rc": {
+      "credentialsrequests": {
+        "ARDSS": 393.7577913299665,
+        "rs": "credentialsrequests",
+        "ARDSC": 1477,
+        "ARDS": 0.26659295283003825,
+        "ASR": 1477,
+        "ARSS": 0,
+        "ARSC": 0,
+        "ARS": 0
+      },
+      "leases": {
+        "ARDSS": 1577.5998172440882,
+        "rs": "leases",
+        "ARDSC": 968,
+        "ARDS": 1.6297518773182729,
+        "ASR": 968,
+        "ARSS": 1751426,
+        "ARSC": 516,
+        "ARS": 3394.236434108527
+      },
+      "": {
+        "ARDSS": 0.5642633599982734,
+        "rs": "",
+        "ARDSC": 775,
+        "ARDS": 0.0007280817548364817,
+        "ASR": 775,
+        "ARSS": 4955946,
+        "ARSC": 775,
+        "ARS": 6394.769032258065
+      },
+      "subjectaccessreviews": {
+        "ARDSS": 1.038141972000858,
+        "rs": "subjectaccessreviews",
+        "ARDSC": 621,
+        "ARDS": 0.0016717262028999324,
+        "ASR": 621
+      },
+      "apirequestcounts": {
+        "ARDSS": 7.933747128006871,
+        "rs": "apirequestcounts",
+        "ARDSC": 597,
+        "ARDS": 0.013289358673378344,
+        "ASR": 597,
+        "ARSS": 16536996,
+        "ARSC": 419,
+        "ARS": 39467.770883054895
+      },
+      "configmaps": {
+        "ARDSS": 61039.47713582688,
+        "rs": "configmaps",
+        "ARDSC": 283,
+        "ARDS": 215.6871983598123,
+        "ASR": 283,
+        "ARSS": 4402216,
+        "ARSC": 220,
+        "ARS": 20010.072727272727
+      },
+      "services": {
+        "ARDSS": 5380.680099963072,
+        "rs": "services",
+        "ARDSC": 214,
+        "ARDS": 25.14336495309847,
+        "ASR": 214,
+        "ARSS": 820822,
+        "ARSC": 48,
+        "ARS": 17100.458333333332
+      },
+      "secrets": {
+        "ARDSS": 43364.18428750416,
+        "rs": "secrets",
+        "ARDSC": 179,
+        "ARDS": 242.25801277935287,
+        "ASR": 179,
+        "ARSS": 73305,
+        "ARSC": 97,
+        "ARS": 755.7216494845361
+      },
+      "tokenreviews": {
+        "ARDSS": 0.8104998880000949,
+        "rs": "tokenreviews",
+        "ARDSC": 178,
+        "ARDS": 0.004553370157303904,
+        "ASR": 178
+      },
+      "subscriptions": {
+        "ARDSS": 953.478617831078,
+        "rs": "subscriptions",
+        "ARDSC": 143,
+        "ARDS": 6.667682642175371,
+        "ASR": 143,
+        "ARSS": 198645,
+        "ARSC": 128,
+        "ARS": 1551.9140625
+      }
+    },
     "id": "jafdajfa"
   }
 }
