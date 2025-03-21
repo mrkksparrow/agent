@@ -53,8 +53,8 @@ def curl_api_with_cert_key(url):
         ca_bundle = os.environ.get('ca_cert')
         cert = (os.environ.get('server_cert'),os.environ.get('server_key'))
         r = REQUEST_MODULE.get(url,headers=headers,proxies=proxies,cert=cert,verify=ca_bundle,timeout=500)
-        print('curlapiWithToken -> url - ' + url)
-        print('curlapiWithToken -> statusCode - ' + str(r.status_code))
+        print('curlapiWithCertKey -> url - ' + url)
+        print('curlapiWithCertKey -> statusCode - ' + str(r.status_code))
         data = r.content
         if isinstance(data, bytes):
             data = data.decode()
