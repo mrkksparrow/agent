@@ -64,7 +64,6 @@ def curl_api_with_cert_key(url):
         print(data)
         return r.status_code,json.loads(data)
     except Exception as e:
-        AgentLogger.log(AgentLogger.KUBERNETES,'curl_api_with_cert_key -> Exception -> {0}\n'.format(e))
         return -1,{"conn_err": str(e)}
 
 def curl_api_with_token(url):
