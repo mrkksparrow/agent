@@ -58,10 +58,10 @@ def curl_api_with_cert_key(url):
         data = r.content
         if isinstance(data, bytes):
             data = data.decode()
-        if "/metrics/cadvisor" in url or '/healthz' in url or '/livez' in url or '/metrics' in url:
-            return r.status_code,data
         print(r.status_code)
         print(data)
+        if "/metrics/cadvisor" in url or '/healthz' in url or '/livez' in url or '/metrics' in url:
+            return r.status_code,data
         return r.status_code,json.loads(data)
     except Exception as e:
         print(e)
