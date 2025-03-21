@@ -45,6 +45,24 @@ def curl_api_without_token(url):
         print('curlapiWithoutToken -> Exception -> {0}'.format(e))
     return -1,{}
 
+def curl_api_with_cert_key(url):
+    try:
+        headers = {'Authorization' : 'Bearer ' + KubeGlobal.bearerToken}
+        proxies = {"http": None,"https": None}
+        ca_bundle = os.environ.get('ca_cert')
+        cert = (os.environ.get('server_cert'),os.environ.get('server_key'))
+        r = KubeGlobal.REQUEST_MODULE.get(url,headers=headers,proxies=proxies,cert=cert,verify=ca_bundle,timeout=KubeGlobal.urlTimeout)
+        AgentLogger.log(AgentLogger.KUBERNETES,'curl_api_with_cert_key -> url - {} - statusCode {}\n'.format(url, r.status_code))
+        data = r.content
+        if isinstance(data, bytes):
+            data = data.decode()
+        if "/metrics/cadvisor" in url or '/healthz' in url or '/livez' in url or '/metrics' in url:
+            return r.status_code,data
+        return r.status_code,json.loads(data)
+    except Exception as e:
+        AgentLogger.log(AgentLogger.KUBERNETES,'curl_api_with_cert_key -> Exception -> {0}\n'.format(e))
+        return -1,{"conn_err": str(e)}
+
 def curl_api_with_token(url):
         try:            
             bearerToken = get_bearer_token()
@@ -102,6 +120,7 @@ def isApiServerPingable():
 url = sys.argv[1]
 curl_api_with_token(url)
 curl_api_without_token(url)
+curl_api_with_cert_key(url)
 #isApiServerPingable()
 final= {}
 final = check_if_process_running_mounted_path("/host/proc", ["kubelet", "kube proxy"])
