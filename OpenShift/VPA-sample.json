@@ -1,0 +1,74 @@
+[
+    {
+        "Na": "site24x7-agent-vpa",
+        "NS": "default",
+        "UID": "d49b79d7-70c9-4564-8d21-abbaa2d09fc0",
+        "CT": "2025-04-11T09:26:35Z",
+        "rv": "286518228",
+        "age": "7 days",
+        "An": "{\"kubectl.kubernetes.io/last-applied-configuration\": \"{\\\"apiVersion\\\":\\\"autoscaling.k8s.io/v1\\\",\\\"kind\\\":\\\"VerticalPodAutoscaler\\\",\\\"metadata\\\":{\\\"annotations\\\":{},\\\"name\\\":\\\"site24x7-agent-vpa\\\",\\\"namespace\\\":\\\"default\\\"},\\\"spec\\\":{\\\"resourcePolicy\\\":{\\\"containerPolicies\\\":[{\\\"containerName\\\":\\\"site24x7-agent\\\",\\\"controlledResources\\\":[\\\"cpu\\\",\\\"memory\\\"],\\\"controlledValues\\\":\\\"RequestsAndLimits\\\"}]},\\\"targetRef\\\":{\\\"apiVersion\\\":\\\"apps/v1\\\",\\\"kind\\\":\\\"DaemonSet\\\",\\\"name\\\":\\\"site24x7-agent\\\"},\\\"updatePolicy\\\":{\\\"updateMode\\\":\\\"Off\\\"}}}\\n\"}",
+        "UPMd": "Off",
+        "TGKi": "DaemonSet",
+        "TGNa": "site24x7-agent",
+        "CnRsPl": {
+            "site24x7-agent": {
+                "CTRS": [
+                    "cpu,memory"
+                ],
+                "CTVL": [
+                    "RequestsAndLimits"
+                ]
+            }
+        },
+        "CnRc": {
+            "site24x7-agent": {
+                "LBCPU": "25m",
+                "UBCPU": "25m",
+                "TGCPU": "25m",
+                "UTGCPU": "25m",
+                "LBMEM": "271986397",
+                "UBMEM": "467218652",
+                "TGMEM": "380258472",
+                "UTGMEM": "380258472"
+            }
+        }
+    },
+    {
+        "Na": "site24x7-agent-vpa-auto",
+        "NS": "default",
+        "UID": "8404f154-6333-465b-ac13-52fb1ee027c6",
+        "CT": "2025-04-18T16:12:06Z",
+        "rv": "286526180",
+        "age": "1 min",
+        "An": "{\"kubectl.kubernetes.io/last-applied-configuration\": \"{\\\"apiVersion\\\":\\\"autoscaling.k8s.io/v1\\\",\\\"kind\\\":\\\"VerticalPodAutoscaler\\\",\\\"metadata\\\":{\\\"annotations\\\":{},\\\"name\\\":\\\"site24x7-agent-vpa-auto\\\",\\\"namespace\\\":\\\"default\\\"},\\\"spec\\\":{\\\"resourcePolicy\\\":{\\\"containerPolicies\\\":[{\\\"containerName\\\":\\\"site24x7-agent\\\",\\\"controlledResources\\\":[\\\"cpu\\\",\\\"memory\\\"],\\\"controlledValues\\\":\\\"RequestsAndLimits\\\",\\\"maxAllowed\\\":{\\\"cpu\\\":\\\"1000m\\\",\\\"memory\\\":\\\"750Mi\\\"},\\\"minAllowed\\\":{\\\"cpu\\\":\\\"250m\\\",\\\"memory\\\":\\\"300Mi\\\"}}]},\\\"targetRef\\\":{\\\"apiVersion\\\":\\\"apps/v1\\\",\\\"kind\\\":\\\"DaemonSet\\\",\\\"name\\\":\\\"site24x7-agent\\\"},\\\"updatePolicy\\\":{\\\"updateMode\\\":\\\"Auto\\\"}}}\\n\"}",
+        "UPMd": "Auto",
+        "TGKi": "DaemonSet",
+        "TGNa": "site24x7-agent",
+        "CnRsPl": {
+            "site24x7-agent": {
+                "CTRS": [
+                    "cpu,memory"
+                ],
+                "CTVL": [
+                    "RequestsAndLimits"
+                ],
+                "MXCPU": "1000m",
+                "MXMEM": "750Mi",
+                "MNCPU": "250m",
+                "MNMEM": "300Mi"
+            }
+        },
+        "CnRc": {
+            "site24x7-agent": {
+                "LBCPU": "250m",
+                "UBCPU": "250m",
+                "TGCPU": "250m",
+                "UTGCPU": "25m",
+                "LBMEM": "300Mi",
+                "UBMEM": "467175591",
+                "TGMEM": "380258472",
+                "UTGMEM": "380258472"
+            }
+        }
+    }
+]
